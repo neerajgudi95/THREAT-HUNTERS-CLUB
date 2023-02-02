@@ -22,7 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 2rem;
+    /* margin-left: 2rem; */
 }
 
 
@@ -35,4 +35,31 @@
     color: #fff;
     cursor: pointer;
     padding: 10px 50px;
+}
+
+
+@media screen and (max-width:650px) {
+    .thc__cta {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .thc__cta-content h3 {
+        text-align: center;
+    }
+
+    .thc__cta-btn {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .thc__cta-content h3 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .thc__cta-btn {
+        margin-top: 10px;
+    }
 }
