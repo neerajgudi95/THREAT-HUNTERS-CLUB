@@ -5,7 +5,7 @@ import "./whatcybersec.css";
 
 const WhatCyberSec = () => {
   return (
-    <div className="thc__whatCyberSec section__margin" id="whatCybSec">
+    <div className="thc__whatCyberSec section__margin" id="whatCyberSec">
       <div className="thc__whatCyberSec-feature">
         <Feature
           title="What is Cyber Security"

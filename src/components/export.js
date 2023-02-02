@@ -7,3 +7,4 @@ export { default as OurGoals } from "../components/ourgoals/OurGoals";
 export { default as OurTeam } from "../components/our-team/OurTeam";
 export { default as Possibilities } from "../components/possibilities/Possibilities";
 export { default as CTA } from "../components/cta/CTA";
+export { default as AboutUs } from "../components/aboutUs/AboutUs";

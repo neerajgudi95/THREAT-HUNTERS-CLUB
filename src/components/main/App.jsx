@@ -7,6 +7,7 @@ import {
   WhatCyberSec,
   OurGoals,
   OurTeam,
+  AboutUs,
 } from "../../components/export";
 import "./App.css";
 
@@ -18,6 +19,7 @@ const App = () => {
         <Header />
       </div>
       <WhatCyberSec />
+      <AboutUs />
       <OurGoals />
       <Possibilities />
       <CTA />
