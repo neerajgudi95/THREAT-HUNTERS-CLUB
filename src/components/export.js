@@ -5,3 +5,5 @@ export { default as Brand } from "../components/brand/Brand";
 export { default as WhatCyberSec } from "../components/feature/WhatCyberSec";
 export { default as OurGoals } from "../components/ourgoals/OurGoals";
 export { default as OurTeam } from "../components/our-team/OurTeam";
+export { default as Possibilities } from "../components/possibilities/Possibilities";
+export { default as CTA } from "../components/cta/CTA";

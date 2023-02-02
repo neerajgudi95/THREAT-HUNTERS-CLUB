@@ -1,0 +1,38 @@
+.thc__cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 1rem;
+    margin: 4rem;
+    padding: 2rem;
+    background: var(--gradient-bar);
+}
+
+
+.thc__cta-content h3 {
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 45px;
+    color: #000;
+}
+
+
+.thc__cta-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2rem;
+}
+
+
+.thc__cta-btn .join-btn {
+    background-color: #000;
+    border-radius: 40px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 30px;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 50px;
+}

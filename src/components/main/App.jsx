@@ -2,8 +2,8 @@ import React from "react";
 import {
   Navbar,
   Header,
-  // Feature,
-  // Brand,
+  Possibilities,
+  CTA,
   WhatCyberSec,
   OurGoals,
   OurTeam,
@@ -17,10 +17,10 @@ const App = () => {
         <Navbar />
         <Header />
       </div>
-      {/* <Brand /> */}
       <WhatCyberSec />
-      {/* <Feature /> */}
       <OurGoals />
+      <Possibilities />
+      <CTA />
       <OurTeam />
     </div>
   );

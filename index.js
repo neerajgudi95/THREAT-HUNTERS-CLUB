@@ -19,16 +19,14 @@ const appRouter = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <Error />,
-    children: [
-      {
-        path: "login",
-        element: <Login />,
-      },
-      {
-        path: "register",
-        element: <Register />,
-      },
-    ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
 ]);
 
