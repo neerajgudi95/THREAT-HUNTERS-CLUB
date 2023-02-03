@@ -1,6 +1,6 @@
 import React from "react";
 import profile from "../../assets/profile.jpeg";
-import profile2 from "../../assets/profile2.jpg";
+import profile2 from "../../assets/profile2.jpeg";
 import ProfileCard from "../profilecard/ProfileCard";
 import "./OurTeam.css";
 const OurTeam = () => {
