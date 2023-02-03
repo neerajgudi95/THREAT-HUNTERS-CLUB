@@ -1,26 +1,40 @@
 import React from "react";
 import profile from "../../assets/profile.jpeg";
+import profile2 from "../../assets/profile2.jpg";
+import ProfileCard from "../profilecard/ProfileCard";
 import "./OurTeam.css";
 const OurTeam = () => {
+  const members = [
+    {
+      name: "Nikhil Inganal",
+      designation: "Senior Security Analyst",
+      image: profile,
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim cum tempora illo aspernatur ad sapiente, asperiores facere minima possimus nulla.",
+    },
+    {
+      name: "Nihal Katti",
+      designation: "Data Scientist",
+      image: profile2,
+      description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt commodi illum a delectus, asperiores reiciendis excepturi. Vel, velit earum doloremque perspiciatis, nostrum numquam culpa quibusdam mollitia optio corporis voluptatum modi",
+    },
+  ];
+
   return (
     <div className="thc__ourTeam-wrapper section__padding">
-      <div className="thc__ourTeam-profile">
-        <div className="thc__ourTeam-profile__header">
-          <div className="thc__ourTeam-profile__header-nameInfo">
-            <h3>Nikhil Inganal</h3>
-            <p>-Senior Security Analyst</p>
-          </div>
-        </div>
-        <img src={profile} alt="Nikhil Inganal" />
-        <div className="thc__ourTeam-profile__about">
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique
-            debitis, dolor explicabo neque provident, earum, amet quibusdam et
-            tempore facilis quas harum esse magni voluptas illum rerum a dolore
-            deleniti.
-          </p>
-        </div>
-      </div>
+      <ProfileCard
+        name={members[0].name}
+        designation={members[0].designation}
+        image={members[0].image}
+        description={members[0].description}
+      />
+      <ProfileCard
+        name={members[1].name}
+        designation={members[1].designation}
+        image={members[1].image}
+        description={members[1].description}
+      />
     </div>
   );
 };
