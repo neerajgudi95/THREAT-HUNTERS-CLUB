@@ -19,7 +19,7 @@
 
 .thc__profile-header h3 {
     color: #fff;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 30px;
 }
 
@@ -29,14 +29,14 @@
 }
 
 .thc__profile img {
-    max-width: 150px;
-    height: 150px;
+    max-width: 120px;
+    height: 120px;
     border-radius: 50%;
     position: absolute;
-    top: -40%;
+    top: -50%;
     right: 30px;
-    transform: translateY(25%);
-    border: 10px solid var(--color-blog);
+    transform: translateY(50%);
+    border: 8px solid var(--color-subtext);
 }
 
 .thc__profile-about {
@@ -45,8 +45,8 @@
 
 .thc__profile-about p {
     font-weight: 500;
-    /* font-size: 1.2rem; */
-    line-height: 24px;
+    font-size: 0.8rem;
+    line-height: 20px;
     color: var(--color-text);
     text-align: justify;
 }
