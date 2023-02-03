@@ -7,6 +7,7 @@
 
 body {
     background-color: var(--color-bg);
+    font-family: 'Montserrat', sans-serif;
 }
 
 a {

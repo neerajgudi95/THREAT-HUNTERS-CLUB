@@ -1,21 +1,39 @@
 import React from "react";
+import { motion } from "framer-motion";
 import "./Header.css";
 import shield from "../../assets/bgimages/shield-bg.png";
+import { slideIn, staggerContainer, textVariant } from "../../utils/motion";
+
 const Header = () => {
   return (
-    <div className="thc__header section__padding" id="home">
+    <motion.div
+      className="thc__header section__padding"
+      id="home"
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.25 }}
+    >
       <div className="thc__header-content">
         <span>The Club,</span>
-        <h1 className="gradient__text">Threat Hunters</h1>
-        <p>
+
+        <motion.h1 variants={textVariant(1.1)} className="gradient__text">
+          Threat Hunters
+        </motion.h1>
+        <motion.p variants={textVariant(1.2)}>
           Join our cyber security club to gain knowledge and experience in this
           field, as well as network with other like-minded individuals.
-        </p>
+        </motion.p>
       </div>
-      <div className="thc__header-img">
+      {/* <.div variants={slideIn("right", "tween", 0.2, 1)}> */}
+      <motion.div
+        className="thc__header-img"
+        variants={slideIn("right", "tween", 1.2, 1)}
+      >
         <img src={shield} alt="shield-bg" />
-      </div>
-    </div>
+      </motion.div>
+      {/* </motion.div> */}
+    </motion.div>
   );
 };
 
