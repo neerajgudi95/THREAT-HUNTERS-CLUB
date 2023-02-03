@@ -17,10 +17,10 @@ const Header = () => {
       <div className="thc__header-content">
         <span>The Club,</span>
 
-        <motion.h1 variants={textVariant(1.1)} className="gradient__text">
+        <motion.h1 variants={textVariant(0.4)} className="gradient__text">
           Threat Hunters
         </motion.h1>
-        <motion.p variants={textVariant(1.2)}>
+        <motion.p variants={textVariant(0.5)}>
           Join our cyber security club to gain knowledge and experience in this
           field, as well as network with other like-minded individuals.
         </motion.p>
@@ -28,7 +28,7 @@ const Header = () => {
       {/* <.div variants={slideIn("right", "tween", 0.2, 1)}> */}
       <motion.div
         className="thc__header-img"
-        variants={slideIn("right", "tween", 1.2, 1)}
+        variants={slideIn("right", "tween", 0.3, 1)}
       >
         <img src={shield} alt="shield-bg" />
       </motion.div>

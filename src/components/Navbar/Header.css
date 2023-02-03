@@ -24,6 +24,7 @@
 
 .thc__header {
     display: flex;
+    overflow: hidden;
 }
 
 .thc__header-content {

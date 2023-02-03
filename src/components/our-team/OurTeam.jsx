@@ -25,7 +25,7 @@ const OurTeam = () => {
       designation: "Data Scientist",
       image: profile2,
       description:
-        "Currently a Graduate student pursuing my Master's in Data Science at the University of Koblenz-Landau at Koblenz . As part of the degree course work, I have worked on challenging courses such as Artificial Learning, Big Data, Network Theory and Web Semantics. ",
+        "I am Nihal, MS student from University of Koblenz, Germany. Presently working as Data Engineer in EPG and also serving as Research Assistant at the university. Willing to help young people for their career aspirations and further studies in Europe, especially Germany.",
     },
   ];
 
