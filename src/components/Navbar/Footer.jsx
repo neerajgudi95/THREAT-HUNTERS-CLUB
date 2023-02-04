@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../assets/logo/flaticon-removebg-preview.png";
 import { BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
-import "./footer.css";
+import "./Footer.css";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
