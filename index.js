@@ -1,36 +1,66 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import App from "./src/components/main/App";
-import Error from "./src/components/Error/Error";
-import Login from "./src/components/auth/Login";
-import Register from "./src/components/auth/Register";
-import { OurGoals } from "./src/components/export";
+import MainApp from "./src/components/main/MainApp";
+
+import {
+  WhatCyberSec,
+  OurGoals,
+  OurTeam,
+  Error,
+  Login,
+  Register,
+  Navbar,
+  Footer,
+} from "./src/components/export";
 
 const AppLayout = () => {
   return (
-    <div>
+    <>
+      <Navbar />
       <Outlet />
-    </div>
+      <Footer />
+    </>
   );
 };
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <AppLayout />,
     errorElement: <Error />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
+    children: [
+      {
+        path: "/",
+        element: <MainApp />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "what-is-cyber-sec",
+        element: <WhatCyberSec />,
+      },
+      {
+        path: "club-goals",
+        element: <OurGoals />,
+      },
+      {
+        path: "our-team",
+        element: <OurTeam />,
+      },
+    ],
   },
 ]);
 
 const rootEl = document.getElementById("root");
 const root = ReactDOM.createRoot(rootEl);
-root.render(<RouterProvider router={appRouter} />);
+root.render(<RouterProvider router={appRouter} />); //(<AppLayout />);
+// <RouterProvider router={appRouter}/>
+
+// </RouterProvider>

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+// import ParticlesBg from "../particles/ParticlesBg";
 import "./Header.css";
 import shield from "../../assets/bgimages/shield-bg.png";
 import { slideIn, staggerContainer, textVariant } from "../../utils/motion";
@@ -14,6 +15,7 @@ const Header = () => {
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
     >
+      {/* <ParticlesBg /> */}
       <div className="thc__header-content">
         <span>The Club,</span>
 

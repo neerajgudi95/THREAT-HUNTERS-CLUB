@@ -28,6 +28,10 @@
     margin-top: 0.25rem;
 }
 
+.role{
+    font-size: 14px;
+}
+
 .thc__profile img {
     max-width: 120px;
     height: 120px;

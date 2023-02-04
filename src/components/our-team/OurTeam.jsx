@@ -1,56 +1,51 @@
 import React from "react";
-import profile from "../../assets/profile.jpeg";
-import profile2 from "../../assets/profile2.jpeg";
-import profile3 from "../../assets/profile3.jpeg";
+import { membersList } from "../../utils/membersInfo";
 import ProfileCard from "../profilecard/ProfileCard";
 import "./OurTeam.css";
 const OurTeam = () => {
-  const members = [
-    {
-      name: "Nikhil Inganal",
-      designation: "Information Security Architect",
-      image: profile,
-      description:
-        "I am certified expert in CCIE-SEC, OSWP, CEH,CCNA, CCNP, GCSA from Guardicore, OWASP, JNCIA, AZ900, API Security Architect, N+, A+, Wi-fu(Offensive Security Wireless Attacks) Routing Protocols( BGP, RIP, OSPF, MPLS) IPSEC.",
-    },
-    {
-      name: "Vijeth K L",
-      designation: "Security Analyst",
-      image: profile3,
-      description:
-        "I am a cybersecurity professional with around 2 years of experience working as a Security Analyst at Akamai Technologies. My work primarily involves the consistent monitoring of state-of-the-art security tools to act on any threats and maintain the network security posture. Strengths: Email security, Malware analysis",
-    },
-    {
-      name: "Nihal Katti",
-      designation: "Data Scientist",
-      image: profile2,
-      description:
-        "I am Nihal, MS student from University of Koblenz, Germany. Presently working as Data Engineer in EPG and also serving as Research Assistant at the university. Willing to help young people for their career aspirations and further studies in Europe, especially Germany.",
-    },
-  ];
-
   return (
     <div className="thc__ourTeam-wrapper section__padding">
       <h3 className="gradient__text">OUR TEAM</h3>
       <div className="thc__ourTeam-container">
-        <ProfileCard
+        {membersList.map((member, index) => (
+          <ProfileCard
+            key={`${member.name}-${index}`}
+            name={member.name}
+            roleAtClub={member.roleAtClub}
+            designation={member.designation}
+            image={member.image}
+            description={member.description}
+          />
+        ))}
+
+        {/* <ProfileCard
           name={members[0].name}
+          roleAtClub={members[0].roleAtClub}
           designation={members[0].designation}
           image={members[0].image}
           description={members[0].description}
         />
         <ProfileCard
           name={members[1].name}
+          roleAtClub={members[1].roleAtClub}
           designation={members[1].designation}
           image={members[1].image}
           description={members[1].description}
         />
         <ProfileCard
           name={members[2].name}
+          roleAtClub={members[2].roleAtClub}
           designation={members[2].designation}
           image={members[2].image}
           description={members[2].description}
         />
+        <ProfileCard
+          name={members[3].name}
+          roleAtClub={members[3].roleAtClub}
+          designation={members[3].designation}
+          image={members[3].image}
+          description={members[3].description}
+        /> */}
       </div>
     </div>
   );
