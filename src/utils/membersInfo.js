@@ -13,6 +13,14 @@ export const membersList = [
       "I am certified expert in CCIE-SEC, OSWP, CEH,CCNA, CCNP, GCSA from Guardicore, OWASP, JNCIA, AZ900, API Security Architect, N+, A+, Wi-fu(Offensive Security Wireless Attacks) Routing Protocols( BGP, RIP, OSPF, MPLS) IPSEC.",
   },
   {
+    name: "Nihal Katti",
+    roleAtClub: "Co-Founder",
+    designation: "Data Scientist",
+    image: profile2,
+    description:
+      "I am Nihal, MS student from University of Koblenz, Germany. Presently working as Data Engineer in EPG and also serving as Research Assistant at the university. Willing to help young people for their career aspirations and further studies in Europe, especially Germany.",
+  },
+  {
     name: "Vijeth K L",
     roleAtClub: "Member",
     designation: "Security Analyst",
@@ -27,14 +35,6 @@ export const membersList = [
     image: profile4,
     description:
       "I am Security Professional with 4.5+ years of experience in Security Monitoring, Incident response, Threats hunting , Threat Intelligence, Email Security, Endpoint Security and Network security.",
-  },
-  {
-    name: "Nihal Katti",
-    roleAtClub: "Co-Founder",
-    designation: "Data Scientist",
-    image: profile2,
-    description:
-      "I am Nihal, MS student from University of Koblenz, Germany. Presently working as Data Engineer in EPG and also serving as Research Assistant at the university. Willing to help young people for their career aspirations and further studies in Europe, especially Germany.",
   },
   {
     name: "Neeraj Gudi",
