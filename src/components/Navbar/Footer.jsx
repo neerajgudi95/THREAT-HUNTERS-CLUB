@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../assets/logo/flaticon-removebg-preview.png";
 import { BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -23,7 +24,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://www.linkedin.com/company/threat-hunters/">
                 <BsLinkedin size={"1.5em"} />
               </a>
             </li>
@@ -38,10 +39,10 @@ const Footer = () => {
       <div className="thc__footer-copywrite">
         <ul>
           <li>
-            <a href="">Privacy and Policy</a>
+            <Link to="/club-privacy">Code of Conduct</Link>
           </li>
           <li>
-            <a href="">Disclaimer</a>
+            <Link to="/club-privacy">Privacy and Policy</Link>
           </li>
         </ul>
         <p>Developed by Neeraj Gudi and team</p>

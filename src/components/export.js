@@ -12,3 +12,4 @@ export { default as AboutUs } from "../components/aboutUs/AboutUs";
 export { default as Login } from "../components/auth/Login";
 export { default as Register } from "../components/auth/Register";
 export { default as Error } from "./Error/Error";
+export { default as PrivacyPolicy } from "./Privacy/PrivacyPolicy";

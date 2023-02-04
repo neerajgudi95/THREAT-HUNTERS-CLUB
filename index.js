@@ -12,6 +12,7 @@ import {
   Register,
   Navbar,
   Footer,
+  PrivacyPolicy,
 } from "./src/components/export";
 
 const AppLayout = () => {
@@ -53,6 +54,10 @@ const appRouter = createBrowserRouter([
       {
         path: "our-team",
         element: <OurTeam />,
+      },
+      {
+        path: "club-privacy",
+        element: <PrivacyPolicy />,
       },
     ],
   },
