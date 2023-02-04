@@ -19,17 +19,23 @@ const Footer = () => {
           <h3>Get in touch</h3>
           <ul>
             <li>
-              <a href="#">
+              <a
+                href="https://www.instagram.com/threat_hunter_club/"
+                target="_blank"
+              >
                 <BsInstagram size={"1.5em"} />
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/company/threat-hunters/">
+              <a
+                href="https://www.linkedin.com/company/threat-hunters/"
+                target="_blank"
+              >
                 <BsLinkedin size={"1.5em"} />
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://twitter.com/hunters_threat" target="_blank">
                 <BsTwitter size={"1.5em"} />
               </a>
             </li>
