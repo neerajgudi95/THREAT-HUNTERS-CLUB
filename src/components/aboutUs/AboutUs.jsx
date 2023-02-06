@@ -18,10 +18,11 @@ const AboutUs = () => {
           also provide resources and support for students who are interested in
           pursuing careers in networking, security etc. <br />
           <br />
-          This club will be led by alumni students Nikhil and Junior name. They
-          plan and organize security events and tech talks and help to build
-          relationships with organizations. Membership is open to all students
-          at KLE university, regardless of their major or experience level.
+          This club will be led by alumni students who are professionals in
+          Cybersecurity. They plan and organize security events and tech talks
+          and help to build relationships with organizations. Membership is open
+          to all students at KLE university, regardless of their major or
+          experience level.
         </p>
       </div>
     </div>

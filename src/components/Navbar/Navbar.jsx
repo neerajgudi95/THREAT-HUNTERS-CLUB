@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo/flaticon-removebg-preview.png";
+// import logo from "../../assets/logo/flaticon-removebg-preview.png";
 import "./Navbar.css";
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -55,7 +55,12 @@ const Navbar = () => {
     <div className="thc__navbar gradient__bg">
       <div className="thc__navbar-links">
         <div className="thc__navbar-links_logo">
-          <img src={logo} alt="logo" />
+          <Link to="/">
+            <img
+              src="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/logo.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675702990423"
+              alt="logo"
+            />
+          </Link>
         </div>
         <div className="thc__navbar-links_container">{NavMenu}</div>
         <div className="thc__navbar-menu">

@@ -16,7 +16,16 @@
 
 .thc__aboutUs-content p {
     color: var(--color-text);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 20px;
     max-width: 800px;
+    line-height: 30px;
+}
+
+
+@media screen and (max-width:768px) {
+    .thc__aboutUs-content p {
+        font-size: 1rem;
+        text-align: center;
+    }
 }

@@ -30,10 +30,14 @@ const Header = () => {
         className="thc__header-img"
         variants={slideIn("right", "tween", 0.3, 1)}
       >
-        <img
-          src="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/shield-bg.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675535634285"
-          alt="shield-bg"
-        />
+        <picture>
+          <source
+            srcset="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/shield-bg.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1675704982899"
+            type="image/webp"
+          />
+          <img src="image.jpg" />
+        </picture>
+        {/* <img src="../assets/shield-bg.webp" alt="shield-bg" /> */}
       </motion.div>
       {/* </motion.div> */}
     </motion.div>

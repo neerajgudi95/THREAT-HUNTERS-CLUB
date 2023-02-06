@@ -16,10 +16,13 @@ const Possibilities = () => {
         variants={slideIn("left", "tween", 0.5, 1)}
         className="thc__possibility-img"
       >
-        <img
-          src="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/possibility.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675658966727"
-          alt="possibility image"
-        />
+        <picture>
+          <source
+            srcset="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/possibility.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1675704977337"
+            type="image/webp"
+          />
+          <img src="image.jpg" />
+        </picture>
       </motion.div>
       <div className="thc__possibility-content">
         <motion.h3 variants={textVariant(0.4)}>Empowerment.</motion.h3>

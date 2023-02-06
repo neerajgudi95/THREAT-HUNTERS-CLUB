@@ -10,11 +10,11 @@
 }
 
 .thc__navbar-links_logo {
-    margin-right: 2rem;
+    margin-right: 1rem;
 }
 
 .thc__navbar-links_logo img {
-    height: 50px;
+    height: 150px;
 }
 
 .thc__navbar-links_container ul {
@@ -95,11 +95,15 @@
 
 
 @media screen and (max-width:1050px) {
+    
     .thc__navbar-links_container {
         display: none;
     }
 
     .thc__navbar-menu {
         display: flex;
+    }
+    .thc__navbar-links_logo img {
+        height: 100px;
     }
 }

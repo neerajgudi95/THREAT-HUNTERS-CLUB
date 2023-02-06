@@ -4,7 +4,7 @@ export const particle = {
       value: 80,
       density: {
         enable: true,
-        value_area: 800,
+        value_area: 100,
       },
     },
     color: {
@@ -21,8 +21,8 @@ export const particle = {
       },
       image: {
         src: "img/github.svg",
-        width: 100,
-        height: 100,
+        width: 20,
+        height: 20,
       },
     },
     opacity: {

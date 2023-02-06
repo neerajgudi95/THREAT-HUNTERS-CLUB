@@ -13,14 +13,19 @@ const Footer = () => {
       </div>
       <div className="thc__footer-links">
         <div className="thc__footer-links_logo">
-          <img src={logo} alt="logo" />
+          <Link to="/">
+            <img
+              src="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/logo.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675702990423"
+              alt="logo"
+            />
+          </Link>
         </div>
         <div className="thc__footer-links_div">
           <h3>Get in touch</h3>
           <ul>
             <li>
               <a
-                href="https://www.instagram.com/threat_hunter_club/"
+                href="https://www.instagram.com/threat_hunters_club/"
                 target="_blank"
               >
                 <BsInstagram size={"1.5em"} />
