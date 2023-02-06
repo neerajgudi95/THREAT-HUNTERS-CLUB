@@ -19,7 +19,7 @@ const AboutUs = () => {
           pursuing careers in networking, security etc. <br />
           <br />
           This club will be led by alumni students who are professionals in
-          Cybersecurity. They plan and organize security events and tech talks
+          Cybersecurity. They will plan and organize security events and tech talks
           and help to build relationships with organizations. Membership is open
           to all students at KLE university, regardless of their major or
           experience level.
