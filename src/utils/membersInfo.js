@@ -26,7 +26,7 @@ export const membersList = [
     designation: "Security Analyst",
     image: profile3,
     description:
-      "I am a cybersecurity professional with around 2 years of experience working as a Security Analyst at Akamai Technologies. My work primarily involves the consistent monitoring of state-of-the-art security tools to act on any threats and maintain the network security posture. Strengths: Email security, Malware analysis",
+      "I am a seasoned cybersecurity professional with 2 years of experience as a Security Analyst at Akamai Technologies. My expertise includes email security, malware analysis, and the consistent monitoring of state-of-the-art security tools tools to maintain network security.",
   },
   {
     name: "Krishna Badiger",

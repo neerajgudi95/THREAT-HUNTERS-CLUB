@@ -1,7 +1,7 @@
 .thc__profile {
     display: flex;
     max-width: 400px;
-    height: 250px;
+    height: 270px;
     background-color: var(--color-blog);
     padding: 1rem;
     flex-direction: column;
@@ -28,7 +28,7 @@
     margin-top: 0.25rem;
 }
 
-.role{
+.role {
     font-size: 14px;
 }
 
@@ -37,8 +37,8 @@
     height: 120px;
     border-radius: 50%;
     position: absolute;
-    top: -50%;
-    right: 30px;
+    top: -45%;
+    right: 25px;
     transform: translateY(50%);
     border: 8px solid var(--color-subtext);
 }
