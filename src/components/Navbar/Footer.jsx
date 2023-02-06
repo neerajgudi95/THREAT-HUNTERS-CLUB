@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../assets/logo/flaticon-removebg-preview.png";
 import { BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
 import "./Footer.css";
 import { Link } from "react-router-dom";
