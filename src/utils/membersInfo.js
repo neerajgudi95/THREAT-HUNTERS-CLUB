@@ -6,7 +6,7 @@ export const membersList = [
     image:
       "https://ik.imagekit.io/fq9vykvp2/profile_image_webp/profile1.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1675704324077",
     description:
-      "I'm a cybersecurity professional with over 6 years of experience, I have served as an Information Security Architect at Daimler Trucks. My expertise encompasses network penetration testing, red team exercises, malware analysis, threat hunting, and security audits to ensure the organization's security posture.",
+      "I'm a cybersecurity professional with over 6 years of experience, serving as Information Security Architect at Daimler Trucks. My expertise encompasses network penetration testing, red team exercises, malware analysis, threat hunting, and security audits to ensure the organization's security posture.",
   },
   {
     name: "Nihal Katti",
