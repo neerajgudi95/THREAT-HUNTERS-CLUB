@@ -2,8 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 // import ParticlesBg from "../particles/ParticlesBg";
 import "./Header.css";
-import shield from "../../assets/bgimages/shield-bg.png";
-// import banner from '../../assets/bgimgs/cyber-bg-transformed.png'
 import { slideIn, staggerContainer, textVariant } from "../../utils/motion";
 
 const Header = () => {
@@ -33,7 +31,10 @@ const Header = () => {
         className="thc__header-img"
         variants={slideIn("right", "tween", 0.3, 1)}
       >
-        <img src={shield} alt="shield-bg" />
+        <img
+          src="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/shield-bg.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675535634285"
+          alt="shield-bg"
+        />
       </motion.div>
       {/* </motion.div> */}
     </motion.div>
