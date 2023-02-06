@@ -1,47 +1,61 @@
 import React from "react";
+import { motion } from "framer-motion";
 import "./PrivacyPolicy.css";
+import {
+  staggerContainer,
+  textVariant,
+  textVariant2,
+} from "../../utils/motion";
 const PrivacyPolicy = () => {
   return (
-    <div className="thc__rules-wrapper section__padding">
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.25 }}
+      className="thc__rules-wrapper section__padding"
+    >
       <div className="thc__rules-container">
-        <h3 className="gradient__text">Code of Conduct</h3>
+        <motion.h3 variants={textVariant2} className="gradient__text">
+          Code of Conduct
+        </motion.h3>
         <p>
           As a member of Threat Hunters, you are expected to adhere to the
           following standards of behaviour:
         </p>
         <ul>
-          <li>
+          <motion.li variants={textVariant(0.1)}>
             Respect the rights and dignity of others, including their opinions,
             beliefs, and privacy.
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={textVariant(0.2)}>
             Refrain from engaging in harassment, discrimination, or any form of
             bullying, including online.
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={textVariant(0.3)}>
             Avoid disruptive or inappropriate behaviour, such as excessive noise
             or disruptive discussions.
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={textVariant(0.4)}>
             Abide by the laws and regulations applicable to the club and its
             activities.
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={textVariant(0.5)}>
             Maintain the confidentiality of sensitive information and
             discussions, unless otherwise specified.
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={textVariant(0.6)}>
             Be responsible and respectful in your use of club resources, such as
             equipment and facilities.
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={textVariant(0.7)}>
             Not engage in any activities that could harm the reputation or
             integrity of the club.
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={textVariant(0.8)}>
             Participate actively in club events and discussions and support the
             goals and objectives of the club.
-          </li>
+          </motion.li>
         </ul>
         <p className="thc__rules-fail">
           Failure to comply with this code of conduct may result in disciplinary
@@ -51,8 +65,10 @@ const PrivacyPolicy = () => {
         </p>
       </div>
       <div className="thc__rules-container thc__rules-policy">
-        <h3 className="gradient__text">Privacy Policy</h3>
-        <p>
+        <motion.h3 variants={textVariant(0.3)} className="gradient__text">
+          Privacy Policy
+        </motion.h3>
+        <motion.p variants={textVariant2}>
           "At Threat Hunters, we are committed to protecting the privacy of our
           club members. We collect personal information, such as names, email
           addresses, phone numbers when it is voluntarily submitted to us
@@ -70,9 +86,9 @@ const PrivacyPolicy = () => {
           <br />
           If you have any questions or concerns about our privacy policy or the
           way we handle personal information, please contact us."
-        </p>
+        </motion.p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

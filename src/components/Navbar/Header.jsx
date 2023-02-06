@@ -8,7 +8,6 @@ const Header = () => {
   return (
     <motion.div
       className="thc__header section__padding"
-      id="home"
       variants={staggerContainer}
       initial="hidden"
       whileInView="show"
