@@ -5,7 +5,7 @@ import "./Header.css";
 import { slideIn, staggerContainer, textVariant } from "../../utils/motion";
 import { particle } from "../../utils/particles";
 
-const Header = ({ children }) => {
+const Header = () => {
   return (
     <motion.div
       className="thc__header section__padding"
@@ -14,15 +14,15 @@ const Header = ({ children }) => {
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
     >
+      <ParticlesBg
+        color="#ffffff"
+        num={50}
+        type="cobweb"
+        bg={{ position: "absolute", zIndex: 0, width: "90%" }}
+        config={particle}
+        pointerEvents="none"
+      />
       <div className="thc__header-content">
-        <ParticlesBg
-          color="#ffffff"
-          num={50}
-          type="cobweb"
-          bg={{ position: "absolute", zIndex: 0, width: "100%" }}
-          config={particle}
-          pointerEvents="none"
-        />
         <span>The Club,</span>
 
         <motion.h1 variants={textVariant(0.4)} className="gradient__text">
@@ -39,13 +39,12 @@ const Header = ({ children }) => {
       >
         <picture>
           <source
-            srcSet="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/shield-bg.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1675704982899"
+            srcSet="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/tr:w-600,h-600/13730.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1675939638505"
             type="image/webp"
           />
           <img src="image.jpg" loading="lazy" />
         </picture>
       </motion.div>
-      {children}
     </motion.div>
   );
 };
