@@ -13,12 +13,12 @@ const Possibilities = () => {
       viewport={{ once: true, amount: 0.25 }}
     >
       <motion.div
-        variants={slideIn("left", "tween", 0.5, 1)}
+        variants={slideIn("left", "tween", 0.2, 1)}
         className="thc__possibility-img"
       >
         <picture>
           <source
-            srcset="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/possibility.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1675704977337"
+            srcSet="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/possibility.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1675704977337"
             type="image/webp"
           />
           <img src="image.jpg" />

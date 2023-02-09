@@ -12,7 +12,7 @@ const ProfileCard = ({ name, designation, image, description, roleAtClub }) => {
         </div>
       </div>
       <picture>
-        <source srcset={image} type="image/webp" />
+        <source srcSet={image} type="image/webp" />
         <img src="image.jpg" />
       </picture>
       <div className="thc__profile-about">

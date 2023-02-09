@@ -1,110 +1,30 @@
 export const particle = {
-  particles: {
-    number: {
-      value: 80,
-      density: {
-        enable: true,
-        value_area: 100,
-      },
-    },
-    color: {
-      value: "#ffffff",
-    },
-    shape: {
-      type: "circle",
-      stroke: {
-        width: 0,
-        color: "#000000",
-      },
-      polygon: {
-        nb_sides: 5,
-      },
-      image: {
-        src: "img/github.svg",
-        width: 20,
-        height: 20,
-      },
-    },
-    opacity: {
-      value: 0.5,
-      random: false,
-      anim: {
-        enable: false,
-        speed: 1,
-        opacity_min: 0.1,
-        sync: false,
-      },
-    },
-    size: {
-      value: 3,
-      random: true,
-      anim: {
-        enable: false,
-        speed: 40,
-        size_min: 0.1,
-        sync: false,
-      },
-    },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: "#ffffff",
-      opacity: 0.4,
-      width: 1,
-    },
-    move: {
-      enable: true,
-      speed: 6,
-      direction: "none",
-      random: false,
-      straight: false,
-      out_mode: "out",
-      bounce: false,
-      attract: {
-        enable: false,
-        rotateX: 600,
-        rotateY: 1200,
-      },
-    },
+  num: [4, 7],
+  rps: 0.1,
+  radius: [5, 40],
+  life: [1.5, 3],
+  v: [2, 3],
+  tha: [-40, 40],
+  // body: "./img/icon.png", // Whether to render pictures
+  // rotate: [0, 20],
+  alpha: [0.6, 0],
+  scale: [1, 0.1],
+  position: "center", // all or center or {x:1,y:1,width:100,height:100}
+  color: ["random", "#ff0000"],
+  cross: "dead", // cross or bround
+  random: 15, // or null,
+  g: 5, // gravity
+  // f: [2, -1], // force
+  onParticleUpdate: (ctx, particle) => {
+    ctx.beginPath();
+    ctx.rect(
+      particle.p.x,
+      particle.p.y,
+      particle.radius * 2,
+      particle.radius * 2
+    );
+    ctx.fillStyle = particle.color;
+    ctx.fill();
+    ctx.closePath();
   },
-  interactivity: {
-    detect_on: "canvas",
-    events: {
-      onhover: {
-        enable: true,
-        mode: "repulse",
-      },
-      onclick: {
-        enable: true,
-        mode: "push",
-      },
-      resize: true,
-    },
-    modes: {
-      grab: {
-        distance: 400,
-        line_linked: {
-          opacity: 1,
-        },
-      },
-      bubble: {
-        distance: 400,
-        size: 40,
-        duration: 2,
-        opacity: 8,
-        speed: 3,
-      },
-      repulse: {
-        distance: 200,
-        duration: 0.4,
-      },
-      push: {
-        particles_nb: 4,
-      },
-      remove: {
-        particles_nb: 2,
-      },
-    },
-  },
-  retina_detect: true,
 };

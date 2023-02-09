@@ -1,6 +1,6 @@
 import React from "react";
 import { Header, Possibilities, CTA, AboutUs } from "../export";
-import "./mainpp.css";
+import "./mainApp.css";
 
 const MainApp = () => {
   return (

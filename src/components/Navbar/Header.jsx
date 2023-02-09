@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-// import ParticlesBg from "../particles/ParticlesBg";
+import ParticlesBg from "particles-bg";
 import "./Header.css";
 import { slideIn, staggerContainer, textVariant } from "../../utils/motion";
 
-const Header = () => {
+const Header = ({ children }) => {
   return (
     <motion.div
       className="thc__header section__padding"
@@ -13,8 +13,13 @@ const Header = () => {
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
     >
-      {/* <ParticlesBg /> */}
       <div className="thc__header-content">
+        <ParticlesBg
+          color="#ffffff"
+          num={50}
+          type="cobweb"
+          bg={{ position: "absolute", zIndex: 0, top: 0, left: 0 }}
+        />
         <span>The Club,</span>
 
         <motion.h1 variants={textVariant(0.4)} className="gradient__text">
@@ -25,21 +30,19 @@ const Header = () => {
           field, as well as network with other like-minded individuals.
         </motion.p>
       </div>
-      {/* <.div variants={slideIn("right", "tween", 0.2, 1)}> */}
       <motion.div
         className="thc__header-img"
         variants={slideIn("right", "tween", 0.3, 1)}
       >
         <picture>
           <source
-            srcset="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/shield-bg.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1675704982899"
+            srcSet="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/shield-bg.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1675704982899"
             type="image/webp"
           />
-          <img src="image.jpg" />
+          <img src="image.jpg" loading="lazy" />
         </picture>
-        {/* <img src="../assets/shield-bg.webp" alt="shield-bg" /> */}
       </motion.div>
-      {/* </motion.div> */}
+      {children}
     </motion.div>
   );
 };
