@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import ParticlesBg from "particles-bg";
 import "./Header.css";
 import { slideIn, staggerContainer, textVariant } from "../../utils/motion";
+import { particle } from "../../utils/particles";
 
 const Header = ({ children }) => {
   return (
@@ -18,7 +19,9 @@ const Header = ({ children }) => {
           color="#ffffff"
           num={50}
           type="cobweb"
-          bg={{ position: "absolute", zIndex: 0, top: 0, left: 0 }}
+          bg={{ position: "absolute", zIndex: 0, width: "100%" }}
+          config={particle}
+          pointerEvents="none"
         />
         <span>The Club,</span>
 
