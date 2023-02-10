@@ -19,7 +19,12 @@ const ProfileCard = ({
         className="thc__profile-cover"
         style={{ backgroundImage: `url(${cover})` }}
       >
-        <img src={image} className="thc__profile-photo" alt="profile" />
+        <img
+          src={image}
+          className="thc__profile-photo"
+          alt="profile"
+          loading="lazy"
+        />
       </div>
       <h3 className="thc__profile-name">{name}</h3>
       <p className="thc__profile-role">{roleAtClub}</p>
