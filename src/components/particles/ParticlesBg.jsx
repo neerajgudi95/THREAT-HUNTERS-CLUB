@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-// import GLOBE from "vanta/dist/vanta.globe.min";
-import BIRDS from 'vanta/dist/vanta.birds.min'
+import GLOBE from "vanta/dist/vanta.globe.min";
+// import BIRDS from 'vanta/dist/vanta.birds.min'
 // Make sure window.THREE is defined, e.g. by including three.min.js in the document head using a <script> tag
 
 const ParticlesBG = (props) => {
@@ -9,7 +9,7 @@ const ParticlesBG = (props) => {
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
-        BIRDS({
+        GLOBE({
           el: myRef.current,
         })
       );

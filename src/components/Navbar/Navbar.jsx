@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 // import logo from "../../assets/logo/flaticon-removebg-preview.png";
+import logo from "../../assets/earth.png";
 import "./Navbar.css";
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -10,24 +11,24 @@ const Navbar = () => {
     <>
       <ul>
         <li>
-          <Link to="/" onClick={() => setToggleMenu(false)}>
+          <NavLink to="/" onClick={() => setToggleMenu(false)}>
             Home
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/what-is-cyber-sec" onClick={() => setToggleMenu(false)}>
+          <NavLink to="/what-is-cyber-sec" onClick={() => setToggleMenu(false)}>
             WhatCyberSec
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/club-goals" onClick={() => setToggleMenu(false)}>
+          <NavLink to="/club-goals" onClick={() => setToggleMenu(false)}>
             Our Goals
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/our-team" onClick={() => setToggleMenu(false)}>
+          <NavLink to="/our-team" onClick={() => setToggleMenu(false)}>
             Our Team
-          </Link>
+          </NavLink>
         </li>
         {/* <li>
           <Link
@@ -54,14 +55,15 @@ const Navbar = () => {
   return (
     <div className="thc__navbar gradient__bg">
       <div className="thc__navbar-links">
-        <div className="thc__navbar-links_logo">
-          <Link to="/">
-            <img
-              src="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/logo.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675702990423"
-              alt="logo"
-            />
-          </Link>
-        </div>
+        <Link to="/">
+          <div className="thc__navbar-links_logo">
+            <img src={logo} alt="logo" />
+            <div className="thc__navbar-links_brand">
+              <p>THREAT</p>
+              <p>HUNTERS</p>
+            </div>
+          </div>
+        </Link>
         <div className="thc__navbar-links_container">{NavMenu}</div>
         <div className="thc__navbar-menu">
           {toggleMenu ? (

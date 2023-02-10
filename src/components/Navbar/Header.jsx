@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-// import ParticlesBg from "particles-bg";
-import ParticlesBG from "../particles/ParticlesBg";
+import GLOBE from "vanta/dist/vanta.globe.min";
 import "./Header.css";
 import { slideIn, staggerContainer, textVariant } from "../../utils/motion";
-import { particle } from "../../utils/particles";
-
 const Header = () => {
+  const [vantaEffect, setVantaEffect] = useState(null);
+  const myRef = useRef(null);
+  useEffect(() => {
+    if (!vantaEffect) {
+      setVantaEffect(
+        GLOBE({
+          el: myRef.current,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: true,
+          minHeight: 150.0,
+          minWidth: 200.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          color: 0x362fd9,
+          size: 1.5,
+          backgroundColor: 0x040c18,
+        })
+      );
+    }
+    return () => {
+      if (vantaEffect) vantaEffect.destroy();
+    };
+  }, [vantaEffect]);
+
   return (
     <motion.div
       className="thc__header section__padding"
@@ -14,6 +36,7 @@ const Header = () => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
+      ref={myRef}
     >
       {/* <ParticlesBg
         color="#ffffff"
@@ -23,7 +46,7 @@ const Header = () => {
         config={particle}
         pointerEvents="none"
       /> */}
-      <ParticlesBG />
+      {/* <ParticlesBG /> */}
       <div className="thc__header-content" style={{ zIndex: 1 }}>
         <span>The Club,</span>
 
@@ -39,13 +62,13 @@ const Header = () => {
         className="thc__header-img"
         variants={slideIn("right", "tween", 0.3, 1)}
       >
-        <picture>
+        {/* <picture>
           <source
             srcSet="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/tr:w-600,h-600/13730.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1675939638505"
             type="image/webp"
           />
           <img src="image.jpg" loading="lazy" />
-        </picture>
+        </picture> */}
       </motion.div>
     </motion.div>
   );
