@@ -13,12 +13,12 @@ const Header = () => {
           el: myRef.current,
           mouseControls: true,
           touchControls: true,
-          gyroControls: true,
+          gyroControls: false,
           minHeight: 100.0,
           minWidth: 100.0,
           scale: 1.0,
           scaleMobile: 0.6,
-          color: 0x362fd9,
+          color: 0xff1e1e,
           size: 1.5,
           backgroundColor: 0x040c18,
         })
@@ -38,15 +38,6 @@ const Header = () => {
       viewport={{ once: true, amount: 0.25 }}
       ref={myRef}
     >
-      {/* <ParticlesBg
-        color="#ffffff"
-        num={100}
-        type="cobweb"
-        bg={{ position: "absolute", zIndex: 0, width: "90%", height: "80%" }}
-        config={particle}
-        pointerEvents="none"
-      /> */}
-      {/* <ParticlesBG /> */}
       <div className="thc__header-content">
         <span>The Club,</span>
 
