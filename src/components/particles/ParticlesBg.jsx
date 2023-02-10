@@ -1,36 +1,23 @@
-// import Particles from "react-tsparticles";
-// import "./particles.css";
-// const ParticlesBg = () => {
-//   return <Particles className="thc__particles" options={particle} />;
-// };
+import React, { useState, useEffect, useRef } from "react";
+// import GLOBE from "vanta/dist/vanta.globe.min";
+import BIRDS from 'vanta/dist/vanta.birds.min'
+// Make sure window.THREE is defined, e.g. by including three.min.js in the document head using a <script> tag
 
-// export default ParticlesBg;
-import { useCallback } from "react";
-import Particles from "react-particles";
-import { loadFull } from "tsparticles";
-import { particle } from "../../utils/particles";
-
-const ParticlesBg = () => {
-  const particlesInit = useCallback(async (engine) => {
-    console.log(engine);
-    // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-    // starting from v2 you can add only the features you need reducing the bundle size
-    await loadFull(engine);
-  }, []);
-
-  const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
-  }, []);
-
-  return (
-    <Particles
-      id="tsparticles"
-      options={particle}
-      init={particlesInit}
-      loaded={particlesLoaded}
-    />
-  );
+const ParticlesBG = (props) => {
+  const [vantaEffect, setVantaEffect] = useState(null);
+  const myRef = useRef(null);
+  useEffect(() => {
+    if (!vantaEffect) {
+      setVantaEffect(
+        BIRDS({
+          el: myRef.current,
+        })
+      );
+    }
+    return () => {
+      if (vantaEffect) vantaEffect.destroy();
+    };
+  }, [vantaEffect]);
+  return <div ref={myRef}>Foreground content goes here</div>;
 };
-
-export default ParticlesBg;
+export default ParticlesBG;

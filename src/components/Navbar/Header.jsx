@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import ParticlesBg from "particles-bg";
+// import ParticlesBg from "particles-bg";
+import ParticlesBG from "../particles/ParticlesBg";
 import "./Header.css";
 import { slideIn, staggerContainer, textVariant } from "../../utils/motion";
 import { particle } from "../../utils/particles";
@@ -14,15 +15,16 @@ const Header = () => {
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
     >
-      <ParticlesBg
-        // color="#ffffff"
-        num={50}
-        type="custom"
+      {/* <ParticlesBg
+        color="#ffffff"
+        num={100}
+        type="cobweb"
         bg={{ position: "absolute", zIndex: 0, width: "90%", height: "80%" }}
         config={particle}
         pointerEvents="none"
-      />
-      <div className="thc__header-content">
+      /> */}
+      <ParticlesBG />
+      <div className="thc__header-content" style={{ zIndex: 1 }}>
         <span>The Club,</span>
 
         <motion.h1 variants={textVariant(0.4)} className="gradient__text">
