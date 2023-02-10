@@ -47,7 +47,7 @@ const Header = () => {
         pointerEvents="none"
       /> */}
       {/* <ParticlesBG /> */}
-      <div className="thc__header-content" style={{ zIndex: 1 }}>
+      <div className="thc__header-content">
         <span>The Club,</span>
 
         <motion.h1 variants={textVariant(0.4)} className="gradient__text">
