@@ -15,10 +15,10 @@ const Header = () => {
       viewport={{ once: true, amount: 0.25 }}
     >
       <ParticlesBg
-        color="#ffffff"
+        // color="#ffffff"
         num={50}
-        type="cobweb"
-        bg={{ position: "absolute", zIndex: 0, width: "90%" }}
+        type="custom"
+        bg={{ position: "absolute", zIndex: 0, width: "90%", height: "80%" }}
         config={particle}
         pointerEvents="none"
       />
