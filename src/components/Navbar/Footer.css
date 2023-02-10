@@ -40,11 +40,26 @@
 
 
 .thc__footer-links_logo {
+    margin-right: 1rem;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .thc__footer-links_logo img {
-    height: 100px;
+    height: 50px;
+}
+
+.thc__footer-links_brand {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    font-weight: 800;
+    margin-left: 5px;
+}
+
+.thc__footer-links_brand p {
+    color: #83DB49;
 }
 
 .thc__footer-links_div ul {

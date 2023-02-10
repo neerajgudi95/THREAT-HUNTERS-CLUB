@@ -24,7 +24,7 @@ const OurGoals = () => {
   return (
     <div className="thc__ourgoals section__padding">
       <div className="thc__ourgoals-heading">
-        <h2 className="gradient__text">OUR CLUB GOALS.</h2>
+        <h2 className="gradient__text">GOALS</h2>
       </div>
       <div className="thc__ourgoals-container">
         {ourGoals.map((goal, index) => (

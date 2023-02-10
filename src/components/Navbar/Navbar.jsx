@@ -11,22 +11,38 @@ const Navbar = () => {
     <>
       <ul>
         <li>
-          <NavLink to="/" onClick={() => setToggleMenu(false)}>
+          <NavLink
+            to="/"
+            onClick={() => setToggleMenu(false)}
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink to="/what-is-cyber-sec" onClick={() => setToggleMenu(false)}>
+          <NavLink
+            to="/what-is-cyber-sec"
+            onClick={() => setToggleMenu(false)}
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             WhatCyberSec
           </NavLink>
         </li>
         <li>
-          <NavLink to="/club-goals" onClick={() => setToggleMenu(false)}>
+          <NavLink
+            to="/club-goals"
+            onClick={() => setToggleMenu(false)}
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             Our Goals
           </NavLink>
         </li>
         <li>
-          <NavLink to="/our-team" onClick={() => setToggleMenu(false)}>
+          <NavLink
+            to="/our-team"
+            onClick={() => setToggleMenu(false)}
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             Our Team
           </NavLink>
         </li>

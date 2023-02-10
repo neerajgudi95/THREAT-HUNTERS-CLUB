@@ -1,5 +1,6 @@
 import React from "react";
 import { BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
+import logo from "../../assets/earth.png";
 import "./Footer.css";
 import { Link } from "react-router-dom";
 const Footer = () => {
@@ -11,14 +12,15 @@ const Footer = () => {
         <h3 className="gradient__text">Hunt.Kill.Quarantine</h3>
       </div>
       <div className="thc__footer-links">
-        <div className="thc__footer-links_logo">
-          <Link to="/">
-            <img
-              src="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/logo.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675702990423"
-              alt="logo"
-            />
-          </Link>
-        </div>
+        <Link to="/">
+          <div className="thc__footer-links_logo">
+            <img src={logo} alt="logo" />
+            <div className="thc__footer-links_brand">
+              <p>THREAT</p>
+              <p>HUNTERS</p>
+            </div>
+          </div>
+        </Link>
         <div className="thc__footer-links_div">
           <h3>Get in touch</h3>
           <ul>

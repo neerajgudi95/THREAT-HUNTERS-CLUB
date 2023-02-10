@@ -1,56 +1,73 @@
-.thc__profile {
-    display: flex;
-    max-width: 400px;
-    height: 270px;
-    background-color: var(--color-blog);
-    padding: 1rem;
-    flex-direction: column;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.thc__profile-card {
+    padding: 15px;
+    width: 350px;
+    background: var(--color-blog);
     border-radius: 10px;
+    /* text-align: center; */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.7);
+    user-select: none;
+}
+
+.thc__profile-cover {
     position: relative;
+    background-size: cover;
+    height: 180px;
+    border-radius: 10px 10px 0 0;
 }
 
-.thc__profile-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    flex: 1;
+.thc__profile-photo {
+    position: absolute;
+    width: 120px;
+    bottom: -60px;
+    right: 15px;
+    border-radius: 50%;
+    border: 2px solid var(--color-blog);
+    background: var(--color-blog);
+    padding: 5px;
 }
 
-.thc__profile-header h3 {
+.thc__profile-name {
+    font-size: 20px;
+    margin: 15px;
     color: #fff;
-    font-size: 18px;
-    line-height: 30px;
+    text-align: left;
 }
 
-.thc__profile-header p {
+.thc__profile-role,
+.thc__profile-designation {
+    margin: 10px;
+    text-align: left;
+    font-size: 14px;
     color: var(--color-text);
-    margin-top: 0.25rem;
 }
 
-.role {
+.thc__profile-desc {
+    text-align: left;
+    color: var(--color-text);
+    line-height: 25px;
     font-size: 14px;
 }
 
-.thc__profile img {
-    max-width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    position: absolute;
-    top: -45%;
-    right: 25px;
-    transform: translateY(50%);
-    border: 8px solid var(--color-subtext);
+.thc__profile-icons {
+    margin: 20px 0;
+    border-top: 1px solid lightgray;
+    padding: 20px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-.thc__profile-about {
-    flex: 1;
+.linkedin {
+    color: #0077b5;
 }
 
-.thc__profile-about p {
-    font-weight: 500;
-    font-size: 0.8rem;
-    line-height: 20px;
-    color: var(--color-text);
-    text-align: justify;
+.gmail {
+    color: #bb001b;
+    /* margin-left: 20px; */
 }

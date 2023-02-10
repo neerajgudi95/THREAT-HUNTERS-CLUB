@@ -9,6 +9,11 @@
     align-items: center;
 }
 
+.active {
+    font-weight: 600;
+    color: #83DB49;
+}
+
 .thc__navbar-links_logo {
     margin-right: 1rem;
     display: flex;
@@ -29,7 +34,7 @@
 }
 
 .thc__navbar-links_brand p {
-    color: var(--color-text);
+    color: #83DB49;
 }
 
 .thc__navbar-links_container ul {
