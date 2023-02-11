@@ -28,6 +28,7 @@ const Footer = () => {
               <a
                 href="https://www.instagram.com/threat_hunters_club/"
                 target="_blank"
+                aria-label="instagram"
               >
                 <BsInstagram size={"1.5em"} />
               </a>
@@ -36,12 +37,17 @@ const Footer = () => {
               <a
                 href="https://www.linkedin.com/company/threat-hunters/"
                 target="_blank"
+                aria-label="linkedin"
               >
                 <BsLinkedin size={"1.5em"} />
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/hunters_threat" target="_blank">
+              <a
+                href="https://twitter.com/hunters_threat"
+                target="_blank"
+                aria-label="twitter"
+              >
                 <BsTwitter size={"1.5em"} />
               </a>
             </li>

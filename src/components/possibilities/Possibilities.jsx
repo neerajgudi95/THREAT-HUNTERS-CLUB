@@ -20,8 +20,9 @@ const Possibilities = () => {
           <source
             srcSet="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/possibility.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1675704977337"
             type="image/webp"
+            alt="possibility"
           />
-          <img src="image.jpg" />
+          <img src="image.jpg" loading="lazy" alt="possibility" />
         </picture>
       </motion.div>
       <div className="thc__possibility-content">

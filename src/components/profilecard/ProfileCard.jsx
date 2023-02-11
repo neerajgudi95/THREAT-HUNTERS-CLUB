@@ -22,7 +22,7 @@ const ProfileCard = ({
         <img
           src={image}
           className="thc__profile-photo"
-          alt="profile"
+          alt="profile_img"
           loading="lazy"
         />
       </div>
