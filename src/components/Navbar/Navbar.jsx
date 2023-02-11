@@ -73,7 +73,7 @@ const Navbar = () => {
       <div className="thc__navbar-links">
         <Link to="/">
           <div className="thc__navbar-links_logo">
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" width={50} height={50} />
             <div className="thc__navbar-links_brand">
               <p>THREAT</p>
               <p>HUNTERS</p>

@@ -18,7 +18,7 @@ const Possibilities = () => {
       >
         <picture>
           <source
-            srcSet="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/possibility.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1675704977337"
+            srcSet="https://ik.imagekit.io/fq9vykvp2/BGIMAGES/tr:w-1200,h-1100/possibility.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1675704977337"
             type="image/webp"
             alt="possibility"
           />
