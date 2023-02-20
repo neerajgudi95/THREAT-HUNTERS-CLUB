@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { Link, NavLink } from "react-router-dom";
-// import logo from "../../assets/logo/flaticon-removebg-preview.png";
 import logo from "../../assets/earth.png";
 import "./Navbar.css";
 const Navbar = () => {
@@ -46,7 +45,16 @@ const Navbar = () => {
             Our Team
           </NavLink>
         </li>
-        {/* <li>
+        <li>
+          <NavLink
+            to="/pricing"
+            onClick={() => setToggleMenu(false)}
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Pricing
+          </NavLink>
+        </li>
+        <li>
           <Link
             to="/login"
             className="thc__navbar-links-btn thc__navbar-links_login"
@@ -63,7 +71,7 @@ const Navbar = () => {
           >
             Join
           </Link>
-        </li> */}
+        </li>
       </ul>
     </>
   );

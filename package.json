@@ -1,6 +1,7 @@
 {
   "name": "threat-hunters-club",
   "version": "1.0.0",
+  "homepage": "threathuntersclub.com",
   "description": "website for threat hunters club",
   "source": "index.html",
   "scripts": {

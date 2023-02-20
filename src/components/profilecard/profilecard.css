@@ -7,6 +7,7 @@
 .thc__profile-card {
     padding: 15px;
     width: 350px;
+    height: 580px;
     background: var(--color-blog);
     border-radius: 10px;
     /* text-align: center; */

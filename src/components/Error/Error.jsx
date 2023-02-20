@@ -6,7 +6,7 @@ const Error = () => {
   //   const error = useRouteError();
 
   return (
-    <div className="bg-purple ">
+    <div className="bg-purple">
       <div className="central-body">
         <img
           className="image-404"

@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
 
 
 :root {
-  --font-family: 'Manrope', sans-serif;
 
   --gradient-text: linear-gradient(89.97deg, #49FF00, #54E346 102.67%);
   --gradient-bar: linear-gradient(90deg, rgba(6, 255, 0, 1) 0%, rgba(73, 255, 0, 1) 100%);
