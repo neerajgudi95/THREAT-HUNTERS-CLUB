@@ -41,6 +41,7 @@ const pricing = () => {
           <h3>
             <FaRupeeSign /> 200
           </h3>
+          <span>* per session</span>
         </div>
         <div className="thc__pricing-features">
           <h3>Features</h3>
