@@ -92,14 +92,18 @@ const pricing = () => {
               necessary licenses to further the club's mission of promoting
               cyber security education and awareness.
             </p>
+            <div>
+              <FaStarOfLife className="star" />
+              <p>No refund will be provid</p>
+            </div>
           </div>
+          <h3>
+            <p>
+              Please note that any unused funds will be reserved for future club
+              activities, and will not be distributed among individuals.
+            </p>
+          </h3>
         </div>
-        <h3>
-          <p>
-            Please note that any unused funds will be reserved for future club
-            activities, and will not be distributed among individuals.
-          </p>
-        </h3>
       </div>
     </div>
   );

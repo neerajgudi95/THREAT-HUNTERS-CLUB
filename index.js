@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import ScrollToTop from "./src/components/ScrollToTop";
 import MainApp from "./src/components/main/MainApp";
 
 import {
@@ -9,18 +10,20 @@ import {
   OurTeam,
   Error,
   Login,
-  Register,
   Navbar,
   Footer,
   PrivacyPolicy,
   Pricing,
+  MultiStepForm,
 } from "./src/components/export";
 
 const AppLayout = () => {
   return (
     <>
       <Navbar />
-      <Outlet />
+      <ScrollToTop>
+        <Outlet />
+      </ScrollToTop>
       <Footer />
     </>
   );
@@ -42,7 +45,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "register",
-        element: <Register />,
+        element: <MultiStepForm />,
       },
       {
         path: "what-is-cyber-sec",
