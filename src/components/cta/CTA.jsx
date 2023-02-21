@@ -9,7 +9,9 @@ const CTA = () => {
         <h3>Join the club today and explore various opportunities</h3>
       </div>
       <div className="thc__cta-btn">
-        <Link to={"/register"} className='join-btn'>Join</Link>
+        <Link to="/" /*{"/register"}*/ className="join-btn">
+          Join
+        </Link>
       </div>
     </div>
   );
