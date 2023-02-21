@@ -98,18 +98,17 @@
     margin-left: 10px;
 }
 
-.thc__pricing-disclaimer h3{
+.thc__pricing-disclaimer h3 {
     font-weight: 500;
 }
 
-.thc__pricing-disclaimer h3:last-child{
+.thc__pricing-disclaimer h3:last-child {
     margin-top: 20px;
     font-size: 15px;
 }
 
 .thc__pricing-disclaimer__points .star {
     font-weight: 100;
-    font-size: 20px;
     color: red;
 }
 
@@ -138,5 +137,13 @@
         padding: 30px;
         font-size: 15px;
         border-radius: 0 0 20px 20px;
+    }
+
+    .thc__pricing-disclaimer div p {
+        font-size: 14px;
+    }
+
+    .thc__pricing-disclaimer__points .star {
+        font-size: 14px;
     }
 }

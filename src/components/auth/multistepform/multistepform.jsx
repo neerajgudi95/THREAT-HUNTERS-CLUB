@@ -39,6 +39,11 @@ const MultiStepForm = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
+  // By joining and agreeing to the terms and conditions,
+  // members acknowledge this
+  // policy and accept responsibility
+  // for their actions while using the services provided.
+
   const handleSubmit = () => {
     console.log("form submitted");
     // API call for payment processing

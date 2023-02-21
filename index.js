@@ -14,7 +14,7 @@ import {
   Footer,
   PrivacyPolicy,
   Pricing,
-  MultiStepForm,
+  // MultiStepForm,
 } from "./src/components/export";
 
 const AppLayout = () => {
@@ -43,10 +43,10 @@ const appRouter = createBrowserRouter([
         path: "login",
         element: <Login />,
       },
-      {
-        path: "register",
-        element: <MultiStepForm />,
-      },
+      // {
+      //   path: "register",
+      //   element: <MultiStepForm />,
+      // },
       {
         path: "what-is-cyber-sec",
         element: <WhatCyberSec />,
