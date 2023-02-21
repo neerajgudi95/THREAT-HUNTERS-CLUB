@@ -66,33 +66,39 @@ const pricing = () => {
       </div>
       <div className="thc__pricing-disclaimer">
         <h3>
-          Amount collected will be solely utilized for the below activities:
+          Disclaimer: Amount collected will be solely utilized for the below
+          activities:
         </h3>
-        <p>
-          <FaStarOfLife
-            size={"1.2em"}
-            color="red"
-            style={{ marginRight: "10px" }}
-          />
-          To maintain the website and the domain charges.
-        </p>
-        <p>
-          <FaStarOfLife
-            size={"1.2em"}
-            color="red"
-            style={{ marginRight: "10px" }}
-          />
-          To buy club goodies to inspire students e.g., T-shirt, Mug, Bottle
-          etc.
-        </p>
-        <p>
-          <FaStarOfLife
-            size={"1.2em"}
-            color="red"
-            style={{ marginRight: "10px" }}
-          />
-          To setup the lab and to procure latest tools and licenses.
-        </p>
+        <div className="thc__pricing-disclaimer__points">
+          <div>
+            <FaStarOfLife className="star" />
+            <p>
+              Maintaining the website and covering the associated domain
+              charges.
+            </p>
+          </div>
+          <div>
+            <FaStarOfLife className="star" />
+            <p>
+              Purchasing club goodies, such as T-shirts, mugs, and bottles, to
+              inspire and engage students.
+            </p>
+          </div>
+          <div>
+            <FaStarOfLife className="star" />
+            <p>
+              Setting up the laboratory with the latest tools and procuring
+              necessary licenses to further the club's mission of promoting
+              cyber security education and awareness.
+            </p>
+          </div>
+        </div>
+        <h3>
+          <p>
+            Please note that any unused funds will be reserved for future club
+            activities, and will not be distributed among individuals.
+          </p>
+        </h3>
       </div>
     </div>
   );
