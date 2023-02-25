@@ -54,7 +54,7 @@ const Navbar = () => {
             Pricing
           </NavLink>
         </li>
-        {/* <li>
+        <li>
           <Link
             to="/login"
             className="thc__navbar-links-btn thc__navbar-links_login"
@@ -71,7 +71,7 @@ const Navbar = () => {
           >
             Join
           </Link>
-        </li> */}
+        </li>
       </ul>
     </>
   );
