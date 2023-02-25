@@ -1,0 +1,124 @@
+.thc__footer {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--color-footer);
+}
+
+.thc__footer-heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+
+.thc__footer-heading h3 {
+    font-style: normal;
+    font-size: 62px;
+    line-height: 75px;
+    text-align: center;
+    letter-spacing: -0.04em;
+}
+
+.thc__footer-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.thc__footer-links div {
+    width: 200px;
+    margin: 1rem;
+}
+
+
+.thc__footer-links_logo {
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thc__footer-links_logo img {
+    height: 50px;
+}
+
+.thc__footer-links_brand {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    font-weight: 800;
+    margin-left: 5px;
+}
+
+.thc__footer-links_brand p {
+    color: #83DB49;
+}
+
+.thc__footer-links_div ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thc__footer-links_div h3 {
+    text-align: center;
+}
+
+.thc__footer-links_div ul li {
+    margin: 15px 30px;
+}
+
+
+.thc__footer-copywrite {
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgb(110, 110, 110);
+    padding-top: 2rem;
+    flex-wrap: wrap;
+}
+
+
+.thc__footer-copywrite ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.thc__footer-copywrite ul li {
+    margin: 10px;
+}
+
+.thc__footer>p {
+    margin-top: 2rem;
+}
+
+@media screen and (max-width:990px) {
+    .thc__footer-heading h3 {
+        font-size: 3rem;
+    }
+
+    .thc__footer-copywrite,
+    .thc__footer-links,
+    .thc__footer-links div {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .thc__footer-heading h3 {
+        font-size: 1.5rem;
+    }
+}

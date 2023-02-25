@@ -1,0 +1,150 @@
+.thc__pricing-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+    gap: 50px;
+}
+
+.thc__pricing-container {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 800px;
+    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* flex: 1; */
+}
+
+.thc__pricing-header {
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px;
+    border-radius: 20px 0 0 20px;
+}
+
+.thc__pricing-features {
+    padding: 20px;
+    flex: 1;
+    height: 100%;
+    border-radius: 0 20px 20px 0;
+    color: white;
+    background-color: #002244;
+}
+
+.thc__pricing-header h3 {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+.thc__pricing-container ul {
+    list-style-type: none;
+
+}
+
+.thc__pricing-features ul li {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.tick {
+    color: greenyellow;
+    margin-right: 10px;
+}
+
+.thc__pricing-membership__features {
+    padding: 20px;
+}
+
+.thc__pricing-disclaimer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 800px;
+}
+
+.thc__pricing-disclaimer h3 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.thc__pricing-disclaimer__points div {
+    color: white;
+    display: flex;
+    align-items: center;
+    margin: 15px 20px 15px 0;
+}
+
+.thc__pricing-disclaimer__points {
+    display: flex;
+    flex-direction: column;
+}
+
+.thc__pricing-disclaimer div p {
+    flex: 1;
+    width: 100%;
+    margin-left: 10px;
+    color: var(--color-text);
+}
+
+.thc__pricing-disclaimer h3 {
+    font-weight: 500;
+}
+
+.thc__pricing-disclaimer h3:last-child {
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.thc__pricing-disclaimer__points .star {
+    font-weight: 100;
+    color: red;
+}
+
+@media screen and (max-width:768px) {
+    .thc__pricing-wrapper {
+        flex-direction: column;
+    }
+
+    .thc__pricing-container {
+        width: 330px;
+        height: 100%;
+    }
+
+    .thc__pricing-header,
+    .thc__pricing-features {
+        flex: 1;
+        border-radius: 0;
+        width: 100%;
+    }
+
+    .thc__pricing-header {
+        border-radius: 20px 20px 0 0;
+    }
+
+    .thc__pricing-features {
+        padding: 30px;
+        font-size: 15px;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .thc__pricing-disclaimer div p {
+        font-size: 14px;
+    }
+
+    .thc__pricing-disclaimer__points .star {
+        font-size: 14px;
+    }
+}

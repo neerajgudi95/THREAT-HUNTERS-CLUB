@@ -1,0 +1,32 @@
+{
+  "name": "threat-hunters-club",
+  "version": "1.0.0",
+  "homepage": "threathuntersclub.com",
+  "description": "website for threat hunters club",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "test": "jest",
+    "build": "parcel build index.html"
+  },
+  "author": "Neeraj Gudi",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.10",
+    "formik": "^2.2.9",
+    "framer-motion": "^9.0.1",
+    "particles-bg": "^2.5.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "react-router-dom": "^6.8.0",
+    "vanta": "^0.5.24",
+    "yup": "^1.0.0"
+  }
+}
