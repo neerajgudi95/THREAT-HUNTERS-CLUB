@@ -14,8 +14,10 @@ import {
   Footer,
   PrivacyPolicy,
   Pricing,
+  MemberRegistration,
   // MultiStepForm,
 } from "./src/components/export";
+import Dashboard from "./src/components/DashboardComponents/Dashboard";
 
 const AppLayout = () => {
   return (
@@ -43,10 +45,10 @@ const appRouter = createBrowserRouter([
         path: "login",
         element: <Login />,
       },
-      // {
-      //   path: "register",
-      //   element: <MultiStepForm />,
-      // },
+      {
+        path: "register",
+        element: <MemberRegistration />,
+      },
       {
         path: "what-is-cyber-sec",
         element: <WhatCyberSec />,
@@ -71,7 +73,7 @@ const appRouter = createBrowserRouter([
   },
   {
     path: "/dashboard/:userId",
-    element: <PrivacyPolicy />,
+    element: <Dashboard />,
   },
 ]);
 

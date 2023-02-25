@@ -1,3 +1,5 @@
+import MemberRegistration from "./auth/multistepform/MemberRegistration";
+
 export { default as Navbar } from "../components/Navbar/Navbar";
 export { default as Header } from "../components/Navbar/Header";
 export { default as Footer } from "../components/Navbar/Footer";
@@ -10,7 +12,7 @@ export { default as Possibilities } from "../components/possibilities/Possibilit
 export { default as CTA } from "../components/cta/CTA";
 export { default as AboutUs } from "../components/aboutUs/AboutUs";
 export { default as Login } from "../components/auth/Login";
-export { default as MultiStepForm } from "../components/auth/multistepform/multistepform";
+export { default as MemberRegistration } from "./auth/multistepform/MemberRegistration";
 export { default as Error } from "./Error/Error";
 export { default as PrivacyPolicy } from "./Privacy/PrivacyPolicy";
 export { default as Pricing } from "./pricing/pricing";

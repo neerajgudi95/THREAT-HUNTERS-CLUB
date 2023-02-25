@@ -1,11 +1,11 @@
-.thc__loginForm-wrapper {
+.thc__registration-wrapper {
     background-color: #f4f4f4;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.thc__loginForm-container {
+.thc__registration-container {
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -18,14 +18,14 @@
 }
 
 
-.thc__loginForm-container h3 {
+.thc__registration-container h3 {
     text-align: center;
     color: var(--color-text);
     font-size: 2.5rem;
     margin-bottom: 30px;
 }
 
-.thc__loginForm-container form {
+.thc__registration-container form {
     width: 100%;
     /* padding: 20px; */
     /* display: flex;
@@ -36,7 +36,7 @@
     flex-wrap: wrap; */
 }
 
-.thc__loginForm-container form>div {
+.thc__registration-container form>div {
     margin: 20px 0
 }
 
@@ -47,7 +47,7 @@
 
 
 @media screen and (max-width:900px) {
-    .thc__loginForm-container form {
+    .thc__registration-container form {
         flex-direction: column;
     }
 }

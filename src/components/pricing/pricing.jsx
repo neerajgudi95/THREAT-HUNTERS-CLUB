@@ -10,8 +10,8 @@ const pricing = () => {
       <div className="thc__pricing-container">
         <div className="thc__pricing-header">
           <p>Membership</p>
-          <h3>
-            <FaRupeeSign /> 100
+          <h3 className="gradient__text">
+            <FaRupeeSign className="gradient__text" /> <span>100</span>
           </h3>
         </div>
         <div className="thc__pricing-features">
@@ -38,8 +38,8 @@ const pricing = () => {
       <div className="thc__pricing-container">
         <div className="thc__pricing-header">
           <p>Tech Talks</p>
-          <h3>
-            <FaRupeeSign /> 200
+          <h3 className="gradient__text">
+            <FaRupeeSign /> <span>200</span>
           </h3>
           <span>* per session</span>
         </div>
@@ -102,10 +102,8 @@ const pricing = () => {
             </p>
           </div>
           <h3>
-            <p>
-              Please note that any unused funds will be reserved for future club
-              activities, and will not be distributed among individuals.
-            </p>
+            Please note that any unused funds will be reserved for future club
+            activities, and will not be distributed among individuals.
           </h3>
         </div>
       </div>
