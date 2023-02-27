@@ -1,0 +1,31 @@
+.thc__aboutUs-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.thc__aboutUs-heading h2 {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+    line-height: 45px;
+    margin-bottom: 20px;
+}
+
+.thc__aboutUs-content p {
+    color: var(--color-text);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    max-width: 950px;
+    line-height: 30px;
+}
+
+
+@media screen and (max-width:768px) {
+    .thc__aboutUs-content p {
+        font-size: 1rem;
+        text-align: center;
+    }
+}
