@@ -22,6 +22,19 @@
     flex-direction: column;
 }
 
+.thc__ourgoals-disclaimer {
+    margin-top: 50px;
+}
+
+.thc__ourgoals-disclaimer h3 {
+    color: #49FF00;
+    font-size: 1.8rem;
+}
+
+.thc__ourgoals-disclaimer p {
+    color: var(--color-text);
+}
+
 
 @media screen and (max-width:990px) {
     .thc__ourgoals {
@@ -38,5 +51,17 @@
     .thc__ourgoals-heading h2 {
         font-size: 28px;
         line-height: 38px;
+    }
+
+    .thc__ourgoals-container h3 {
+        font-size: 18px;
+    }
+
+    .thc__ourgoals p {
+        font-size: 15px;
+    }
+
+    .thc__ourgoals-disclaimer {
+        text-align: center;
     }
 }

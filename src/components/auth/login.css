@@ -36,6 +36,15 @@
     flex-wrap: wrap; */
 }
 
+.thc__loginBtnsLinks {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
 .thc__loginForm-container form>div {
     margin: 20px 0
 }
@@ -49,5 +58,14 @@
 @media screen and (max-width:900px) {
     .thc__loginForm-container form {
         flex-direction: column;
+    }
+
+    .thc__loginBtnsLinks {
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .thc__loginBtnsLinks a {
+        text-align: center;
     }
 }

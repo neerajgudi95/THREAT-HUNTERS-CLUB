@@ -22,14 +22,35 @@ const OurGoals = () => {
   ];
 
   return (
-    <div className="thc__ourgoals section__padding">
-      <div className="thc__ourgoals-heading">
-        <h2 className="gradient__text">GOALS</h2>
+    <div className="thc__ourgoals-wrapper section__padding">
+      <div className="thc__ourgoals">
+        <div className="thc__ourgoals-heading">
+          <h2 className="gradient__text">GOALS</h2>
+        </div>
+        <div className="thc__ourgoals-container">
+          {ourGoals.map((goal, index) => (
+            <Feature title={goal.title} text={goal.text} key={index} />
+          ))}
+        </div>
       </div>
-      <div className="thc__ourgoals-container">
-        {ourGoals.map((goal, index) => (
-          <Feature title={goal.title} text={goal.text} key={index} />
-        ))}
+      <div className="thc__ourgoals-disclaimer">
+        <h3>Note:</h3>
+        <p>
+          Please note that our Cybersecurity Club is run by a group of
+          passionate professionals and is not associated with any public/private
+          organizations.
+          <br />
+          While we would love to help out students by guiding them in the
+          process of upskilling and meeting industry standards, we do not
+          guarantee to bring in companies for placements or setting up students
+          for internships.
+          <br /> Our primary objective is to provide you with the knowledge and
+          skills required to navigate the corporate world with confidence. We
+          shall remain committed to our objective and continue to aid students
+          on their path to becoming cybersecurity professionals by offering
+          educational resources, networking opportunities, and mentorship
+          programs.
+        </p>
       </div>
     </div>
   );

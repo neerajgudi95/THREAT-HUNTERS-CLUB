@@ -34,7 +34,7 @@ const Login = () => {
       const { token } = response.data;
       setToken(token);
       setErrorMessage("");
-      navigate(`/member/${token.split(".")[0]}/dashboard`);
+      navigate(`/member/dashboard`);
     } catch (error) {
       if (error.response.status === 401) {
         setErrorMessage("Member email or password is invalid");
@@ -91,18 +91,18 @@ const Login = () => {
                 fullWidth
                 margin="normal"
               />
-              <Button type="submit" variant="contained" color="primary">
-                Login
-              </Button>
-              <div>
+              <div className="thc__loginBtnsLinks">
+                <Button type="submit" variant="contained" color="primary">
+                  Login
+                </Button>
                 <Link to="/forgot-password" style={{ color: "blue" }}>
                   Forgot you password?
                 </Link>
+                <Link to="/register">
+                  Don't have an account?{" "}
+                  <span style={{ color: "blue" }}>Sign Up</span>
+                </Link>
               </div>
-              <Link to="/register">
-                Don't have an account?{" "}
-                <span style={{ color: "blue" }}>Sign Up?</span>
-              </Link>
             </Form>
           )}
         </Formik>

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/earth.png";
 import "./Navbar.css";
+import { Button } from "@mui/material";
 const Navbar = () => {
+  const navigate = useNavigate();
   const [toggleMenu, setToggleMenu] = useState(false);
 
   const NavMenu = (
@@ -56,9 +58,11 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            to="/login"
             className="thc__navbar-links-btn thc__navbar-links_login"
-            onClick={() => setToggleMenu(false)}
+            to="/login"
+            onClick={() => {
+              setToggleMenu(false);
+            }}
           >
             Login
           </Link>
@@ -67,7 +71,9 @@ const Navbar = () => {
           <Link
             to="/register"
             className="thc__navbar-links-btn thc__navbar-links_join"
-            onClick={() => setToggleMenu(false)}
+            onClick={() => {
+              setToggleMenu(false);
+            }}
           >
             Join
           </Link>

@@ -11,7 +11,7 @@ const EmailVerificationSuccess = () => {
       <div className="thc__emailVerification-container">
         <p style={{ color: "white" }}>Thank you for verifying your email</p>
         <Button
-          onClick={() => navigate(`/member/${token.split(".")[0]}/dashboard`)}
+          onClick={() => navigate(`/member/dashboard`)}
           variant="contained"
           color="success"
         >

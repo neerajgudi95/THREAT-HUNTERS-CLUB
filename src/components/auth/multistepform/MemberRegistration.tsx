@@ -6,7 +6,7 @@ import InputField from "./InputField";
 import MultiStepForm, { FormStep } from "./MultiStepForm";
 import { useToken } from "../../../utils/custom-hooks/useToken";
 import logo from "../../../assets/earth.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const MemberRegistration = () => {
   const [token, setToken] = useToken();
@@ -151,6 +151,24 @@ const MemberRegistration = () => {
             <InputField name="upiId" label="UPI ID" />
           </FormStep> */}
         </MultiStepForm>
+        <p
+          style={{
+            fontWeight: 200,
+            fontSize: "15px",
+          }}
+        >
+          Already have an account?
+        </p>
+        <Link
+          to="/login"
+          style={{
+            fontWeight: 300,
+            color: "blue",
+            fontSize: "15px",
+          }}
+        >
+          Please login
+        </Link>
       </div>
     </div>
   );

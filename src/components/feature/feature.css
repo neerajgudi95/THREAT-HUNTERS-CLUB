@@ -15,7 +15,7 @@
 }
 
 .thc__features-container_feature-title h3 {
-    font-weight: 800;
+    font-weight: 600;
     line-height: 30px;
     color: #ffffff;
 }
@@ -36,7 +36,7 @@
 
 .thc__features-container_feature-text p {
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 24px;
     color: var(--color-text);
     text-align: left;
