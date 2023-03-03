@@ -34,7 +34,7 @@ const Login = () => {
       const { token } = response.data;
       setToken(token);
       setErrorMessage("");
-      navigate(`/member/dashboard`);
+      navigate(`/dashboard`);
     } catch (error) {
       if (error.response.status === 401) {
         setErrorMessage("Member email or password is invalid");
