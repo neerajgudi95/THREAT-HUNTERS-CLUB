@@ -17,6 +17,7 @@
 .thc__features-container_feature-title h3 {
     font-weight: 600;
     line-height: 30px;
+    font-size: 1.2rem;
     color: #ffffff;
 }
 
@@ -25,7 +26,7 @@
     height: 3px;
     background: var(--gradient-bar);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    /* margin-bottom: 0.25rem; */
+    margin-bottom: 0.25rem;
 }
 
 .thc__features-container_feature-text {
@@ -36,8 +37,8 @@
 
 .thc__features-container_feature-text p {
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 24px;
-    color: var(--color-text);
+    color: white;
     text-align: left;
 }

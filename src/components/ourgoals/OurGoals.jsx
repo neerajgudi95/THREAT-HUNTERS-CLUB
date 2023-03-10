@@ -33,17 +33,19 @@ const OurGoals = () => {
           ))}
         </div>
       </div>
-      <div className="thc__ourgoals-disclaimer">
-        <h3>Note:</h3>
+      <div className="thc__ourgoals-disclaimer section__padding">
+        <h3>Note</h3>
         <p>
           Please note that our Cybersecurity Club is run by a group of
           passionate professionals and is not associated with any public/private
           organizations.
           <br />
+          <br />
           While we would love to help out students by guiding them in the
           process of upskilling and meeting industry standards, we do not
           guarantee to bring in companies for placements or setting up students
           for internships.
+          <br />
           <br /> Our primary objective is to provide you with the knowledge and
           skills required to navigate the corporate world with confidence. We
           shall remain committed to our objective and continue to aid students

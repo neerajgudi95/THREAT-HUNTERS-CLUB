@@ -106,6 +106,12 @@ const MemberRegistration = () => {
             <InputField name="lastName" label="Last Name" />
             <InputField name="yearOfJoin" label="Year of joining" />
             <InputField name="department" label="Department" />
+            <script
+              src="https://payments.open.money/buttons"
+              data-open-button-id="bt_BV4jtk8FINahtVY"
+            >
+              click here
+            </script>
           </FormStep>
           <FormStep
             stepName="Credentials"

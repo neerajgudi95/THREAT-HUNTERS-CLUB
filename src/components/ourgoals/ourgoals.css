@@ -23,12 +23,15 @@
 }
 
 .thc__ourgoals-disclaimer {
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    max-width: 1000px;
+    margin: 50px auto;
 }
 
 .thc__ourgoals-disclaimer h3 {
     color: #49FF00;
     font-size: 1.8rem;
+    text-align: center;
 }
 
 .thc__ourgoals-disclaimer p {

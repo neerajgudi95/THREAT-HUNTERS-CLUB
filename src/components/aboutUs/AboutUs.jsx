@@ -8,21 +8,23 @@ const AboutUs = () => {
       </div>
       <div className="thc__aboutUs-content">
         <p>
-          The Threat Hunters is a club for the students at KLE technological
-          University who are passionate about Cybersecurity and future studies
-          prospects. Our mission is to provide a platform for students to learn,
-          grow, and connect with others who share their interests. <br />
+          The Threat Hunters is an exclusive club that caters to students who
+          possess an unwavering passion for Cybersecurity. Our primary objective
+          is to establish a cohesive platform where students can learn, thrive,
+          and network with like-minded individuals. <br />
           <br />
-          Our club offers a variety of activities and events throughout the
-          semester, including guest lectures, workshops, and social events. We
-          also provide resources and support for students who are interested in
-          pursuing careers in networking, security etc. <br />
+          As a club, we offer an array of activities and events, which include
+          expert guest lectures, hands-on workshops, and social events. We
+          strive to empower students by providing them with the resources,
+          guidance, and mentorship needed to develop their skills and embark on
+          a career in networking, security, and beyond. <br />
           <br />
-          This club will be led by alumni students who are professionals in
-          Cybersecurity. They will plan and organize security events and tech talks
-          and help to build relationships with organizations. Membership is open
-          to all students at KLE university, regardless of their major or
-          experience level.
+          Our club will be led by seasoned professionals with 2 -6+ years of
+          industrial experience in Cybersecurity, who have a wealth of knowledge
+          and expertise in planning and organizing security events, tech talks,
+          and building strategic relationships with industry organizations. We
+          welcome students from all disciplines, regardless of their level of
+          experience, to join us and become a part of our vibrant community.
         </p>
       </div>
     </div>
