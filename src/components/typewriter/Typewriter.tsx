@@ -6,12 +6,12 @@ import {
 import "./typeWriter.css";
 
 const sentences = [
-  "perform Security Operations?",
-  "conduct Malware Analysis?",
-  "improve Email Security?",
-  "engage in Threat Hunting?",
-  "conduct Network Penetration Testing?",
-  "respond to a security incident?",
+  "Security Operations?",
+  "Malware Analysis?",
+  "Email Security?",
+  "Threat Hunting?",
+  "Network Penetration Testing?",
+  "handling security incidents?",
 ];
 
 const Typewriter = () => {
@@ -20,13 +20,13 @@ const Typewriter = () => {
 
   return (
     <p className="type-writer">
-      You'll learn, how to
+      You'll learn about,
       <span
         className={
           phase !== TypePhase.Deleting
             ? "end-cursor"
-            : phase === TypePhase.Pausing
-            ? "end-cursor blinking"
+            : "" && phase === TypePhase.Pausing
+            ? "blinking"
             : ""
         }
         aria-label={selectedsentence}

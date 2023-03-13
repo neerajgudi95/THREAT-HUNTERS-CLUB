@@ -1,7 +1,10 @@
-.type-writer span {
-    color: #7DCE13;
-    margin-left: 10px;
+.type-writer {
     font-size: 1.4rem;
+}
+
+.type-writer span {
+    color: #7DCE13 !important;
+    margin-left: 10px;
 }
 
 .end-cursor:after {
