@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import GLOBE from "vanta/dist/vanta.globe.min";
+import Typewriter from "../typewriter/Typewriter";
 import "./Header.css";
 import { slideIn, staggerContainer, textVariant } from "../../utils/motion";
+
 const Header = () => {
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
@@ -48,6 +50,7 @@ const Header = () => {
           Join our cyber security club to gain knowledge and experience in this
           field, as well as network with other like-minded individuals.
         </motion.p>
+        <Typewriter />
       </div>
       <motion.div
         className="thc__header-img"

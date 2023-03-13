@@ -47,7 +47,7 @@ const Navbar = () => {
             Our Team
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink
             to="/pricing"
             onClick={() => setToggleMenu(false)}
@@ -55,8 +55,8 @@ const Navbar = () => {
           >
             Pricing
           </NavLink>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <Link
             className="thc__navbar-links-btn thc__navbar-links_login"
             to="/login"
@@ -77,7 +77,7 @@ const Navbar = () => {
           >
             Join
           </Link>
-        </li>
+        </li> */}
       </ul>
     </>
   );

@@ -1,0 +1,19 @@
+.type-writer span {
+    color: #7DCE13;
+    margin-left: 10px;
+    font-size: 1.4rem;
+}
+
+.end-cursor:after {
+    content: '|';
+}
+
+.end-cursor.blinking:after {
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
