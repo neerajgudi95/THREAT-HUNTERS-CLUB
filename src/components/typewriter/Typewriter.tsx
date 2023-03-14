@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   TypePhase,
   useTypeWriterEffect,
@@ -6,12 +6,12 @@ import {
 import "./typeWriter.css";
 
 const sentences = [
-  "Security Operations?",
-  "Malware Analysis?",
-  "Email Security?",
-  "Threat Hunting?",
-  "Network Penetration Testing?",
-  "handling security incidents?",
+  "Security Operations.",
+  "Malware Analysis.",
+  "Email Security.",
+  "Threat Hunting.",
+  "Network Penetration Testing.",
+  "handling security incidents.",
 ];
 
 const Typewriter = () => {

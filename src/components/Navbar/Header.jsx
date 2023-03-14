@@ -19,7 +19,7 @@ const Header = () => {
           minHeight: 100.0,
           minWidth: 100.0,
           scale: 1.0,
-          scaleMobile: 0.6,
+          scaleMobile: 0.3,
           color: 0x0002a1,
           size: 1.5,
           backgroundColor: 0x040c18,
