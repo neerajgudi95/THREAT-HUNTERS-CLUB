@@ -3,6 +3,7 @@ import { FaRupeeSign } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
 import { FaStarOfLife } from "react-icons/fa";
 import "./pricing.css";
+import { Link } from "react-router-dom";
 
 const pricing = () => {
   return (
@@ -44,6 +45,9 @@ const pricing = () => {
             </li>
           </ul>
         </div>
+        <Link to="/" className="join-link">
+          Join us now
+        </Link>
       </div>
     </div>
   );
