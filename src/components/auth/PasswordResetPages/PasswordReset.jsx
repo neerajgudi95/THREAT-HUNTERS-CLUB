@@ -30,7 +30,7 @@ const PasswordReset = () => {
   const handlePasswordReset = async (values) => {
     try {
       await axios.put(
-        `//localhost:8080/api/members/${passwordResetCode}/reset-password`,
+        `${process.env.ENDPOINT}/api/members/${passwordResetCode}/reset-password`,
         { newPassword: values.password }
       );
       setIsSuccess(true);

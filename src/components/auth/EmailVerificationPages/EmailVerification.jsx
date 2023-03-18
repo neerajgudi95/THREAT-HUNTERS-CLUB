@@ -15,9 +15,12 @@ const EmailVerification = () => {
   useEffect(() => {
     const loadVerification = async () => {
       try {
-        const response = await axios.put("//localhost:8080/api/verify-email", {
-          verifitcationString,
-        });
+        const response = await axios.put(
+          `${process.env.ENDPOINT}/api/verify-email`,
+          {
+            verifitcationString,
+          }
+        );
         const { token } = response.data;
         console.log(token);
         setToken(token);

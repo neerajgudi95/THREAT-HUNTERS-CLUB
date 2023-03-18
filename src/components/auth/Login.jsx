@@ -27,7 +27,7 @@ const Login = () => {
 
   const handleMemberSignUp = async (values) => {
     try {
-      const response = await axios.post("//localhost:8080/api/login", {
+      const response = await axios.post(`${process.env.ENDPOINT}/api/login`, {
         email: values.email,
         password: values.password,
       });

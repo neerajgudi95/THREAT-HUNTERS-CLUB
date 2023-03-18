@@ -54,7 +54,7 @@ const MemberRegistration = () => {
       password,
     } = values;
     try {
-      const response = await axios.post("//localhost:8080/api/signup", {
+      const response = await axios.post(`${process.env.ENDPOINT}/api/signup`, {
         email: email,
         password: password,
         info: { firstName, lastName, phoneNo, yearOfJoin, department },

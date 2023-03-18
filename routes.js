@@ -57,18 +57,18 @@ export const routes = createBrowserRouter([
         path: "club-privacy",
         element: <PrivacyPolicy />,
       },
-      /*  {
+      {
         path: "pricing",
         element: <Pricing />,
       },
-      {
-        path: "login",
-        element: <Login />,
-      },
-      {
-        path: "register",
-        element: <MemberRegistration />,
-      },
+      // {
+      //   path: "login",
+      //   element: <Login />,
+      // },
+      // {
+      //   path: "register",
+      //   element: <MemberRegistration />,
+      // },
       {
         path: "email-verify",
         element: <VerifyEmailPage />,
@@ -84,7 +84,7 @@ export const routes = createBrowserRouter([
       {
         path: "reset-password/:passwordResetCode",
         element: <PasswordReset />,
-      }, */
+      },
     ],
   },
   {

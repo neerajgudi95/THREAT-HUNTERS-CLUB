@@ -22,7 +22,7 @@ const ForgotPassword = () => {
   const navigate = useNavigate();
   const handleForgotPassword = async (values) => {
     try {
-      await axios.put(`//localhost:8080/api/forgot-password/${values.email}`);
+      await axios.put(`${process.env.ENDPOINT}/api/forgot-password/${values.email}`);
       setSuccess(true);
       setTimeout(() => {
         navigate("/login");
