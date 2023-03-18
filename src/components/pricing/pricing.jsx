@@ -29,19 +29,28 @@ const pricing = () => {
         <div className="thc__pricing-features">
           <ul>
             <li>
-              <TiTick className="tick" size="1.5rem" /> One-year membership of
-              the club.
+              <div className="tick">
+                <TiTick size="1.5rem" />
+              </div>
+              <span>One-year membership of the club.</span>
             </li>
             <li>
-              <TiTick className="tick" size="1.5rem" /> Training Sessions and
-              Mock interviews.
+              <div className="tick">
+                <TiTick size="1.5rem" />
+              </div>
+              <span>Training Sessions and Mock interviews.</span>
             </li>
             <li>
-              <TiTick className="tick" size="1.5rem" /> Online tech resources:
-              docs, blogs, talks.
+              <div className="tick">
+                <TiTick size="1.5rem" />
+              </div>
+              <span>Online tech resources: docs, blogs, talks.</span>
             </li>
             <li>
-              <TiTick className="tick" size="1.5rem" /> Networking Opportunities
+              <div className="tick">
+                <TiTick size="1.5rem" />
+              </div>
+              <span>Networking Opportunities</span>
             </li>
           </ul>
         </div>
