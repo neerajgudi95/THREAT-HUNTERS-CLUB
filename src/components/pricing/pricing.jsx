@@ -1,9 +1,11 @@
 import React from "react";
 import { FaRupeeSign } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
-import { FaStarOfLife } from "react-icons/fa";
 import "./pricing.css";
 import { Link } from "react-router-dom";
+import Marquee from "react-fast-marquee";
+import MarqueeElement from "./MarqueeElement";
+import Slider from "./Slider";
 
 const pricing = () => {
   return (
@@ -22,12 +24,13 @@ const pricing = () => {
               <h3 className="gradient__text">2550</h3>
             </div>
           </div>
-          <p>
-            <FaStarOfLife /> Offer applicable till April 9, 2023
+          <p className="discount-ribbon">
+            <span>Offer valid till 9th April</span>
           </p>
         </div>
         <div className="thc__pricing-features">
           <ul>
+            <h3>Features</h3>
             <li>
               <div className="tick">
                 <TiTick size="1.5rem" />
@@ -53,13 +56,57 @@ const pricing = () => {
               <span>Networking Opportunities</span>
             </li>
           </ul>
+          <ul>
+            <h3>Courses offered</h3>
+            <li>
+              <div className="tick">
+                <TiTick size="1.5rem" />
+              </div>
+              <span>Basics of Networks and Cyber Security</span>
+            </li>
+            <li>
+              <div className="tick">
+                <TiTick size="1.5rem" />
+              </div>
+              <span>Advanced Network Security</span>
+            </li>
+            <li>
+              <div className="tick">
+                <TiTick size="1.5rem" />
+              </div>
+              <span>Security Operations</span>
+            </li>
+            <li>
+              <div className="tick">
+                <TiTick size="1.5rem" />
+              </div>
+              <span>Incident Response</span>
+            </li>
+            <li>
+              <div className="tick">
+                <TiTick size="1.5rem" />
+              </div>
+              <span>Malware Analysis</span>
+            </li>
+            <li>
+              <div className="tick">
+                <TiTick size="1.5rem" />
+              </div>
+              <span>Network Pentesting</span>
+            </li>
+          </ul>
         </div>
+        <Link to="/course-details" className="course-info">
+          Checkout course timeline
+        </Link>
         <Link to="/" className="join-link">
           Join us now
         </Link>
       </div>
+      <div className="marquee-wrapper">
+        <Slider />
+      </div>
     </div>
   );
 };
-
 export default pricing;

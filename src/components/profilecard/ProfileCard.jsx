@@ -27,7 +27,6 @@ const ProfileCard = ({
         />
       </div>
       <h3 className="thc__profile-name">{name}</h3>
-      <p className="thc__profile-role">{roleAtClub}</p>
       <p className="thc__profile-designation">{designation}</p>
       <p className="thc__profile-desc">{description}</p>
 

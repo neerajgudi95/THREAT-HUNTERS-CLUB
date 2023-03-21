@@ -45,21 +45,6 @@ export const membersList = [
     ],
   },
   {
-    name: "Krishna Badiger",
-    roleAtClub: "Member",
-    designation: "Security Analyst",
-    cover:
-      "https://img.freepik.com/free-vector/cyber-security-concept_23-2148530843.jpg?w=900&t=st=1676048747~exp=1676049347~hmac=d38715af872a4638b858d5d7e8cb385ee1edc3befb4224bc34d49e83d8bdbeb1",
-    image:
-      "https://ik.imagekit.io/fq9vykvp2/profile_image_webp/tr:w-300,h-300/profile4.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1675704324024",
-    description:
-      "I am Security Professional with 4.5+ years of experience in Security Monitoring, Incident response, Threats hunting , Threat Intelligence, Email Security, Endpoint Security and Network security.",
-    connectLinks: [
-      "https://www.linkedin.com/in/krishna-badiger-/",
-      "krishna.badiger2911@gmail.com",
-    ],
-  },
-  {
     name: "Neeraj Gudi",
     roleAtClub: "Co-Founder",
     designation: "Frontend Developer",
@@ -72,21 +57,6 @@ export const membersList = [
     connectLinks: [
       "https://www.linkedin.com/in/neerajgudi95",
       "neerajgudi95@gmail.com",
-    ],
-  },
-  {
-    name: "Soumitra Samant",
-    roleAtClub: "Member",
-    designation: "Security Analyst",
-    cover:
-      "https://img.freepik.com/free-vector/cyber-security-concept_23-2148530843.jpg?w=900&t=st=1676048747~exp=1676049347~hmac=d38715af872a4638b858d5d7e8cb385ee1edc3befb4224bc34d49e83d8bdbeb1",
-    image:
-      "https://ik.imagekit.io/fq9vykvp2/profile_image_webp/tr:w-300,h-300/profile6.jfif?ik-sdk-version=javascript-1.4.3&updatedAt=1676737298232",
-    description:
-      "I'm a Technical Solutions Engineer Associate at Akamai with experience in troubleshooting various products related to web delivery, acceleration, and security. I currently manage premium customers from North America and the EMEA region.",
-    connectLinks: [
-      "https://www.linkedin.com/in/soumitra-samant",
-      "soumitra.kishor@gmail.com",
     ],
   },
 ];

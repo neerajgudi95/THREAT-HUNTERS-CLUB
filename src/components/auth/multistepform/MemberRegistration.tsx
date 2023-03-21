@@ -6,7 +6,9 @@ import InputField from "./InputField";
 import MultiStepForm, { FormStep } from "./MultiStepForm";
 import { useToken } from "../../../utils/custom-hooks/useToken";
 import logo from "../../../assets/earth.png";
+import qr_code from "../../../assets/payment_qr.jpeg";
 import { Link, useNavigate } from "react-router-dom";
+import { IoLogoWhatsapp } from "react-icons/io";
 
 const MemberRegistration = () => {
   const [token, setToken] = useToken();
@@ -23,7 +25,7 @@ const MemberRegistration = () => {
       .min(2, "Last name should have atleat 2 letters")
       .max(50, "Last name too Long!"),
     dateOfJoin: string().required("DOJ is required"),
-    department: string().required("Department is required"),
+    profession: string().required("Profession is required"),
     email: string().email().required("Email is required"),
     phoneNo: string()
       .required("phoneNo is required")
@@ -44,20 +46,13 @@ const MemberRegistration = () => {
   });
 
   const handleUserSignUp = async (values) => {
-    const {
-      firstName,
-      lastName,
-      email,
-      phoneNo,
-      yearOfJoin,
-      department,
-      password,
-    } = values;
+    const { firstName, lastName, email, phoneNo, profession, password } =
+      values;
     try {
       const response = await axios.post(`${process.env.ENDPOINT}/api/signup`, {
         email: email,
         password: password,
-        info: { firstName, lastName, phoneNo, yearOfJoin, department },
+        info: { firstName, lastName, phoneNo, profession },
       });
       const { token } = response.data;
       console.log(token);
@@ -84,8 +79,7 @@ const MemberRegistration = () => {
             lastName: "",
             email: "",
             phoneNo: "",
-            yearOfJoin: "",
-            department: "",
+            profession: "",
             password: "",
             confirmPassword: "",
           }}
@@ -98,20 +92,12 @@ const MemberRegistration = () => {
             validationSchema={object({
               firstName: string().required("First Name is required"),
               lastName: string().required("First Name is required"),
-              yearOfJoin: string().required("DOJ is required"),
-              department: string().required("Department is required"),
+              profession: string().required("Profession is required"),
             })}
           >
             <InputField name="firstName" label="First Name" />
             <InputField name="lastName" label="Last Name" />
-            <InputField name="yearOfJoin" label="Year of joining" />
-            <InputField name="department" label="Department" />
-            <script
-              src="https://payments.open.money/buttons"
-              data-open-button-id="bt_BV4jtk8FINahtVY"
-            >
-              click here
-            </script>
+            <InputField name="profession" label="Profession" />
           </FormStep>
           <FormStep
             stepName="Credentials"
@@ -145,17 +131,30 @@ const MemberRegistration = () => {
               type="password"
             />
           </FormStep>
-          {/* <FormStep
-            stepName="Payment"
-            onSubmit={() => {}}
-            validationSchema={object().shape({
-              upiId: string()
-                .matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g, "Invalid UPI ID")
-                .required("UPI ID is required"),
-            })}
-          >
-            <InputField name="upiId" label="UPI ID" />
-          </FormStep> */}
+          {
+            <FormStep stepName="Payment">
+              <div className="payment-qr">
+                <img src={qr_code} alt="payment qr" />
+              </div>
+              <div className="payment-info">
+                <p>
+                  Kindly share your email and transaction id to below whatsapp
+                  account on successfull payment
+                </p>
+                <a href="https://wa.me/+919449030939" rel="noopener noreferrer">
+                  <IoLogoWhatsapp
+                    color="#128C7E"
+                    size="2em"
+                    style={{ margin: "10px 0" }}
+                  />
+                </a>
+                <p>
+                  We'll verify your payment within 24 hours and provide access
+                  to our dashboard
+                </p>
+              </div>
+            </FormStep>
+          }
         </MultiStepForm>
         <p
           style={{

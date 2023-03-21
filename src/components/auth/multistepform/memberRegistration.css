@@ -25,6 +25,21 @@
     margin-bottom: 30px;
 }
 
+.payment-qr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-qr img {
+    width: 60%;
+    height: 60%;
+}
+
+.payment-info {
+    text-align: center;
+}
+
 .thc__registration-container form {
     width: 100%;
     /* padding: 20px; */
