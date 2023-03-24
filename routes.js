@@ -11,15 +11,21 @@ import {
   Pricing,
   MemberRegistration,
   PrivateRoute,
-} from "./src/components/export";
-import Dashboard from "./src/components/DashboardComponents/Dashboard";
-import VerifyEmailPage from "./src/components/auth/VerifyEmailPage";
-import ForgotPassword from "./src/components/auth/ForgotPassword";
-import PasswordReset from "./src/components/auth/PasswordResetPages/PasswordReset";
-import EmailVerification from "./src/components/auth/EmailVerificationPages/EmailVerification";
+} from "./src/components/Landing page components/export";
+import VerifyEmailPage from "./src/components/Landing page components/auth/VerifyEmailPage";
+import ForgotPassword from "./src/components/Landing page components/auth/ForgotPassword";
+import PasswordReset from "./src/components/Landing page components/auth/PasswordResetPages/PasswordReset";
 import ScrollToTop from "./src/components/ScrollToTop";
-import MainApp from "./src/components/main/MainApp";
-import CourseDetails from "./src/components/CourseDetails/CourseDetails";
+import MainApp from "./src/components/Landing page components/main/MainApp";
+import CourseDetails from "./src/components/Landing page components/CourseDetails/CourseDetails";
+import EmailVerification from "./src/components/Landing page components/auth/EmailVerificationPages/EmailVerification";
+// import UserDashboard from "./src/components/Dashboard/Member/UserDashboard";
+// import AdminDashboard from "./src/components/Dashboard/Admin/AdminDashboard";
+// import ClubMembers from "./src/components/Dashboard/Admin/ClubMembers";
+// import Notes from "./src/components/Dashboard/Notes";
+// import AddMember from "./src/components/Dashboard/Admin/AddMember";
+// import MainDashboard from "./src/components/Dashboard/MainDashboard";
+import RegistrationConfirmation from "./src/components/Landing page components/auth/RegistrationConfirmation";
 
 const AppLayout = () => {
   return (
@@ -79,6 +85,10 @@ export const routes = createBrowserRouter([
         element: <VerifyEmailPage />,
       },
       {
+        path: "registration-confirmation",
+        element: <RegistrationConfirmation />,
+      },
+      {
         path: "forgot-password",
         element: <ForgotPassword />,
       },
@@ -92,13 +102,30 @@ export const routes = createBrowserRouter([
       },
     ],
   },
-  {
-    path: "/dashboard",
-    element: (
-      <PrivateRoute>
-        <Dashboard />
-      </PrivateRoute>
-    ),
-  },
+  // {
+  //   path: "/member-dashboard",
+  //   element: (
+  //     <PrivateRoute>
+  //       <UserDashboard />
+  //     </PrivateRoute>
+  //   ),
+  //   errorElement: <Error />,
+  //   children: [{ path: "notes", element: <Notes /> }],
+  // },
+  // {
+  //   path: "/admin/dashboard",
+  //   element: (
+  //     <PrivateRoute>
+  //       <AdminDashboard />
+  //     </PrivateRoute>
+  //   ),
+  //   errorElement: <Error />,
+  //   children: [
+  //     { path: "main", element: <MainDashboard /> },
+  //     { path: "members", element: <ClubMembers /> },
+  //     { path: "notes", element: <Notes /> },
+  //     { path: "add-member", element: <AddMember /> },
+  //   ],
+  // },
   ,
 ]);

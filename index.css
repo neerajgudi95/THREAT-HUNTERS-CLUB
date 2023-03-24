@@ -31,3 +31,7 @@
 ::-webkit-scrollbar-button {
   display: none;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
