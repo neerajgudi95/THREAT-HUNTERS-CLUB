@@ -1,0 +1,90 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.thc__profile-card {
+    padding: 15px;
+    width: 350px;
+    height: 500px;
+    background: var(--color-blog);
+    border-radius: 10px;
+    /* text-align: center; */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.7);
+    user-select: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.thc__profile-cover {
+    position: relative;
+    background-size: cover;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    flex: 1;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.thc__profile-photo {
+    position: absolute;
+    width: 120px;
+    bottom: -60px;
+    right: 15px;
+    border-radius: 50%;
+    border: 5px solid var(--color-blog);
+    /* background: var(--color-blog); */
+    /* padding: 5px; */
+}
+
+.thc__profile-name {
+    font-size: 20px;
+    margin: 15px;
+    color: #fff;
+    text-align: left;
+}
+
+.thc__profile-role,
+.thc__profile-designation {
+    margin: 10px;
+    text-align: left;
+    font-size: 14px;
+    color: var(--color-text);
+}
+
+.thc__profile-desc {
+    text-align: left;
+    color: var(--color-text);
+    line-height: 25px;
+    font-size: 14px;
+}
+
+.thc__profile-icons {
+    width: 100%;
+    margin: 20px 0;
+    border-top: 1px solid #797979;
+    padding-top: 20px;
+}
+
+.thc__profile-icons ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+
+
+.linkedin {
+    color: #0077b5;
+}
+
+.gmail {
+    color: #bb001b;
+    /* margin-left: 20px; */
+}

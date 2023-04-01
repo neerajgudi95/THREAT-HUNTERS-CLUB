@@ -1,0 +1,71 @@
+.thc__loginForm-wrapper {
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thc__loginForm-container {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 500px;
+    padding: 20px 50px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+.thc__loginForm-container h3 {
+    text-align: center;
+    color: var(--color-text);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.thc__loginForm-container form {
+    width: 100%;
+    /* padding: 20px; */
+    /* display: flex;
+    justify-content: center;
+    /* flex-direction: column; 
+    min-width: 400px;
+    gap: 20px;
+    flex-wrap: wrap; */
+}
+
+.thc__loginBtnsLinks {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.thc__loginForm-container form>div {
+    margin: 20px 0
+}
+
+.css-j204z7-MuiFormControlLabel-root .MuiFormControlLabel-label {
+    font-size: 14px;
+    text-align: justify;
+}
+
+
+@media screen and (max-width:900px) {
+    .thc__loginForm-container form {
+        flex-direction: column;
+    }
+
+    .thc__loginBtnsLinks {
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .thc__loginBtnsLinks a {
+        text-align: center;
+    }
+}
