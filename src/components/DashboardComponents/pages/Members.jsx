@@ -26,10 +26,6 @@ const Members = () => {
       `${process.env.DASHBOARD_ENDPOINT}getUsers`
     );
     const members = response.data;
-    // const refinedMembersList = members.map((member) => ({
-    //   fullName: `${member.info.firstName} ${member.info.lastName}`,
-
-    // }));
 
     setMembersList(members);
   };

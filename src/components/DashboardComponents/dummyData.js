@@ -87,33 +87,33 @@ export const membersGrid = [
     field: "fullName",
     headerText: "Name",
     width: "170",
-    textAlign: "Center",
+    textAlign: "left",
   },
   {
     field: "email",
     headerText: "Email",
     width: "170",
-    textAlign: "Center",
+    textAlign: "left",
   },
   {
     field: "joinDate",
     headerText: "Join Date",
     width: "135",
     format: "yMd",
-    textAlign: "Center",
+    textAlign: "left",
   },
 
   {
     field: "profession",
     headerText: "Profession",
     width: "120",
-    textAlign: "Center",
+    textAlign: "left",
   },
   {
     field: "phoneNo",
     headerText: "Phone",
     width: "125",
-    textAlign: "Center",
+    textAlign: "left",
   },
 ];
 
@@ -134,7 +134,7 @@ export const notesGrid = [
     headerText: "Name",
     width: "135",
     format: "yMd",
-    textAlign: "Center",
+    textAlign: "left",
   },
   {
     field: "topic",

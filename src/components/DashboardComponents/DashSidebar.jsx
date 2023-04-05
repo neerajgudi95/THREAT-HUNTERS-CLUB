@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import { SlDocs } from "react-icons/sl";
 import { FiUsers } from "react-icons/fi";
-import { BsChatDots } from "react-icons/bs";
+import { BsChatDots, BsRecordBtn } from "react-icons/bs";
 import { MdOutlineCancel } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { useStateContext } from "./contexts/ContextProvider";
@@ -26,7 +26,7 @@ const DashSidebar = () => {
   };
 
   return (
-    <div className="m-2 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto">
+    <div className="m-2 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto z-20">
       {activeMenu && (
         <>
           <div className="flex justify-between items-center">
@@ -108,6 +108,22 @@ const DashSidebar = () => {
               </NavLink>
             )}
             <NavLink
+              to={`/dashboard/recordings`}
+              key="recordings"
+              style={({ isActive }) => ({
+                backgroundColor: isActive ? currentColor : "",
+              })}
+              onClick={handleCloseSideBar}
+              className={({ isActive }) => (isActive ? activeLink : normalLink)}
+            >
+              <BsRecordBtn
+                style={({ isActive }) => ({
+                  color: isActive ? white : "",
+                })}
+              />
+              <span className="capitalize">Recordings</span>
+            </NavLink>
+            <NavLink
               to={`/dashboard/discussion`}
               key="discussion"
               style={({ isActive }) => ({
@@ -124,7 +140,6 @@ const DashSidebar = () => {
               <span className="capitalize">Discussion</span>
             </NavLink>
           </div>
-          ;
         </>
       )}
     </div>

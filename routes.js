@@ -2,7 +2,6 @@ import { createBrowserRouter, Outlet } from "react-router-dom";
 import {
   WhatCyberSec,
   OurGoals,
-  OurTeam,
   Error,
   Login,
   Navbar,
@@ -18,6 +17,7 @@ import {
   DashboardHome,
   Notes,
   DashChat,
+  Videos,
 } from "./src/components/DashboardComponents/exports";
 import VerifyEmailPage from "./src/components/Landing page components/auth/VerifyEmailPage";
 import ForgotPassword from "./src/components/Landing page components/auth/ForgotPassword";
@@ -58,10 +58,6 @@ export const routes = createBrowserRouter([
       {
         path: "club-goals",
         element: <OurGoals />,
-      },
-      {
-        path: "our-team",
-        element: <OurTeam />,
       },
       {
         path: "club-privacy",
@@ -135,6 +131,10 @@ export const routes = createBrowserRouter([
       {
         path: "discussion",
         element: <DashChat />,
+      },
+      {
+        path: "recordings",
+        element: <Videos />,
       },
     ],
   },

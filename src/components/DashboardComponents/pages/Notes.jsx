@@ -23,6 +23,8 @@ import FileUpload from "../tools/FileUpload";
 import axios from "axios";
 import { useUserContext } from "../../../GlobalContexts/UserContextProvider";
 import { Link } from "react-router-dom";
+import moment from "moment";
+import { GrRefresh } from "react-icons/gr";
 
 const Notes = () => {
   const [notes, setNotes] = useState([]);
@@ -55,8 +57,7 @@ const Notes = () => {
         document.body.removeChild(link);
         URL.revokeObjectURL(href);
       })
-      .catch((error) => {
-      });
+      .catch((error) => {});
   };
 
   const getAllNotes = async () => {
@@ -77,16 +78,23 @@ const Notes = () => {
 
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-      <DashHeader category="Page" title="Notes" />
+      <div className="flex justify-between items-center">
+        <DashHeader category="Page" title="Notes" />
+        <GrRefresh
+          size={"2rem"}
+          onClick={getAllNotes}
+          className="cursor-pointer"
+        />
+      </div>
       {state?.user?.role === "admin" && <FileUpload />}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell align="right">Topic</TableCell>
-              <TableCell align="right">Posted on</TableCell>
-              <TableCell align="right">Download Link</TableCell>
+              <TableCell align="left">Topic</TableCell>
+              <TableCell align="left">Posted on</TableCell>
+              <TableCell align="left">Download Link</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -99,9 +107,11 @@ const Notes = () => {
                   <TableCell component="th" scope="row">
                     {note.filename}
                   </TableCell>
-                  <TableCell align="right">{note.topic}</TableCell>
-                  <TableCell align="right">{note.timestamp}</TableCell>
-                  <TableCell align="right">
+                  <TableCell align="left">{note.topic}</TableCell>
+                  <TableCell align="left">
+                    {moment(note.timestamp).utcOffset(330).format("LLLL")}
+                  </TableCell>
+                  <TableCell align="left">
                     <button onClick={() => fileDownload(note.absoluteFilename)}>
                       Download file
                     </button>

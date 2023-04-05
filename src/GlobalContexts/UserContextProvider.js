@@ -23,13 +23,20 @@ const reducer = (state, action) => {
 
     case "RELOAD":
       const existingToken = localStorage.getItem("token");
-      const encPayload = existingToken.split(".")[1];
-      const existingUser = JSON.parse(Buffer.from(encPayload, "base64"));
+      if (existingToken) {
+        const encPayload = existingToken.split(".")[1];
+        const existingUser = JSON.parse(Buffer.from(encPayload, "base64"));
 
-      return {
-        ...state,
-        user: existingUser
-      };
+        return {
+          ...state,
+          user: existingUser
+        };
+      } else {
+        return {
+          ...state,
+          user: null
+        }
+      }
 
     case "LOGOUT":
       localStorage.clear();
@@ -45,18 +52,6 @@ const reducer = (state, action) => {
 export const UserContextProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  const setUserOnReload = () => {
-    const checkTokenInLocalStorage = localStorage.getItem('token')
-    if (checkTokenInLocalStorage) {
-      const encodedPayload = checkTokenInLocalStorage.split(".")[1];
-      return {
-        ...state,
-        user: newUser
-      };
-    }
-
-  }
 
   return (
     <UserContext.Provider value={{ state, dispatch }}>

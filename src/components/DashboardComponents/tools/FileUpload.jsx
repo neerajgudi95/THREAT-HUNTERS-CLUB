@@ -8,40 +8,38 @@ const FileUpload = () => {
   const [selectedFile, setSelectedFile] = useState(undefined);
   const [isUploading, setIsUploading] = useState("start");
 
-  const [errorMessage, setErrorMessage] = useState({
-    name: "",
-    topic: "",
-    file: "",
-  });
+  const [fileNameError, setInstructorError] = useState("");
+  const [topicError, setTopicError] = useState("");
+  const [selectedFileError, setLinkError] = useState("");
+
+  const validateInputs = (inputField) => {
+    return inputField.length === 0
+  }
+
+  const checkForError = (error1, error2, error3) => {
+    const errorStatus = error1.length === 0 && error2.length === 0 && error3.length === 0
+    return errorStatus
+  }
 
   const handleFileSubmit = (e) => {
     e.preventDefault();
 
-    !fileName &&
-      setErrorMessage((prevState) => ({
-        ...prevState,
-        name: "Please enter a file name",
-      }));
-    !fileTopic &&
-      setErrorMessage((prevState) => ({
-        ...prevState,
-        topic: "Please enter a topic for this file",
-      }));
+    validateInputs(fileName) &&
+      setTopicError("Please enter a name for this file");
+    validateInputs(fileTopic) &&
+      setInstructorError("Please enter a topic for this file");
     !selectedFile &&
-      setErrorMessage((prevState) => ({
-        ...prevState,
-        file: "Please select a file to upload",
-      }));
+      setLinkError("Please select a file to upload");
+
+    if (checkForError(fileNameError, topicError, selectedFileError)) {
+      return
+    }
 
     let formData = new FormData();
     formData.append("file", selectedFile);
 
     try {
-      if (
-        errorMessage.name == "" &&
-        errorMessage.topic == "" &&
-        errorMessage.file == ""
-      ) {
+      {
         setIsUploading("uploading");
         var requestOptions = {
           method: "POST",
@@ -77,11 +75,6 @@ const FileUpload = () => {
           >
             File Name
           </label>
-          {errorMessage.name && (
-            <label className="mb-2 inline-block text-red-500 ">
-              {errorMessage.name}
-            </label>
-          )}
           <input
             className="relative m-0 block w-full min-w-0 flex-auto cursor-pointer rounded border border-solid border-neutral-300 bg-clip-padding py-[0.32rem] px-3 font-normal leading-[2.15] text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:cursor-pointer file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[margin-inline-end:0.75rem] file:[border-inline-end-width:1px] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-[0_0_0_1px] focus:shadow-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100"
             id="fileName"
@@ -89,6 +82,12 @@ const FileUpload = () => {
             value={fileName}
             onChange={(e) => setFileName(e.target.value)}
           />
+          {fileNameError && (
+            <label className="mb-2 inline-block text-red-500 text-sm">
+              {fileNameError}
+            </label>
+          )}
+
         </div>
         <div className="mb-3 w-66">
           <label
@@ -97,11 +96,7 @@ const FileUpload = () => {
           >
             Topic related to file
           </label>
-          {errorMessage.topic && (
-            <label className="mb-2 inline-block text-red-500 ">
-              {errorMessage.topic}
-            </label>
-          )}
+
           <input
             className="relative m-0 block w-full min-w-0 flex-auto cursor-pointer rounded border border-solid border-neutral-300 bg-clip-padding py-[0.32rem] px-3 font-normal leading-[2.15] text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:cursor-pointer file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[margin-inline-end:0.75rem] file:[border-inline-end-width:1px] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-[0_0_0_1px] focus:shadow-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100"
             id="topic"
@@ -109,6 +104,11 @@ const FileUpload = () => {
             value={fileTopic}
             onChange={(e) => setFileTopic(e.target.value)}
           />
+          {topicError && (
+            <label className="mb-2 inline-block text-red-500 text-sm">
+              {topicError}
+            </label>
+          )}
         </div>
         <div className="mb-3 w-66">
           <label
@@ -117,11 +117,7 @@ const FileUpload = () => {
           >
             Select File
           </label>
-          {errorMessage.file && (
-            <label className="mb-2 inline-block text-red-500 ">
-              {errorMessage.file}
-            </label>
-          )}
+
           <input
             className="relative m-0 block w-full min-w-0 flex-auto cursor-pointer rounded border border-solid border-neutral-300 bg-clip-padding py-[0.32rem] px-3 font-normal leading-[2.15] text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:cursor-pointer file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[margin-inline-end:0.75rem] file:[border-inline-end-width:1px] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-[0_0_0_1px] focus:shadow-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100"
             id="formFile"
@@ -131,6 +127,11 @@ const FileUpload = () => {
               setSelectedFile(e.target.files[0]);
             }}
           />
+          {selectedFileError && (
+            <label className="mb-2 inline-block text-red-500 text-sm">
+              {selectedFileError}
+            </label>
+          )}
         </div>
         <div className="mb-3 w-96">
           <button
@@ -145,9 +146,8 @@ const FileUpload = () => {
         </div>
       </form>
 
-      {isUploading === "start" && ""}
       {isUploading === "uploading" && <Loader />}
-      {isUploading === "uploaded" && <p>"File Uploaded successfully"</p>}
+      {isUploading === "uploaded" && <p className="mb-2 inline-block text-green-500 text-sm">File Uploaded successfully</p>}
     </div>
   );
 };

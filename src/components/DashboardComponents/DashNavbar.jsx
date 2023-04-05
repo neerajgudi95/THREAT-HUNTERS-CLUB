@@ -68,7 +68,6 @@ const DashNavbar = () => {
         icon={<AiOutlineMenu />}
         customFunc={handleActiveMenu}
       />
-
       <div className="flex items-center gap-3">
         <NavButton
           title="Chat"

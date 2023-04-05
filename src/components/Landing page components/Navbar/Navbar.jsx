@@ -9,8 +9,7 @@ import { useToken } from "../../../utils/custom-hooks/useToken";
 const Navbar = () => {
   const navigate = useNavigate();
   const [toggleMenu, setToggleMenu] = useState(false);
-  const token = localStorage.getItem("userToken");
-  // console.log(user);
+  const token = localStorage.getItem("token");
   const NavMenu = (
     <>
       <ul>
@@ -39,15 +38,6 @@ const Navbar = () => {
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             Our Goals
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/our-team"
-            onClick={() => setToggleMenu(false)}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            Our Team
           </NavLink>
         </li>
         <li>
