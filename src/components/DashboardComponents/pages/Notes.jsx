@@ -31,14 +31,6 @@ const Notes = () => {
   const { state } = useUserContext();
 
   const fileDownload = (fileName) => {
-    // let config = {
-    //   method: "get",
-    //   maxBodyLength: Infinity,
-    //   url: `http://181.215.68.163:8082/downloadFile/${fileName}`,
-    //   headers: {},
-    //   {responseType: "blob"},
-    // };
-
     axios
       .get(`${process.env.DASHBOARD_ENDPOINT}downloadFile/${fileName}`, {
         responseType: "blob",

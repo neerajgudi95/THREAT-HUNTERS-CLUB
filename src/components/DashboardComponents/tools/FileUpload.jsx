@@ -1,66 +1,57 @@
 import React, { useState } from "react";
 import { useStateContext } from "../contexts/ContextProvider";
 import Loader from "../../Landing page components/loader/Loader";
+import { enqueueSnackbar } from "notistack";
 
 const FileUpload = () => {
   const [fileName, setFileName] = useState("");
   const [fileTopic, setFileTopic] = useState("");
   const [selectedFile, setSelectedFile] = useState(undefined);
-  const [isUploading, setIsUploading] = useState("start");
-
-  const [fileNameError, setInstructorError] = useState("");
-  const [topicError, setTopicError] = useState("");
-  const [selectedFileError, setLinkError] = useState("");
-
-  const validateInputs = (inputField) => {
-    return inputField.length === 0
-  }
-
-  const checkForError = (error1, error2, error3) => {
-    const errorStatus = error1.length === 0 && error2.length === 0 && error3.length === 0
-    return errorStatus
-  }
+  const [isUploading, setIsUploading] = useState(false);
 
   const handleFileSubmit = (e) => {
     e.preventDefault();
 
-    validateInputs(fileName) &&
-      setTopicError("Please enter a name for this file");
-    validateInputs(fileTopic) &&
-      setInstructorError("Please enter a topic for this file");
-    !selectedFile &&
-      setLinkError("Please select a file to upload");
-
-    if (checkForError(fileNameError, topicError, selectedFileError)) {
-      return
-    }
-
-    let formData = new FormData();
-    formData.append("file", selectedFile);
-
     try {
-      {
-        setIsUploading("uploading");
-        var requestOptions = {
-          method: "POST",
-          body: formData,
-          redirect: "follow",
-        };
-
-        fetch(
-          `${process.env.DASHBOARD_ENDPOINT}addNotes/${fileTopic}/${fileName}`,
-          requestOptions
-        )
-          .then((response) => response.text())
-          .then((result) => console.log(result))
-          .catch((error) => console.log("error", error));
-        setIsUploading("uploaded");
-        setIsUploading("start");
+      if (fileName === "" || fileTopic === "" || !selectedFile) {
+        throw new Error("Enter all the fields to upload the file");
       }
+      setIsUploading(true);
+      let formData = new FormData();
+      formData.append("file", selectedFile);
+      var requestOptions = {
+        method: "POST",
+        body: formData,
+        redirect: "follow",
+      };
+
+      fetch(
+        `${process.env.DASHBOARD_ENDPOINT}addNotes/${fileTopic}/${fileName}`,
+        requestOptions
+      )
+        .then((response) => response.text())
+        .then((result) =>
+          enqueueSnackbar(result, {
+            variant: "success",
+          })
+        )
+        .catch((error) =>
+          enqueueSnackbar(error.message, {
+            variant: "error",
+          })
+        );
+      setIsUploading(false);
+      enqueueSnackbar("File has been uploaded successfully", {
+        variant: "success",
+      });
     } catch (error) {
-      console.log(error.message);
+      setIsUploading(false);
+      enqueueSnackbar(error.message, {
+        variant: "warning",
+      });
     }
   };
+
   const { currentColor } = useStateContext();
   return (
     <div>
@@ -82,12 +73,6 @@ const FileUpload = () => {
             value={fileName}
             onChange={(e) => setFileName(e.target.value)}
           />
-          {fileNameError && (
-            <label className="mb-2 inline-block text-red-500 text-sm">
-              {fileNameError}
-            </label>
-          )}
-
         </div>
         <div className="mb-3 w-66">
           <label
@@ -104,11 +89,6 @@ const FileUpload = () => {
             value={fileTopic}
             onChange={(e) => setFileTopic(e.target.value)}
           />
-          {topicError && (
-            <label className="mb-2 inline-block text-red-500 text-sm">
-              {topicError}
-            </label>
-          )}
         </div>
         <div className="mb-3 w-66">
           <label
@@ -127,11 +107,6 @@ const FileUpload = () => {
               setSelectedFile(e.target.files[0]);
             }}
           />
-          {selectedFileError && (
-            <label className="mb-2 inline-block text-red-500 text-sm">
-              {selectedFileError}
-            </label>
-          )}
         </div>
         <div className="mb-3 w-96">
           <button
@@ -146,8 +121,7 @@ const FileUpload = () => {
         </div>
       </form>
 
-      {isUploading === "uploading" && <Loader />}
-      {isUploading === "uploaded" && <p className="mb-2 inline-block text-green-500 text-sm">File Uploaded successfully</p>}
+      {isUploading && <Loader />}
     </div>
   );
 };

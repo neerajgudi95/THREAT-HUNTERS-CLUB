@@ -21,12 +21,12 @@ const DashboardApp = () => {
   const { dispatch } = useUserContext();
 
   useEffect(() => {
-    dispatch({ type: 'RELOAD' })
-  }, [])
+    dispatch({ type: "RELOAD" });
+  }, []);
 
   return (
     <div className={currentMode === "dark" ? "dark" : ""}>
-      <div className="flex relative dark:bg-main-dark-bg">
+      <div className="flex dark:bg-secondary-dark-bg">
         <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
           <TooltipComponent content="Settings" position="Top">
             <button
@@ -49,17 +49,19 @@ const DashboardApp = () => {
           </div>
         )}
         <div
-          className={`dark:bg-main-dark-bg bg-main-bg min-h-screen flex-2 w-full
-            ${activeMenu ? "md:ml-72" : "flex-2"}`}
+          className={`dark:bg-secondary-dark-bg bg-main-bg h-screen flex-2 w-full
+          ${activeMenu ? "md:ml-72" : "flex-1"}`}
         >
-          <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg nav w-full">
+          <div className="bg-main-bg dark:bg-main-navbar-bg nav w-full">
             <DashNavbar />
           </div>
-          <Outlet />
+          <div className="min-h-screen dark:text-white bg-main-bg dark:bg-secondary-dark-bg w-full">
+            <Outlet />
+          </div>
           {themeSettings && <ThemeSettings />}
         </div>
       </div>
-      <DashFooter />
+      {/* <DashFooter /> */}
     </div>
   );
 };

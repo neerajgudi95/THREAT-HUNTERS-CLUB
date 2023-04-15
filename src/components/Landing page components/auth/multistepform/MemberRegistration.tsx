@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import { object, string, ref } from "yup";
 import axios from "axios";
 import "./memberRegistration.css";
+import { useSnackbar } from "notistack";
 import InputField from "./InputField";
 import MultiStepForm, { FormStep } from "./MultiStepForm";
 import { useToken } from "../../../../utils/custom-hooks/useToken";
 import logo from "../../../../assets/earth.png";
 import qr_code from "../../../../assets/payment_qr.jpeg";
 import { Link, useNavigate } from "react-router-dom";
-import { IoLogoWhatsapp } from "react-icons/io";
 
 const MemberRegistration = () => {
   const [token, setToken] = useToken();
-  const [errorMessage, setErrorMessage] = useState("");
+  const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
 
   const validationSchema = object({
@@ -55,12 +55,12 @@ const MemberRegistration = () => {
       });
       const { token } = response.data;
       setToken(token);
-      setErrorMessage("");
       navigate(`/email-verify`);
     } catch (error) {
       if (error.response.status === 409) {
-        setErrorMessage(
-          "This email id is already registered with us. Please either login with the same email id or register with new one"
+        enqueueSnackbar(
+          "This email id is already registered with us. Please either login with the same email id or register with new one",
+          { variant: "error" }
         );
       }
     }
@@ -71,18 +71,6 @@ const MemberRegistration = () => {
       <div className="thc__registration-container">
         <img src={logo} alt="logo" width={50} height={50} />
         <h3>Join Us</h3>
-        {errorMessage && (
-          <p
-            style={{
-              color: "#DC0000",
-              fontSize: "14px",
-              fontWeight: "400",
-              textAlign: "center",
-            }}
-          >
-            {errorMessage}
-          </p>
-        )}
         <MultiStepForm
           initialValues={{
             firstName: "",
@@ -153,8 +141,8 @@ const MemberRegistration = () => {
               </div>
               <div className="payment-info">
                 <p>
-                  Kindly submit and share your registered email id, transaction id to below
-                  email id on successful payment.
+                  Kindly submit and share your registered email id, transaction
+                  id to below email id on successful payment.
                 </p>
                 <p
                   style={{

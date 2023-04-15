@@ -3,8 +3,6 @@ import { FaRupeeSign } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
 import "./pricing.css";
 import { Link } from "react-router-dom";
-import Marquee from "react-fast-marquee";
-import MarqueeElement from "./MarqueeElement";
 import Slider from "./Slider";
 
 const pricing = () => {
@@ -19,15 +17,7 @@ const pricing = () => {
                 <FaRupeeSign />
                 <h3 className="gradient__text">3500</h3>
               </div>
-              <span className="discount">Save 15%</span>
-              <div>
-                <FaRupeeSign />
-                <h3 className="gradient__text">2975</h3>
-              </div>
             </div>
-            <p className="discount-ribbon">
-              <span>Offer valid till 3rd April</span>
-            </p>
           </div>
           <div className="thc__pricing-features">
             <ul>

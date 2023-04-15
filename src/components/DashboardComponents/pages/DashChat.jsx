@@ -5,7 +5,7 @@ import { FaDiscord } from "react-icons/fa";
 const DashChat = () => {
   const { state } = useUserContext();
   return (
-    <div className="flex items-center justify-center flex-col h-1/2">
+    <div className="flex items-center justify-center flex-col h-1/2 mt-5">
       <div className="w-1/2 text-center">
         <h1 className="mb-10">
           Dear{" "}
@@ -15,8 +15,8 @@ const DashChat = () => {
         </h1>
         <p>
           We'll be coming up with our own discussion forum in sometime.
-          Meanwhile, kindly check our discord channel where you can ask you
-          doubts or share your thoughts
+          Meanwhile, kindly check our discord channel where you can ask doubts
+          or share your thoughts
         </p>
         <div className="">
           <a

@@ -37,7 +37,6 @@ const DashNavbar = () => {
   } = useStateContext();
 
   const { state } = useUserContext();
-  // console.log(user)
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);

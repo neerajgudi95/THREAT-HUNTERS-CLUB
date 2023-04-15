@@ -4,7 +4,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import { SlDocs } from "react-icons/sl";
 import { FiUsers } from "react-icons/fi";
 import { BsChatDots, BsRecordBtn } from "react-icons/bs";
-import { MdOutlineCancel } from "react-icons/md";
+import { MdOutlineCancel, MdOutlineQuiz } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { useStateContext } from "./contexts/ContextProvider";
 import logo from "../../assets/earth.png";
@@ -26,7 +26,7 @@ const DashSidebar = () => {
   };
 
   return (
-    <div className="m-2 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto z-20">
+    <div className="m-2 h-[100vh] md:overflow-hidden overflow-auto md:hover:overflow-auto z-20">
       {activeMenu && (
         <>
           <div className="flex justify-between items-center">
@@ -68,6 +68,7 @@ const DashSidebar = () => {
                 style={({ isActive }) => ({
                   color: isActive ? white : "",
                 })}
+                size="1.5rem"
               />
               <span className="capitalize">Home</span>
             </NavLink>
@@ -84,6 +85,7 @@ const DashSidebar = () => {
                 style={({ isActive }) => ({
                   color: isActive ? white : "",
                 })}
+                size="1.5rem"
               />
               <span className="capitalize">Notes</span>
             </NavLink>
@@ -103,6 +105,7 @@ const DashSidebar = () => {
                   style={({ isActive }) => ({
                     color: isActive ? white : "",
                   })}
+                  size="1.5rem"
                 />
                 <span className="capitalize">Members</span>
               </NavLink>
@@ -120,6 +123,7 @@ const DashSidebar = () => {
                 style={({ isActive }) => ({
                   color: isActive ? white : "",
                 })}
+                size="1.5rem"
               />
               <span className="capitalize">Recordings</span>
             </NavLink>
@@ -136,8 +140,26 @@ const DashSidebar = () => {
                 style={({ isActive }) => ({
                   color: isActive ? white : "",
                 })}
+                size="1.5rem"
               />
               <span className="capitalize">Discussion</span>
+            </NavLink>
+            <NavLink
+              to={`/dashboard/quiz`}
+              key="quiz"
+              style={({ isActive }) => ({
+                backgroundColor: isActive ? currentColor : "",
+              })}
+              onClick={handleCloseSideBar}
+              className={({ isActive }) => (isActive ? activeLink : normalLink)}
+            >
+              <MdOutlineQuiz
+                style={({ isActive }) => ({
+                  color: isActive ? white : "",
+                })}
+                size="1.5rem"
+              />
+              <span className="capitalize">Test yourself</span>
             </NavLink>
           </div>
         </>

@@ -1,4 +1,5 @@
 import { createBrowserRouter, Outlet } from "react-router-dom";
+import { SnackbarProvider, useSnackbar } from "notistack";
 import {
   WhatCyberSec,
   OurGoals,
@@ -12,12 +13,13 @@ import {
   PrivateRoute,
 } from "./src/components/export";
 import {
-  DashUserProfile,
   Members,
   DashboardHome,
   Notes,
   DashChat,
   Videos,
+  MemberProfile,
+  Quizpage,
 } from "./src/components/DashboardComponents/exports";
 import VerifyEmailPage from "./src/components/Landing page components/auth/VerifyEmailPage";
 import ForgotPassword from "./src/components/Landing page components/auth/ForgotPassword";
@@ -29,6 +31,8 @@ import EmailVerification from "./src/components/Landing page components/auth/Ema
 import RegistrationConfirmation from "./src/components/Landing page components/auth/RegistrationConfirmation";
 import DashboardApp from "./src/components/DashboardComponents/DashboardApp";
 import { ContextProvider } from "./src/components/DashboardComponents/contexts/ContextProvider";
+import QuizModule from "./src/components/DashboardComponents/tools/QuizModule";
+import { QuizScoreContextProvider } from "./src/components/DashboardComponents/contexts/QuizScoreContext";
 
 const AppLayout = () => {
   return (
@@ -44,7 +48,15 @@ const AppLayout = () => {
 export const routes = createBrowserRouter([
   {
     path: "/",
-    element: <AppLayout />,
+    element: (
+      <SnackbarProvider
+        maxSnack={1}
+        autoHideDuration={5000}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      >
+        <AppLayout />
+      </SnackbarProvider>
+    ),
     errorElement: <Error />,
     children: [
       {
@@ -106,7 +118,15 @@ export const routes = createBrowserRouter([
     element: (
       <PrivateRoute>
         <ContextProvider>
-          <DashboardApp />
+          <QuizScoreContextProvider>
+            <SnackbarProvider
+              maxSnack={1}
+              autoHideDuration={5000}
+              anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            >
+              <DashboardApp />
+            </SnackbarProvider>
+          </QuizScoreContextProvider>
         </ContextProvider>
       </PrivateRoute>
     ),
@@ -114,7 +134,7 @@ export const routes = createBrowserRouter([
     children: [
       {
         path: "profile",
-        element: <DashUserProfile />,
+        element: <MemberProfile />,
       },
       {
         path: "members",
@@ -136,6 +156,11 @@ export const routes = createBrowserRouter([
         path: "recordings",
         element: <Videos />,
       },
+      {
+        path: "quiz",
+        element: <Quizpage />,
+      },
+      { path: "quiz/:moduleId", element: <QuizModule /> },
     ],
   },
   // {

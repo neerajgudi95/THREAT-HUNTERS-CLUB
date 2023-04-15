@@ -11,12 +11,16 @@ import {
   AnnotationsDirective,
 } from "@syncfusion/ej2-react-circulargauge";
 
-const DiskDetails = ({ diskDetails }) => {
+const CpuDetails = ({ cpuDetails }) => {
+  let cpuData = 0;
+  if (cpuDetails.cpuUsed !== 0) {
+    cpuData = +cpuDetails?.cpuUsed.split("%")[0];
+  }
 
   return (
     <CircularGaugeComponent
       background="transparent"
-      id="container2"
+      id="container1"
       width="100%"
       height="300px"
     >
@@ -27,9 +31,9 @@ const DiskDetails = ({ diskDetails }) => {
           endAngle={90}
           radius="100%"
           minimum={0}
-          maximum={diskDetails?.availableSpace}
+          maximum={100}
           lineStyle={{ width: 30, color: "#f6f7f9" }}
-          majorTicks={{ height: 0, interval: 5 }}
+          majorTicks={{ height: 0, interval: 10 }}
           minorTicks={{ height: 0 }}
           labelStyle={{
             font: { fontFamily: "inherit", size: "12px" },
@@ -42,7 +46,7 @@ const DiskDetails = ({ diskDetails }) => {
             <PointerDirective
               type="RangeBar"
               color="#7edfb4"
-              value={diskDetails?.remainingSpace}
+              value={cpuData}
               radius="120%"
               pointerWidth={28}
               className="dark:text-gray-200"
@@ -54,9 +58,8 @@ const DiskDetails = ({ diskDetails }) => {
               markerHeight={3}
               radius="103%"
               color="black"
-              value={diskDetails?.remainingSpace}
+              value={cpuData}
             />
-            <>{diskDetails}</>
           </PointersDirective>
           {/* <RangesDirective>
                         <RangeDirective start={0} end={38} startWidth={10} endWidth={10} color="#7edfb4" radius="86%" />
@@ -66,7 +69,7 @@ const DiskDetails = ({ diskDetails }) => {
                     </RangesDirective> */}
           <AnnotationsDirective>
             <AnnotationDirective
-              content={`<div class="gaugeOneText" style="font-size:30px;font-family:inherit;">${diskDetails?.remainingSpace} gb</div>`}
+              content={`<div class="gaugeOneText" style="font-size:30px;font-family:inherit;">${cpuData} %</div>`}
               angle={5}
               zIndex="1"
               radius="-20%"
@@ -77,4 +80,4 @@ const DiskDetails = ({ diskDetails }) => {
     </CircularGaugeComponent>
   );
 };
-export default DiskDetails;
+export default CpuDetails;

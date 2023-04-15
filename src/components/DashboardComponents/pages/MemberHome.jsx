@@ -1,5 +1,6 @@
 import React from "react";
 import { useUserContext } from "../../../GlobalContexts/UserContextProvider";
+import { FaDotCircle } from "react-icons/fa";
 
 const MemberHome = () => {
   const { state } = useUserContext();
@@ -13,7 +14,7 @@ const MemberHome = () => {
           </p>
         </div>
       )}
-      <div className="text-center">
+      <div className="text-center dark:text-white">
         <h1 className="text-2xl text-center">
           Hi,{" "}
           <span className="text-4xl text-lime-500">
@@ -21,6 +22,37 @@ const MemberHome = () => {
           </span>
         </h1>
         <p className="mt-2 text-3xl">Welcome to Treat Hunters Club</p>
+      </div>
+
+      <div className="h-[500px] m-5 dark:text-white">
+        <iframe
+          src="https://threatmap.checkpoint.com/"
+          className="w-[100%] h-[100%] wobject-contain"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full"
+        ></iframe>
+        <ul className="flex justify-evenly items-center m-5">
+          <li className="flex items-center flex-col">
+            <img
+              src="https://sc1.checkpoint.com/threatmap/build/images/malware.svg"
+              alt=""
+            />
+            <span>Malware</span>
+          </li>
+          <li className="flex items-center flex-col">
+            <img
+              src="https://sc1.checkpoint.com/threatmap/build/images/phishing.svg"
+              alt=""
+            />
+            <span>Phishing</span>
+          </li>
+          <li className="flex items-center flex-col">
+            <img
+              src="https://sc1.checkpoint.com/threatmap/build/images/exploit.svg"
+              alt=""
+            />
+            <span>Exploit</span>
+          </li>
+        </ul>
       </div>
     </div>
   );

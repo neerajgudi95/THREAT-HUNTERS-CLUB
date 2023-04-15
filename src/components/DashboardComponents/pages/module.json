@@ -1,0 +1,41 @@
+[
+{"question":"TCP/IP model does not have ______ layer but OSI model have this layer.",
+"answer":"Session",
+"marks":10}
+,
+{"question":"What is used to identify a process on a host by the transport layer?",
+"answer":"Port number",
+"marks":10}
+,
+{"question":"Which 3 protocols are used in accessing the internet? (Answer format: P1, P2, P3 where P indicates protocol)",
+"answer":"DHCP, DNS, HTTP",
+"marks":10}
+,
+{"question":"An attempt to make a computer resource unavailable to its intended users is called?",
+"answer":"DOS",
+"marks":10}
+,
+{"question":"Which protocol allows clients to update their DNS entry as their IP address changes?",
+"answer":"DDNS",
+"marks":10}
+,
+{"question":"What are the network firewalls that can efficiently process packets, but are vulnerable to spoofing attacks?",
+"answer":"Packet filtering firewall",
+"marks":10}
+,
+{"question":"A packet-filtering firewall filters packets after it examines them in their entirety. True or false",
+"answer":"False",
+"marks":10}
+,
+{"question":"Which network firewall that can block attacks that could reveal protocol vulnerabilities, but require high processing time?",
+"answer":"Stateful inspection firewall",
+"marks":10}
+,
+{"question":"A proxy firewall is another name for an application-level gateway. True or false",
+"answer":"True",
+"marks":10}
+,
+{"question":"Which networking device forwards data packets between two computer networks?",
+"answer":"Router",
+"marks":10}
+]
