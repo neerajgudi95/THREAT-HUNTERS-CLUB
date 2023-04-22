@@ -3,7 +3,7 @@ import { useStateContext } from "../contexts/ContextProvider";
 import Loader from "../../Landing page components/loader/Loader";
 import { enqueueSnackbar } from "notistack";
 
-const FileUpload = () => {
+const FileUpload = ({ getNotes }) => {
   const [fileName, setFileName] = useState("");
   const [fileTopic, setFileTopic] = useState("");
   const [selectedFile, setSelectedFile] = useState(undefined);
@@ -30,20 +30,21 @@ const FileUpload = () => {
         requestOptions
       )
         .then((response) => response.text())
-        .then((result) =>
-          enqueueSnackbar(result, {
+        .then((result) => {
+          getNotes();
+          enqueueSnackbar("File has been uploaded successfully", {
             variant: "success",
-          })
-        )
+          });
+          setFileName("");
+          setFileTopic("");
+          setSelectedFile("");
+        })
         .catch((error) =>
           enqueueSnackbar(error.message, {
             variant: "error",
           })
         );
       setIsUploading(false);
-      enqueueSnackbar("File has been uploaded successfully", {
-        variant: "success",
-      });
     } catch (error) {
       setIsUploading(false);
       enqueueSnackbar(error.message, {
@@ -62,7 +63,7 @@ const FileUpload = () => {
         <div className="mb-3 w-66">
           <label
             htmlFor="fileName"
-            className="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
+            className="mb-2 inline-block text-neutral-700"
           >
             File Name
           </label>
@@ -75,10 +76,7 @@ const FileUpload = () => {
           />
         </div>
         <div className="mb-3 w-66">
-          <label
-            htmlFor="topic"
-            className="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
-          >
+          <label htmlFor="topic" className="mb-2 inline-block text-neutral-700">
             Topic related to file
           </label>
 
@@ -93,7 +91,7 @@ const FileUpload = () => {
         <div className="mb-3 w-66">
           <label
             htmlFor="formFile"
-            className="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
+            className="mb-2 inline-block text-neutral-700"
           >
             Select File
           </label>

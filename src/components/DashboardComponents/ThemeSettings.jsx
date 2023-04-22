@@ -1,6 +1,8 @@
 import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
 import { BsCheck } from "react-icons/bs";
+import { BiSun } from "react-icons/bi";
+import { HiMoon } from "react-icons/hi";
 
 import { useStateContext } from "./contexts/ContextProvider";
 import { themeColors } from "./dummyData";
@@ -11,8 +13,8 @@ const ThemeSettings = () => {
     useStateContext();
 
   return (
-    <div className="bg-half-transparent w-screen fixed nav-item top-0 right-0 z-20">
-      <div className="float-right h-screen dark:text-gray-200 bg-white dark:bg-[#484b52] w-400">
+    <div className="bg-half-transparent w-screen fixed nav-item top-0 right-0 z-20 transition-all">
+      <div className="float-right h-screen dark:text-gray-200 bg-white dark:bg-[#484b52] w-400 transition-all">
         <div className="flex justify-between p-4 ml-4">
           <p className="font-semibold text-lg">Settings</p>
           <button
@@ -26,33 +28,52 @@ const ThemeSettings = () => {
         </div>
         <div className="flex-col border-t-1 border-color p-4 ml-4">
           <p className="font-semibold text-lg">Theme Options</p>
-          <div className="mt-4">
-            <input
-              type="radio"
-              id="light"
-              name="theme"
-              value="light"
-              className="cursor-pointer"
-              onChange={setMode}
-              checked={currentMode === "light"}
-            />
-            <label htmlFor="light" className="ml-2 text-md cursor-pointer">
-              Light
-            </label>
-          </div>
-          <div className="mt-4">
-            <input
-              type="radio"
-              id="dark"
-              name="theme"
-              value="dark"
-              className="cursor-pointer"
-              onChange={setMode}
-              checked={currentMode === "dark"}
-            />
-            <label htmlFor="dark" className="ml-2 text-md cursor-pointer">
-              Dark
-            </label>
+          <div className="flex items-center gap-3">
+            <div className="mt-4">
+              <input
+                type="radio"
+                id="light"
+                name="theme"
+                value="light"
+                className="cursor-pointer hidden"
+                onChange={setMode}
+                checked={currentMode === "light"}
+              />
+              <div
+                className="flex items-center p-2 rounded"
+                style={{
+                  backgroundColor: currentMode === "light" && currentColor,
+                  color: currentMode === "light" && "white",
+                }}
+              >
+                <BiSun />
+                <label htmlFor="light" className="ml-1 text-md cursor-pointer">
+                  Light
+                </label>
+              </div>
+            </div>
+            <div className="mt-4">
+              <input
+                type="radio"
+                id="dark"
+                name="theme"
+                value="dark"
+                className="cursor-pointer hidden"
+                onChange={setMode}
+                checked={currentMode === "dark"}
+              />
+              <div
+                className="flex items-center p-2 rounded"
+                style={{
+                  backgroundColor: currentMode === "dark" && currentColor,
+                }}
+              >
+                <HiMoon />
+                <label htmlFor="dark" className="ml-1 text-md cursor-pointer">
+                  Dark
+                </label>
+              </div>
+            </div>
           </div>
         </div>
         <div className="flex-col border-t-1 border-color p-4 ml-4">

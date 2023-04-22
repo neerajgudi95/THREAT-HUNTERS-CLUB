@@ -1,12 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext } from "react";
 import { useReducer } from "react";
-// import { useToken } from "../utils/custom-hooks/useToken";/
 
 const UserContext = createContext();
 const initialState = {
   user: {},
 };
-
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -18,7 +16,7 @@ const reducer = (state, action) => {
 
       return {
         ...state,
-        user: newUser
+        user: newUser,
       };
 
     case "RELOAD":
@@ -29,20 +27,20 @@ const reducer = (state, action) => {
 
         return {
           ...state,
-          user: existingUser
+          user: existingUser,
         };
       } else {
         return {
           ...state,
-          user: null
-        }
+          user: null,
+        };
       }
 
     case "LOGOUT":
       localStorage.clear();
       return {
         ...state,
-        token: null
+        token: null,
       };
     default:
       return state;
@@ -50,7 +48,6 @@ const reducer = (state, action) => {
 };
 
 export const UserContextProvider = ({ children }) => {
-
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (

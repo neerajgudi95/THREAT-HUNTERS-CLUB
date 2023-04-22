@@ -59,7 +59,10 @@ const Videos = () => {
               <TableCell align="left">Topic</TableCell>
               <TableCell align="left">Instructor</TableCell>
               <TableCell align="left">Posted on</TableCell>
-              <TableCell align="left">Recording Link</TableCell>
+              <TableCell align="left">Recordings</TableCell>
+              {state?.user?.role === "admin" && (
+                <TableCell align="left">Delete</TableCell>
+              )}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -68,17 +71,32 @@ const Videos = () => {
                 <TableRow
                   key={idx}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  // hover={true}
                 >
                   <TableCell align="left">{video.topic}</TableCell>
                   <TableCell align="left">{video.creator}</TableCell>
                   <TableCell align="left">
-                    {moment(video.postedOn).utcOffset("+05:30").format("LLLL")}
+                    {moment(video.postedOn).utcOffset("+05:30").format("LL")}
                   </TableCell>
                   <TableCell align="left">
-                    <a href={video.videoLink} target="_blank">
+                    <a
+                      href={video.videoLink}
+                      target="_blank"
+                      className="text-blue-600"
+                    >
                       View
                     </a>
                   </TableCell>
+                  {state?.user?.role === "admin" && (
+                    <TableCell align="left">
+                      <button
+                        onClick={() => console.log("remove video clicked")}
+                        className="text-red-600"
+                      >
+                        Remove
+                      </button>
+                    </TableCell>
+                  )}
                 </TableRow>
               );
             })}
@@ -89,7 +107,7 @@ const Videos = () => {
         <>
           <div className="flex p-2 justify-center dark:bg-main-dark-bg dark:text-white">
             <p className="text-center">
-              No videos found, kindly check with your instructor
+              No recordings found, kindly check with your instructor
             </p>
           </div>
         </>

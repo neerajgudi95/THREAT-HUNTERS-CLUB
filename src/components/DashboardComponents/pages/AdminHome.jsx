@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FiCpu } from "react-icons/fi";
-import { MdStorage, MdCurrencyRupee } from "react-icons/md";
+import { MdStorage } from "react-icons/md";
+import { VscServerProcess } from "react-icons/vsc";
 import { SkeletonComponent } from "@syncfusion/ej2-react-notifications";
 import DiskDetails from "../tools/DiskDetails";
 import CpuDetails from "../tools/CpuDetails";
+import Processes from "../tools/Processes";
 
 const AdminHome = () => {
   const [earnings, setEarnings] = useState(0);
@@ -16,6 +18,8 @@ const AdminHome = () => {
   const [cpuUtil, setCpuUtil] = useState({
     cpuUsed: 0,
   });
+
+  const [topProcesses, setTopProcesses] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const calculateEarnings = (members) => {
@@ -28,6 +32,7 @@ const AdminHome = () => {
     `${process.env.DASHBOARD_ENDPOINT}getUsers`,
     `${process.env.DASHBOARD_ENDPOINT}getDiskDetails`,
     `${process.env.DASHBOARD_ENDPOINT}getCpuDetails`,
+    `${process.env.DASHBOARD_ENDPOINT}getProcessDetails`,
   ];
 
   const getHomeDetails = async () => {
@@ -45,6 +50,7 @@ const AdminHome = () => {
       });
 
       setCpuUtil({ cpuUsed: response[2].data.cpuUsed });
+      setTopProcesses(response[3].data);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -135,6 +141,24 @@ const AdminHome = () => {
             <CpuDetails cpuDetails={cpuUtil} />
           )}
         </div>
+      </div>
+      <div className="bg-white flex-1 dark:text-gray-200 h-3/4 rounded-xl dark:bg-secondary-dark-bg p-8 pt-9 m-3">
+        <div className="flex justify-between items-center">
+          <div className="flex gap-2 items-center font-bold text-gray-400">
+            <VscServerProcess size={"1.5rem"} />
+            <p>Top five processes</p>
+          </div>
+        </div>
+        {isLoading ? (
+          <SkeletonComponent
+            className="skeleton"
+            id="skeletonCircleLarger"
+            shape="Circle"
+            width="80px"
+          ></SkeletonComponent>
+        ) : (
+          <Processes processes={topProcesses} />
+        )}
       </div>
     </div>
   );

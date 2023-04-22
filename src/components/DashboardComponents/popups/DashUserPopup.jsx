@@ -2,16 +2,15 @@ import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../Button";
-import { userProfileData } from "../dummyData";
 import { useStateContext } from "../contexts/ContextProvider";
 import { useUserContext } from "../../../GlobalContexts/UserContextProvider";
 
 const DashUserPopup = () => {
-  const { currentColor } = useStateContext();
+  const { currentColor, handleClick } = useStateContext();
   const { state, dispatch } = useUserContext();
   const navigate = useNavigate();
   const handleLUserLogout = () => {
-    dispatch({ type: 'LOGOUT' })
+    dispatch({ type: "LOGOUT" });
     navigate("/");
   };
 
@@ -43,6 +42,9 @@ const DashUserPopup = () => {
             <Link
               to={"/dashboard/home"}
               className="font-semibold dark:text-gray-200"
+              onClick={() => {
+                handleClick("userProfile");
+              }}
             >
               My profile
             </Link>

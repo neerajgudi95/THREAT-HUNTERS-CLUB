@@ -12,6 +12,8 @@ export { default as Members } from "./pages/Members";
 export { default as Videos } from "./pages/Videos";
 export { default as MemberProfile } from "./pages/MemberProfile";
 export { default as Quizpage } from "./pages/Quizpage";
+export { default as DashGames } from "./pages/DashGames";
+export { default as InterviewFeedback } from "./pages/InterviewFeedback";
 
 export { default as DashNotifsPopup } from "./popups/DashNotifsPopup";
 export { default as DashChatPopup } from "./popups/DashChatPopup";

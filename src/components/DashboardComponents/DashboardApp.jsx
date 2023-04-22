@@ -31,20 +31,20 @@ const DashboardApp = () => {
           <TooltipComponent content="Settings" position="Top">
             <button
               type="button"
-              className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white"
+              className="text-xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white"
               style={{ background: currentColor, borderRadius: "50%" }}
-              onClick={() => setThemeSettings(true)}
+              onClick={() => setThemeSettings((prevState) => !prevState)}
             >
               <FiSettings />
             </button>
           </TooltipComponent>
         </div>
         {activeMenu ? (
-          <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
+          <div className="w-72 fixed sidebar  bg-main-navbar-bg transition-all z-10">
             <DashSidebar />
           </div>
         ) : (
-          <div className="w-0 dark:bg-secondary-dark-bg">
+          <div className="w-0 transition-all bg-main-navbar-bg">
             <DashSidebar />
           </div>
         )}
@@ -52,7 +52,7 @@ const DashboardApp = () => {
           className={`dark:bg-secondary-dark-bg bg-main-bg h-screen flex-2 w-full
           ${activeMenu ? "md:ml-72" : "flex-1"}`}
         >
-          <div className="bg-main-bg dark:bg-main-navbar-bg nav w-full">
+          <div className="bg-main-navbar-bg nav w-full sticky">
             <DashNavbar />
           </div>
           <div className="min-h-screen dark:text-white bg-main-bg dark:bg-secondary-dark-bg w-full">

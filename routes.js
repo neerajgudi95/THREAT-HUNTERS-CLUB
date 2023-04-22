@@ -1,5 +1,5 @@
 import { createBrowserRouter, Outlet } from "react-router-dom";
-import { SnackbarProvider, useSnackbar } from "notistack";
+import { SnackbarProvider } from "notistack";
 import {
   WhatCyberSec,
   OurGoals,
@@ -20,6 +20,7 @@ import {
   Videos,
   MemberProfile,
   Quizpage,
+  InterviewFeedback,
 } from "./src/components/DashboardComponents/exports";
 import VerifyEmailPage from "./src/components/Landing page components/auth/VerifyEmailPage";
 import ForgotPassword from "./src/components/Landing page components/auth/ForgotPassword";
@@ -33,6 +34,8 @@ import DashboardApp from "./src/components/DashboardComponents/DashboardApp";
 import { ContextProvider } from "./src/components/DashboardComponents/contexts/ContextProvider";
 import QuizModule from "./src/components/DashboardComponents/tools/QuizModule";
 import { QuizScoreContextProvider } from "./src/components/DashboardComponents/contexts/QuizScoreContext";
+import { TimeContextProvider } from "./src/components/DashboardComponents/contexts/TimerContext";
+import FeedbackForm from "./src/components/DashboardComponents/tools/FeedbackForm";
 
 const AppLayout = () => {
   return (
@@ -119,13 +122,15 @@ export const routes = createBrowserRouter([
       <PrivateRoute>
         <ContextProvider>
           <QuizScoreContextProvider>
-            <SnackbarProvider
-              maxSnack={1}
-              autoHideDuration={5000}
-              anchorOrigin={{ vertical: "top", horizontal: "right" }}
-            >
-              <DashboardApp />
-            </SnackbarProvider>
+            <TimeContextProvider>
+              <SnackbarProvider
+                maxSnack={1}
+                autoHideDuration={5000}
+                anchorOrigin={{ vertical: "top", horizontal: "right" }}
+              >
+                <DashboardApp />
+              </SnackbarProvider>
+            </TimeContextProvider>
           </QuizScoreContextProvider>
         </ContextProvider>
       </PrivateRoute>
@@ -160,7 +165,19 @@ export const routes = createBrowserRouter([
         path: "quiz",
         element: <Quizpage />,
       },
+      {
+        path: "interview-feedback",
+        element: <FeedbackForm />,
+      },
+      {
+        path: "feedback",
+        element: <InterviewFeedback />,
+      },
       { path: "quiz/:moduleId", element: <QuizModule /> },
+      // {
+      //   path: "games",
+      //   element: <DashGames />,
+      // },
     ],
   },
   // {

@@ -25,6 +25,7 @@ import { useUserContext } from "../../../GlobalContexts/UserContextProvider";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { GrRefresh } from "react-icons/gr";
+import { enqueueSnackbar } from "notistack";
 
 const Notes = () => {
   const [notes, setNotes] = useState([]);
@@ -61,6 +62,33 @@ const Notes = () => {
     setNotes(data);
   };
 
+  const deleteNote = (path) => {
+    var requestOptions = {
+      method: "POST",
+      body: path,
+    };
+    try {
+      fetch(`${process.env.DASHBOARD_ENDPOINT}deleteNote`, requestOptions)
+        .then((response) => {
+          if (response.status === 200) {
+            getAllNotes();
+            enqueueSnackbar("File deleted successfully", {
+              variant: "success",
+            });
+          }
+        })
+        .catch(() => {
+          enqueueSnackbar("Something went wrong, please try again", {
+            variant: "error",
+          });
+        });
+    } catch (error) {
+      enqueueSnackbar("Something went wrong, please try again", {
+        variant: "error",
+      });
+    }
+  };
+
   useEffect(() => {
     getAllNotes();
     // return () => {
@@ -78,7 +106,7 @@ const Notes = () => {
           className="cursor-pointer"
         />
       </div>
-      {state?.user?.role === "admin" && <FileUpload />}
+      {state?.user?.role === "admin" && <FileUpload getNotes={getAllNotes} />}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -86,7 +114,10 @@ const Notes = () => {
               <TableCell>Name</TableCell>
               <TableCell align="left">Topic</TableCell>
               <TableCell align="left">Posted on</TableCell>
-              <TableCell align="left">Download Link</TableCell>
+              <TableCell align="left">Download</TableCell>
+              {state?.user?.role === "admin" && (
+                <TableCell align="left">Delete</TableCell>
+              )}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -101,13 +132,26 @@ const Notes = () => {
                   </TableCell>
                   <TableCell align="left">{note.topic}</TableCell>
                   <TableCell align="left">
-                    {moment(note.timestamp).utcOffset(330).format("LLLL")}
+                    {moment(note.timestamp).utcOffset(330).format("LL")}
                   </TableCell>
                   <TableCell align="left">
-                    <button onClick={() => fileDownload(note.absoluteFilename)}>
-                      Download file
+                    <button
+                      onClick={() => fileDownload(note.absoluteFilename)}
+                      className="text-blue-600"
+                    >
+                      Download
                     </button>
                   </TableCell>
+                  {state?.user?.role === "admin" && (
+                    <TableCell align="left">
+                      <button
+                        onClick={() => deleteNote(note.path)}
+                        className="text-red-600"
+                      >
+                        Delete
+                      </button>
+                    </TableCell>
+                  )}
                 </TableRow>
               );
             })}

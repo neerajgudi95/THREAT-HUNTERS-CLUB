@@ -18,8 +18,8 @@ const Question = ({ data, index }) => {
 
   return (
     <div>
-      <div className="flex items-start gap-2 mb-2">
-        <p className="">{`${index + 1}. ${data.question}`}</p>
+      <div className="flex items-start gap-2 my-5">
+        <p className="flex-1">{`${index + 1}. ${data.question}`}</p>
         {isAnsweredCorrect === "correct" && (
           <TiTick color="green" size="2rem" />
         )}
@@ -36,7 +36,7 @@ const Question = ({ data, index }) => {
             id={`answer${index}`}
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}
-            className="bg-gray-50 inline border-b border-b-gray-700 text-gray-900 text-md pt-2.5 px-2 pb-1 dark:text-white w-[300px] active:outline-none focus:outline-none"
+            className="bg-gray-50 inline border-b border-b-gray-700 text-gray-900 dark:bg-transparent dark:border-b-gray-400 text-md pt-2.5 px-2 pb-1 dark:text-white w-[300px] active:outline-none focus:outline-none"
             style={{ borderColor: `${isAnsweredCorrect === "unAns" && "red"}` }}
           />
         </div>

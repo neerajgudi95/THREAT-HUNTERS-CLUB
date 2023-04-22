@@ -28,7 +28,7 @@ const Login = () => {
     password: "",
   };
 
-  const handleMemberSignUp = async (values) => {
+  const handleMemberLogin = async (values) => {
     const { email, password } = values;
     try {
       setIsLoggingIn(true);
@@ -72,7 +72,7 @@ const Login = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={handleMemberSignUp}
+          onSubmit={handleMemberLogin}
         >
           {({ errors, touched }) => (
             <Form>

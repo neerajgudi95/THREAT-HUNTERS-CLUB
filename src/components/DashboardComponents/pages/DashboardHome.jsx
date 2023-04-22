@@ -3,7 +3,6 @@ import { useStateContext } from "../contexts/ContextProvider";
 import { useUserContext } from "../../../GlobalContexts/UserContextProvider";
 import AdminHome from "./AdminHome";
 import MemberHome from "./MemberHome";
-import DashFooter from "../DashFooter";
 
 const DashboardHome = () => {
   const { currentColor } = useStateContext();

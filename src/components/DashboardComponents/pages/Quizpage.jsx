@@ -3,10 +3,12 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { RiLock2Fill } from "react-icons/ri";
 import { useStateContext } from "../contexts/ContextProvider";
+import { useTimeContext } from "../contexts/TimerContext";
 
 const Quizpage = () => {
   const [quizList, setQuizList] = useState([]);
   const { currentColor } = useStateContext();
+  const { time, setTimerOn } = useTimeContext();
 
   const getQuizList = async () => {
     const response = await axios.get(
@@ -34,11 +36,12 @@ const Quizpage = () => {
               </h5>
               {module.allowed ? (
                 <Link
-                  className="inline-block mt-5 rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal  dark:text-white hover:shadow-md"
+                  className="inline-block mt-5 rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal  text-white hover:shadow-md"
                   data-te-ripple-init
                   data-te-ripple-color="light"
                   to={`/dashboard/quiz/${module.name}`}
                   style={{ backgroundColor: currentColor }}
+                  onClick={() => setTimerOn(true)}
                 >
                   Start
                 </Link>
