@@ -30,29 +30,6 @@ const MemberHome = () => {
           className="w-[100%] h-[100%] wobject-contain"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full"
         ></iframe>
-        <ul className="flex justify-evenly items-center m-5">
-          <li className="flex items-center flex-col">
-            <img
-              src="https://sc1.checkpoint.com/threatmap/build/images/malware.svg"
-              alt=""
-            />
-            <span>Malware</span>
-          </li>
-          <li className="flex items-center flex-col">
-            <img
-              src="https://sc1.checkpoint.com/threatmap/build/images/phishing.svg"
-              alt=""
-            />
-            <span>Phishing</span>
-          </li>
-          <li className="flex items-center flex-col">
-            <img
-              src="https://sc1.checkpoint.com/threatmap/build/images/exploit.svg"
-              alt=""
-            />
-            <span>Exploit</span>
-          </li>
-        </ul>
       </div>
     </div>
   );

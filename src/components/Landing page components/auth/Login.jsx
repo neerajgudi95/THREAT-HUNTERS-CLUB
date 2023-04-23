@@ -46,6 +46,11 @@ const Login = () => {
       navigate("/dashboard/home");
     } catch (error) {
       setIsLoggingIn(false);
+      if (error.code === "ERR_NETWORK") {
+        enqueueSnackbar("Kindly check you internet connection and try again", {
+          variant: "error",
+        });
+      }
       if (error.response.status === 401) {
         enqueueSnackbar("Member email or password is invalid", {
           variant: "error",

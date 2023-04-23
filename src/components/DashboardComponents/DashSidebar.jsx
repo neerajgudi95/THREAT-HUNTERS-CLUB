@@ -184,7 +184,7 @@ const DashSidebar = () => {
                   })}
                   size="1.5rem"
                 />
-                <span className="capitalize">Mock Interview Feedback</span>
+                <span className="capitalize">Mock Interview</span>
               </NavLink>
             )}
             {state?.user?.role === "admin" && (

@@ -47,6 +47,7 @@ const QuizModule = () => {
     const userEmail = state.user.email;
     const userScore = scoreState.score;
     const timeTaken = time;
+    const currentTime = new Date().toISOString();
     try {
       if (userScore <= 0) {
         throw new Error(
@@ -58,9 +59,13 @@ const QuizModule = () => {
           "Time taken seems to be 0, you might have refreshed the page. Kindly restart the quiz and try again"
         );
       }
-
-      const response = await axios.post(
-        `${process.env.DASHBOARD_ENDPOINT}postMarks/${userEmail}/${moduleId}/${userScore}`
+      await axios.post(
+        `${process.env.DASHBOARD_ENDPOINT}postMarks/${userEmail}/${moduleId}`,
+        {
+          marks: userScore.toString(),
+          timeTaken: timeTaken.toString(),
+          attemptedOn: currentTime,
+        }
       );
       setError("");
       enqueueSnackbar("Score submitted successfully", { variant: "success" });
@@ -105,16 +110,6 @@ const QuizModule = () => {
           className="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-800"
         >
           Submit your score
-        </button>
-
-        <button
-          onClick={() => {
-            setTimerOn(false);
-            console.log(time);
-          }}
-          className="focus:outline-none text-white bg-yellow-500 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-500 dark:focus:ring-yellow-800"
-        >
-          Stop time
         </button>
       </div>
     </div>
