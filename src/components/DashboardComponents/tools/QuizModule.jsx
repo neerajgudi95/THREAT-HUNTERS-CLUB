@@ -68,7 +68,10 @@ const QuizModule = () => {
         }
       );
       setError("");
-      enqueueSnackbar("Score submitted successfully", { variant: "success" });
+      enqueueSnackbar(
+        `You have scored ${userScore}/10 and your score has been submitted successfully`,
+        { variant: "success" }
+      );
       setTimerOn(false);
       navigate(-1);
     } catch (error) {
@@ -89,7 +92,6 @@ const QuizModule = () => {
   return isLoading ? (
     <Loader />
   ) : (
-    // <SnackbarProvider maxSnack={1} autoHideDuration={5000}>
     <div className="p-10 flex flex-col gap-5">
       <h2
         className="text-center text-4xl dark:text-gray-100"
@@ -113,15 +115,7 @@ const QuizModule = () => {
         </button>
       </div>
     </div>
-    // </SnackbarProvider>
   );
 };
 
 export default QuizModule;
-
-// https://181.215.68.163:8083/postQuestion/{module}
-// https://181.215.68.163:8083/getAllModules
-// https://181.215.68.163:8083/enableModule/{moduleName}
-// https://181.215.68.163:8083/getModule/{moduleName}
-// https://181.215.68.163:8083/postMarks/{email}/{mark}
-// https://181.215.68.163:8083/getMarks/{email}

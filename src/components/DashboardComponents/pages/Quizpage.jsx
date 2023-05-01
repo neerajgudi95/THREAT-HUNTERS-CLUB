@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { RiLock2Fill } from "react-icons/ri";
 import { useStateContext } from "../contexts/ContextProvider";
-import { useTimeContext } from "../contexts/TimerContext";
 import QuizDialogBox from "../tools/QuizDailogBox";
+import Loader from "../../../components/Landing page components/loader/Loader";
 
 const Quizpage = () => {
   const [quizList, setQuizList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const { currentColor } = useStateContext();
   const [dialogBoxOpen, setDialogBoxOpen] = useState(false);
 
   const getQuizList = async () => {
     try {
+      setIsLoading(true);
       const response = await axios.get(
         `${process.env.DASHBOARD_ENDPOINT}getAllModules`
       );
       const data = await response.data;
       setQuizList(data);
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
   };
@@ -27,7 +30,7 @@ const Quizpage = () => {
     getQuizList();
   }, []);
 
-  return (
+  return !isLoading ? (
     <div className="flex gap-4 flex-wrap p-5 md:p-10">
       {quizList &&
         quizList.map((module) => {
@@ -65,6 +68,8 @@ const Quizpage = () => {
           );
         })}
     </div>
+  ) : (
+    <Loader />
   );
 };
 

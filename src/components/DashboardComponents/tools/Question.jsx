@@ -7,9 +7,17 @@ const Question = ({ data, index }) => {
   const [answer, setAnswer] = useState("");
   const [isAnsweredCorrect, setIsAnsweredCorrect] = useState("");
   const { scoreState, dispatch } = useQuizScoreContext();
+
   const checkAnswer = (correctAnswer, enteredAnswer) => {
     let correct = false;
-    correct = correctAnswer.toLowerCase() === enteredAnswer.toLowerCase();
+    const splitEnteredAnswer = enteredAnswer
+      .split(",")
+      .map((answer) => answer.trim().toLowerCase());
+    const splitCorrectAnswer = correctAnswer
+      .split(",")
+      .map((answer) => answer.trim().toLowerCase());
+    correct =
+      JSON.stringify(splitEnteredAnswer) === JSON.stringify(splitCorrectAnswer);
     if (correct) {
       setIsAnsweredCorrect("correct");
       dispatch({ type: "UPDATE" });

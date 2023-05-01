@@ -5,12 +5,13 @@ const FeedbackForm = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const [email, setEmail] = useState("");
+  const [module, setModule] = useState("");
   const [communicationSkill, setCommunicationSkill] = useState(0);
   const [technicalSkills, setTechnicalSkills] = useState(0);
   const [learningAttitude, setLearningAttitude] = useState(0);
   const [problemSolving, setProblemSolving] = useState(0);
   const [behaviour, setBehaviour] = useState(0);
-  const [link, setLink] = useState("");
+  const [videoLink, setVideoLink] = useState("");
   const [feedback, setFeedback] = useState("");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -18,24 +19,39 @@ const FeedbackForm = () => {
   const handleFeedbackSubmit = (e) => {
     e.preventDefault();
     try {
-      if (email === "" || feedback === "") {
-        throw new Error("Email and feedback both are required");
+      if (email === "" || feedback === "" || module === "") {
+        throw new Error("Fields required: Email, Module and Feedback");
       }
       setIsSubmitting(true);
-      setTimeout(
-        () =>
-          console.table({
-            email,
-            communicationSkill,
-            technicalSkills,
-            learningAttitude,
-            problemSolving,
-            behaviour,
-            link,
-            feedback,
-          }),
-        [5000]
-      );
+
+      var requestOptions = {
+        method: "POST",
+        body: {
+          communicationSkill,
+          technicalSkills,
+          learningAttitude,
+          problemSolving,
+          behaviour,
+          overallFeedback,
+          email,
+          videoLink,
+          module,
+        },
+      };
+      fetch(`${process.env.DASHBOARD_ENDPOINT}postFeedback`, requestOptions)
+        .then((response) => {
+          if (response.status === 200) {
+            enqueueSnackbar("Feedback submitted successfully", {
+              variant: "success",
+            });
+          }
+        })
+        .catch(() => {
+          enqueueSnackbar("Something went wrong, please try again", {
+            variant: "error",
+          });
+        });
+
       setIsSubmitting(false);
     } catch (error) {
       setIsSubmitting(false);
@@ -51,7 +67,7 @@ const FeedbackForm = () => {
       </h2>
       <div className="flex items-center justify-center">
         <form className="w-full max-w-lg" onSubmit={handleFeedbackSubmit}>
-          <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="flex flex-wrap -mx-3 mb-4">
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 dark:text-white text-xs font-bold mb-2"
@@ -65,6 +81,23 @@ const FeedbackForm = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full px-3">
+              <label
+                className="block uppercase tracking-wide text-gray-700 dark:text-white text-xs font-bold mb-2"
+                htmlFor="module"
+              >
+                Module
+              </label>
+              <input
+                className="appearance-none block w-full bg-gray-200 dark:text-white dark:bg-gray-700 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="module"
+                type="text"
+                value={email}
+                onChange={(e) => setModule(e.target.value)}
               />
             </div>
           </div>
@@ -169,8 +202,8 @@ const FeedbackForm = () => {
                 className="appearance-none block w-full bg-gray-200 dark:text-white dark:bg-gray-700 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="link"
                 type="text"
-                value={link}
-                onChange={(e) => setLink(e.target.value)}
+                value={videoLink}
+                onChange={(e) => setVideoLink(e.target.value)}
               />
             </div>
           </div>

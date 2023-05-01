@@ -37,18 +37,22 @@ export default function QuizDailogBox({
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             <div className="text-center">
-              <p className="text-lg">
+              <span className="text-lg mb-5">
                 Only <span className="font-bold">First attempt</span> will be
                 considered valid! Although, you can attempt quiz multiple times.
-              </p>
-              <p className="text-red-500 m-5">
+                <br />
+                <br />
+              </span>
+              <span className="text-red-500 m-5">
                 Please <span className="font-bold">do not refresh</span> the
                 page once you start the quiz
-              </p>
-              <p>
+                <br />
+                <br />
+              </span>
+              <span className="mb-5">
                 Once you answer any question, please click on verify to validate
                 your answer, otherwise score will not be calculated
-              </p>
+              </span>
             </div>
           </DialogContentText>
         </DialogContent>

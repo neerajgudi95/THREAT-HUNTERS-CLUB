@@ -36,6 +36,7 @@ import QuizModule from "./src/components/DashboardComponents/tools/QuizModule";
 import { QuizScoreContextProvider } from "./src/components/DashboardComponents/contexts/QuizScoreContext";
 import { TimeContextProvider } from "./src/components/DashboardComponents/contexts/TimerContext";
 import FeedbackForm from "./src/components/DashboardComponents/tools/FeedbackForm";
+import Leaderboard from "./src/components/DashboardComponents/tools/Leaderboard";
 
 const AppLayout = () => {
   return (
@@ -174,10 +175,10 @@ export const routes = createBrowserRouter([
         element: <InterviewFeedback />,
       },
       { path: "quiz/:moduleId", element: <QuizModule /> },
-      // {
-      //   path: "games",
-      //   element: <DashGames />,
-      // },
+      {
+        path: "leaderboard",
+        element: <Leaderboard />,
+      },
     ],
   },
   // {

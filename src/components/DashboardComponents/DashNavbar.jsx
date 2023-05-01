@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsChatLeft } from "react-icons/bs";
 import { RiNotification3Line } from "react-icons/ri";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowDown, MdLeaderboard } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { useStateContext } from "./contexts/ContextProvider";
 import { DashChatPopup, DashUserPopup, DashNotifsPopup } from "./exports";
 import { useUserContext } from "../../GlobalContexts/UserContextProvider";
+import { useNavigate } from "react-router-dom";
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   <TooltipComponent content={title} position="BottomCenter">
@@ -37,6 +38,7 @@ const DashNavbar = () => {
   } = useStateContext();
 
   const { state } = useUserContext();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -73,13 +75,19 @@ const DashNavbar = () => {
           customFunc={() => handleClick("chat")}
           color={currentColor}
           icon={<BsChatLeft />}
-        // dotColor="#7DCE13"
+          // dotColor="#7DCE13"
         />
         <NavButton
           title="Notifications"
           customFunc={() => handleClick("notifs")}
           color={currentColor}
           icon={<RiNotification3Line />}
+        />
+        <NavButton
+          title="Leaderboard"
+          customFunc={() => navigate("/dashboard/leaderboard")}
+          color={currentColor}
+          icon={<MdLeaderboard />}
         />
         <TooltipComponent content="Profile" position="BottomCenter">
           <div
@@ -89,7 +97,9 @@ const DashNavbar = () => {
             }}
           >
             <span className="text-gray-400 text-14">Hi,</span>
-            <span className="text-gray-400 text-14">{state?.user?.info?.firstName}</span>
+            <span className="text-gray-400 text-14">
+              {state?.user?.info?.firstName}
+            </span>
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>
         </TooltipComponent>
