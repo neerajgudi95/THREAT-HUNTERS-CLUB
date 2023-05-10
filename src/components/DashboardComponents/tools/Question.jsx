@@ -12,9 +12,11 @@ const Question = ({ data, index }) => {
     let correct = false;
     const splitEnteredAnswer = enteredAnswer
       .split(",")
+      .sort()
       .map((answer) => answer.trim().toLowerCase());
     const splitCorrectAnswer = correctAnswer
       .split(",")
+      .sort()
       .map((answer) => answer.trim().toLowerCase());
     correct =
       JSON.stringify(splitEnteredAnswer) === JSON.stringify(splitCorrectAnswer);

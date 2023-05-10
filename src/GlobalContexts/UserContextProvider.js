@@ -37,27 +37,6 @@ const reducer = (state, action) => {
         };
       }
 
-    case "TOKEN_VALIDATE":
-      const currentToken = localStorage.getItem("token");
-      if (currentToken) {
-        const tokenDecode = jwtDecode(currentToken);
-        if (new Date() - new Date(tokenDecode.exp * 1000) > 1) {
-          console.log(
-            tokenDecode,
-            new Date() - new Date(tokenDecode.exp * 1000) > 1
-          );
-          localStorage.removeItem("token");
-          return {
-            ...state,
-            token: null,
-          };
-        } else {
-          return {
-            ...state,
-          };
-        }
-      }
-
     case "LOGOUT":
       localStorage.clear();
       return {

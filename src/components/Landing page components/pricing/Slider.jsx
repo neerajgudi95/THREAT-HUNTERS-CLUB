@@ -15,7 +15,7 @@ const Slider = () => {
       viewport={{ once: true, amount: 0.25 }}
     >
       <Marquee
-        style={{ width: "800px", gap: "20px" }}
+        style={{ width: "900px", gap: "20px" }}
         speed={80}
         pauseOnHover={true}
         pauseOnClick={true}
@@ -37,7 +37,7 @@ const Slider = () => {
         ))}
       </Marquee>
       <Marquee
-        style={{ width: "800px", marginTop: "20px" }}
+        style={{ width: "900px", marginTop: "20px" }}
         speed={80}
         pauseOnHover={true}
         pauseOnClick={true}

@@ -24,15 +24,17 @@ const OurGoals = () => {
   return (
     <div className="thc__landingPage">
       <div className="thc__ourgoals-wrapper section__padding">
-        <div className="thc__ourgoals">
-          <div className="thc__ourgoals-heading">
+        {
+          <div className="thc__ourgoals">
+            
+          </div>
+          /* <div className="thc__ourgoals-heading">
             <h2 className="gradient__text">GOALS</h2>
           </div>
           <div className="thc__ourgoals-container">
             {ourGoals.map((goal, index) => (
               <Feature title={goal.title} text={goal.text} key={index} />
             ))}
-          </div>
         </div>
         <div className="thc__ourgoals-disclaimer section__padding">
           <h3>Note</h3>
@@ -54,7 +56,8 @@ const OurGoals = () => {
             offering educational resources, networking opportunities, and
             mentorship programs.
           </p>
-        </div>
+        </div> */
+        }
       </div>
     </div>
   );
