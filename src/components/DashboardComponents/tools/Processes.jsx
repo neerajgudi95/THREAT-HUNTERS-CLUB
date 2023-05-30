@@ -12,14 +12,26 @@ const Processes = ({ processes }) => {
     <div className="mt-3">
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
+          <TableHead sx={{ backgroundColor: "#4D77FF" }}>
             <TableRow>
-              <TableCell align="left">Command</TableCell>
-              <TableCell align="left">Cpu (%)</TableCell>
-              <TableCell align="left">Memory (%)</TableCell>
-              <TableCell align="left">Pid</TableCell>
-              <TableCell align="left">Time (mm:ss.ms)</TableCell>
-              <TableCell align="left">User</TableCell>
+              <TableCell align="left" sx={{ color: "white" }}>
+                Command
+              </TableCell>
+              <TableCell align="left" sx={{ color: "white" }}>
+                Cpu (%)
+              </TableCell>
+              <TableCell align="left" sx={{ color: "white" }}>
+                Memory (%)
+              </TableCell>
+              <TableCell align="left" sx={{ color: "white" }}>
+                Pid
+              </TableCell>
+              <TableCell align="left" sx={{ color: "white" }}>
+                Time (mm:ss.ms)
+              </TableCell>
+              <TableCell align="left" sx={{ color: "white" }}>
+                User
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

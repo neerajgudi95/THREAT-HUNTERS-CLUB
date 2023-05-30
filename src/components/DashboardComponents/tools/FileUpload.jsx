@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useStateContext } from "../contexts/ContextProvider";
-import Loader from "../../Landing page components/loader/Loader";
+import Loader from "../../LandingPageComponents/loader/Loader";
 import { enqueueSnackbar } from "notistack";
 
 const FileUpload = ({ getNotes }) => {

@@ -5,16 +5,28 @@ import { useStateContext } from "../contexts/ContextProvider";
 
 const FeedbackInfo = ({ feedback }) => {
   const { currentMode } = useStateContext();
-
   return (
     <div className="p-10 mx-5">
-      <p className="font-bold text-3xl my-5">Module: {feedback.module}</p>
+      <div className="flex items-center justify-between">
+        <p className="font-bold text-3xl my-5">Module: {feedback?.module}</p>
+        {
+          <p>
+            <a
+              href={feedback?.videoLink}
+              target="_blank"
+              className="text-blue-500"
+            >
+              Recording
+            </a>
+          </p>
+        }
+      </div>
       <div className="flex gap-10 items-center justify-evenly flex-wrap">
         <div className="flex items-center flex-wrap max-w-md px-10 bg-white dark:bg-secondary-dark-bg shadow-xl rounded-2xl h-[120px]">
           <div className="flex items-center -m-6 overflow-hidden bg-white dark:bg-secondary-dark-bg rounded-full w-[100px] h-[100px]">
             <CircularProgressbar
-              value={`${(feedback.behaviour / 5) * 100}`}
-              text={`${feedback.behaviour}/5`}
+              value={`${(feedback?.behaviour / 10) * 100}`}
+              text={`${feedback?.behaviour}/10`}
               styles={buildStyles({
                 textColor: "#13005A",
                 pathColor: "#13005A",
@@ -29,8 +41,8 @@ const FeedbackInfo = ({ feedback }) => {
         <div className="flex items-center flex-wrap max-w-md px-10 bg-white dark:bg-secondary-dark-bg shadow-xl rounded-2xl h-[120px]">
           <div className="flex items-center justify-center -m-6 overflow-hidden bg-white dark:bg-secondary-dark-bg rounded-full w-[100px] h-[100px]">
             <CircularProgressbar
-              value={`${(feedback.communicationSkill / 5) * 100}`}
-              text={`${feedback.communicationSkill}/5`}
+              value={`${(feedback?.communicationSkill / 10) * 100}`}
+              text={`${feedback?.communicationSkill}/10`}
               styles={buildStyles({
                 textColor: "#E94560",
                 pathColor: "#E94560",
@@ -46,8 +58,8 @@ const FeedbackInfo = ({ feedback }) => {
         <div className="flex items-center flex-wrap max-w-md px-10 bg-white dark:bg-secondary-dark-bg shadow-xl rounded-2xl h-[120px]">
           <div className="flex items-center justify-center -m-6 overflow-hidden bg-white dark:bg-secondary-dark-bg rounded-full w-[100px] h-[100px]">
             <CircularProgressbar
-              value={`${(feedback.technicalSkills / 5) * 100}`}
-              text={`${feedback.technicalSkills}/5`}
+              value={`${(feedback?.technicalSkills / 10) * 100}`}
+              text={`${feedback?.technicalSkills}/10`}
               styles={buildStyles({
                 textColor: "#03C988",
                 pathColor: "#03C988",
@@ -63,8 +75,8 @@ const FeedbackInfo = ({ feedback }) => {
         <div className="flex items-center flex-wrap max-w-md px-10 bg-white dark:bg-secondary-dark-bg shadow-xl rounded-2xl h-[120px]">
           <div className="flex items-center justify-center -m-6 overflow-hidden bg-white dark:bg-secondary-dark-bg rounded-full w-[100px] h-[100px]">
             <CircularProgressbar
-              value={`${(feedback.learningAttitude / 5) * 100}`}
-              text={`${feedback.learningAttitude}/5`}
+              value={`${(feedback?.learningAttitude / 10) * 100}`}
+              text={`${feedback?.learningAttitude}/10`}
               styles={buildStyles({
                 textColor: "#6D67E4",
                 pathColor: "#6D67E4",
@@ -80,8 +92,8 @@ const FeedbackInfo = ({ feedback }) => {
         <div className="flex items-center flex-wrap max-w-md px-10 bg-white dark:bg-secondary-dark-bg shadow-xl rounded-2xl h-[120px]">
           <div className="flex items-center justify-center -m-6 overflow-hidden bg-white dark:bg-secondary-dark-bg rounded-full w-[100px] h-[100px]">
             <CircularProgressbar
-              value={`${(feedback.problemSolving / 5) * 100}`}
-              text={`${feedback.problemSolving}/5`}
+              value={`${(feedback?.problemSolving / 10) * 100}`}
+              text={`${feedback?.problemSolving}/10`}
               styles={buildStyles({
                 textColor: "#FFAC41",
                 pathColor: "#FFAC41",
@@ -97,7 +109,7 @@ const FeedbackInfo = ({ feedback }) => {
       </div>
       <div className="my-10">
         <p className="font-bold text-xl">Overall Feedback</p>
-        <p>{feedback.overallFeedback}</p>
+        <p>{feedback?.overallFeedback}</p>
       </div>
     </div>
   );

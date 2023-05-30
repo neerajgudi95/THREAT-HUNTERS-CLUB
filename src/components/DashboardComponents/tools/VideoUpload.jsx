@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useStateContext } from "../contexts/ContextProvider";
 import { useSnackbar } from "notistack";
-import Loader from "../../Landing page components/loader/Loader";
+import Loader from "../../LandingPageComponents/loader/Loader";
 
 const VideoUpload = () => {
   const [videoTopic, setVideoTopic] = useState("");

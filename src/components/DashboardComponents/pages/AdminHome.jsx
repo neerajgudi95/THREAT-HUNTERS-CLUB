@@ -67,7 +67,7 @@ const AdminHome = () => {
   return (
     <div className=" w-full">
       <div className=" flex justify-around items-center flex-1">
-        <div className="bg-white dark:text-gray-200 h-3/4 w-1/2 rounded-xl  dark:bg-secondary-dark-bg p-8 pt-9 m-3">
+        <div className="bg-white dark:text-gray-200 h-3/4 w-1/2 rounded-xl  dark:bg-secondary-dark-bg p-8 pt-9 m-3 border-t-4 border-red-500">
           <div className="flex justify-between items-center">
             <div>
               <p className="font-bold text-gray-400">Members</p>
@@ -84,7 +84,7 @@ const AdminHome = () => {
             </div>
           </div>
         </div>
-        <div className="bg-white dark:text-gray-200 h-3/4 rounded-xl w-1/2 dark:bg-secondary-dark-bg p-8 pt-9 m-3">
+        <div className="bg-white dark:text-gray-200 h-3/4 rounded-xl w-1/2 dark:bg-secondary-dark-bg p-8 pt-9 m-3 border-t-4 border-green-500">
           <div className="flex justify-between items-center">
             <div>
               <div className="flex gap-2 items-center font-bold text-gray-400">
@@ -105,7 +105,7 @@ const AdminHome = () => {
         </div>
       </div>
       <div className=" flex justify-around items-center flex-1">
-        <div className="bg-white dark:text-gray-200 h-3/4 rounded-xl w-1/2 dark:bg-secondary-dark-bg p-8 pt-9 m-3">
+        <div className="bg-white dark:text-gray-200 h-3/4 rounded-xl w-1/2 dark:bg-secondary-dark-bg p-8 pt-9 m-3 border-t-4 border-blue-500">
           <div className="flex justify-between items-center">
             <div className="flex gap-2 items-center font-bold text-gray-400">
               <MdStorage size={"1.5rem"} />
@@ -123,7 +123,7 @@ const AdminHome = () => {
             <DiskDetails diskDetails={diskUtil} />
           )}
         </div>
-        <div className="bg-white dark:text-gray-200 h-3/4 rounded-xl w-1/2 dark:bg-secondary-dark-bg p-8 pt-9 m-3">
+        <div className="bg-white dark:text-gray-200 h-3/4 rounded-xl w-1/2 dark:bg-secondary-dark-bg p-8 pt-9 m-3 border-t-4 border-yellow-500">
           <div className="flex justify-between items-center">
             <div className="flex gap-2 items-center font-bold text-gray-400">
               <FiCpu size={"1.5rem"} />

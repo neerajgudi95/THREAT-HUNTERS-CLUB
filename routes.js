@@ -1,42 +1,108 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
-import {
-  WhatCyberSec,
-  OurGoals,
-  Error,
-  Login,
-  Navbar,
-  Footer,
-  PrivacyPolicy,
-  Pricing,
-  MemberRegistration,
-  PrivateRoute,
-} from "./src/components/export";
-import {
-  Members,
-  DashboardHome,
-  Notes,
-  DashChat,
-  Videos,
-  MemberProfile,
-  Quizpage,
-  InterviewFeedback,
-} from "./src/components/DashboardComponents/exports";
-import VerifyEmailPage from "./src/components/Landing page components/auth/VerifyEmailPage";
-import ForgotPassword from "./src/components/Landing page components/auth/ForgotPassword";
-import PasswordReset from "./src/components/Landing page components/auth/PasswordResetPages/PasswordReset";
+
+import Navbar from "./src/components/LandingPageComponents/Navbar/Navbar";
+import Footer from "./src/components/LandingPageComponents/Navbar/Footer";
+import Loader from "./src/components/LandingPageComponents/loader/Loader";
+
+const Pricing = lazy(() =>
+  import("./src/components/LandingPageComponents/Pricing/Pricing")
+);
+const WhatCyberSec = lazy(() =>
+  import("./src/components/LandingPageComponents/feature/WhatCyberSec")
+);
+const OurGoals = lazy(() =>
+  import("./src/components/LandingPageComponents/ourgoals/OurGoals")
+);
+import Error from "./src/components/LandingPageComponents/Error/Error";
+
+const Login = lazy(() =>
+  import("./src/components/LandingPageComponents/auth/Login")
+);
+const PrivacyPolicy = lazy(() =>
+  import("./src/components/LandingPageComponents/Privacy/PrivacyPolicy")
+);
+const MemberRegistration = lazy(() =>
+  import(
+    "./src/components/LandingPageComponents/auth/multistepform/MemberRegistration"
+  )
+);
+import PrivateRoute from "./src/components/DashboardComponents/PrivateRoute";
+
+const RefundPolicy = lazy(() =>
+  import("./src/components/LandingPageComponents/Privacy/RefundPolicy")
+);
+
+const Members = lazy(() =>
+  import("./src/components/DashboardComponents/pages/Members")
+);
+const DashboardHome = lazy(() =>
+  import("./src/components/DashboardComponents/pages/DashboardHome")
+);
+const Notes = lazy(() =>
+  import("./src/components/DashboardComponents/pages/Notes")
+);
+const DashChat = lazy(() =>
+  import("./src/components/DashboardComponents/pages/DashChat")
+);
+const Videos = lazy(() =>
+  import("./src/components/DashboardComponents/pages/Videos")
+);
+const MemberProfile = lazy(() =>
+  import("./src/components/DashboardComponents/pages/MemberProfile")
+);
+const Quizpage = lazy(() =>
+  import("./src/components/DashboardComponents/pages/Quizpage")
+);
+const InterviewFeedback = lazy(() =>
+  import("./src/components/DashboardComponents/pages/InterviewFeedback")
+);
+
 import ScrollToTop from "./src/components/ScrollToTop";
-import MainApp from "./src/components/Landing page components/main/MainApp";
-import CourseDetails from "./src/components/Landing page components/CourseDetails/CourseDetails";
-import EmailVerification from "./src/components/Landing page components/auth/EmailVerificationPages/EmailVerification";
-import RegistrationConfirmation from "./src/components/Landing page components/auth/RegistrationConfirmation";
-import DashboardApp from "./src/components/DashboardComponents/DashboardApp";
+
+const MainApp = lazy(() =>
+  import("./src/components/LandingPageComponents/main/MainApp")
+);
 import { ContextProvider } from "./src/components/DashboardComponents/contexts/ContextProvider";
-import QuizModule from "./src/components/DashboardComponents/tools/QuizModule";
 import { QuizScoreContextProvider } from "./src/components/DashboardComponents/contexts/QuizScoreContext";
 import { TimeContextProvider } from "./src/components/DashboardComponents/contexts/TimerContext";
-import FeedbackForm from "./src/components/DashboardComponents/tools/FeedbackForm";
-import Leaderboard from "./src/components/DashboardComponents/tools/Leaderboard";
+
+const VerifyEmailPage = lazy(() =>
+  import("./src/components/LandingPageComponents/auth/VerifyEmailPage")
+);
+const ForgotPassword = lazy(() =>
+  import("./src/components/LandingPageComponents/auth/ForgotPassword")
+);
+const PasswordReset = lazy(() =>
+  import(
+    "./src/components/LandingPageComponents/auth/PasswordResetPages/PasswordReset"
+  )
+);
+const CourseDetails = lazy(() =>
+  import("./src/components/LandingPageComponents/CourseDetails/CourseDetails")
+);
+const EmailVerification = lazy(() =>
+  import(
+    "./src/components/LandingPageComponents/auth/EmailVerificationPages/EmailVerification"
+  )
+);
+const RegistrationConfirmation = lazy(() =>
+  import("./src/components/LandingPageComponents/auth/RegistrationConfirmation")
+);
+const DashboardApp = lazy(() =>
+  import("./src/components/DashboardComponents/DashboardApp")
+);
+const QuizModule = lazy(() =>
+  import("./src/components/DashboardComponents/tools/QuizModule")
+);
+const FeedbackForm = lazy(() =>
+  import("./src/components/DashboardComponents/tools/FeedbackForm")
+);
+const Leaderboard = lazy(() =>
+  import("./src/components/DashboardComponents/tools/Leaderboard")
+);
+import TestComp from "./src/components/DashboardComponents/tools/TestComp";
 
 const AppLayout = () => {
   return (
@@ -65,136 +131,236 @@ export const routes = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <MainApp />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <MainApp />
+          </Suspense>
+        ),
       },
       {
         path: "what-is-cyber-sec",
-        element: <WhatCyberSec />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <WhatCyberSec />
+          </Suspense>
+        ),
       },
       {
         path: "club-goals",
-        element: <OurGoals />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <OurGoals />
+          </Suspense>
+        ),
       },
       {
         path: "club-privacy",
-        element: <PrivacyPolicy />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <PrivacyPolicy />
+          </Suspense>
+        ),
+      },
+      {
+        path: "refund-policy",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <RefundPolicy />
+          </Suspense>
+        ),
       },
       {
         path: "pricing",
-        element: <Pricing />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Pricing />
+          </Suspense>
+        ),
       },
       {
         path: "course-details",
-        element: <CourseDetails />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <CourseDetails />
+          </Suspense>
+        ),
       },
       {
         path: "login",
-        element: <Login />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Login />
+          </Suspense>
+        ),
       },
       {
         path: "register",
-        element: <MemberRegistration />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <MemberRegistration />
+          </Suspense>
+        ),
       },
       {
         path: "email-verify",
-        element: <VerifyEmailPage />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <VerifyEmailPage />
+          </Suspense>
+        ),
       },
       {
         path: "registration-confirmation",
-        element: <RegistrationConfirmation />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <RegistrationConfirmation />
+          </Suspense>
+        ),
       },
       {
         path: "forgot-password",
-        element: <ForgotPassword />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <ForgotPassword />
+          </Suspense>
+        ),
       },
       {
         path: "verify-email/:verificationString",
-        element: <EmailVerification />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <EmailVerification />
+          </Suspense>
+        ),
       },
       {
         path: "reset-password/:passwordResetCode",
-        element: <PasswordReset />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <PasswordReset />
+          </Suspense>
+        ),
       },
     ],
   },
   {
     path: "/dashboard",
     element: (
-      <PrivateRoute>
-        <ContextProvider>
-          <QuizScoreContextProvider>
-            <TimeContextProvider>
-              <SnackbarProvider
-                maxSnack={1}
-                autoHideDuration={5000}
-                anchorOrigin={{ vertical: "top", horizontal: "right" }}
-              >
-                <DashboardApp />
-              </SnackbarProvider>
-            </TimeContextProvider>
-          </QuizScoreContextProvider>
-        </ContextProvider>
-      </PrivateRoute>
+      <Suspense fallback={<Loader />}>
+        <PrivateRoute>
+          <ContextProvider>
+            <QuizScoreContextProvider>
+              <TimeContextProvider>
+                <SnackbarProvider
+                  maxSnack={1}
+                  autoHideDuration={5000}
+                  anchorOrigin={{ vertical: "top", horizontal: "right" }}
+                >
+                  {/* <Suspense fallback={<Loader />}> */}
+                  <DashboardApp />
+                  {/* </Suspense> */}
+                </SnackbarProvider>
+              </TimeContextProvider>
+            </QuizScoreContextProvider>
+          </ContextProvider>
+        </PrivateRoute>
+      </Suspense>
     ),
     errorElement: <Error />,
     children: [
+      // {
+      //   path: "test",
+      //   element: <TestComp />,
+      // },
       {
         path: "profile",
-        element: <MemberProfile />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <MemberProfile />
+          </Suspense>
+        ),
       },
       {
         path: "members",
-        element: <Members />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Members />
+          </Suspense>
+        ),
       },
       {
         path: "home",
-        element: <DashboardHome />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <DashboardHome />
+          </Suspense>
+        ),
       },
       {
         path: "notes",
-        element: <Notes />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Notes />
+          </Suspense>
+        ),
       },
       {
         path: "discussion",
-        element: <DashChat />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <DashChat />
+          </Suspense>
+        ),
       },
       {
         path: "recordings",
-        element: <Videos />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Videos />
+          </Suspense>
+        ),
       },
       {
         path: "quiz",
-        element: <Quizpage />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Quizpage />
+          </Suspense>
+        ),
       },
       {
         path: "interview-feedback",
-        element: <FeedbackForm />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <FeedbackForm />
+          </Suspense>
+        ),
       },
       {
         path: "feedback",
-        element: <InterviewFeedback />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <InterviewFeedback />
+          </Suspense>
+        ),
       },
-      { path: "quiz/:moduleId", element: <QuizModule /> },
+      {
+        path: "quiz/:moduleId",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <QuizModule />{" "}
+          </Suspense>
+        ),
+      },
       {
         path: "leaderboard",
-        element: <Leaderboard />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Leaderboard />
+          </Suspense>
+        ),
       },
     ],
   },
-  // {
-  //   path: "/user/dashboard",
-  //   element: (
-  //     <PrivateRoute>
-  //       <AdminDashboard />
-  //     </PrivateRoute>
-  //   ),
-  //   errorElement: <Error />,
-  //   children: [
-  //     { path: "main", element: <MainDashboard /> },
-  //     { path: "members", element: <ClubMembers /> },
-  //     { path: "notes", element: <Notes /> },
-  //     { path: "add-member", element: <AddMember /> },
-  //   ],
-  // },
   ,
 ]);

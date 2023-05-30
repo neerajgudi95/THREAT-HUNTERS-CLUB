@@ -1,0 +1,117 @@
+.thc__timeline-item {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 30px;
+    margin: 10px 0;
+    width: 50%;
+}
+
+.thc__timeline-item:nth-child(odd) {
+    align-self: flex-end;
+    justify-content: flex-start;
+    padding-right: 0px;
+    padding-left: 30px;
+}
+
+.thc__timeline-item-content {
+    max-width: 500px;
+    background-color: var(--color-footer);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    position: relative;
+    padding: 20px;
+    color: #fff;
+}
+
+.thc__timeline-item:nth-child(odd) .thc__timeline-item-content {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.thc__timeline-item-content::after {
+    content: "";
+    background-color: var(--color-btns);
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    transform: rotate(45deg);
+    right: -7.5px;
+    top: calc(50% - 7.5px);
+    box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
+
+.thc__timeline-item:nth-child(odd) .thc__timeline-item-content::after {
+    right: auto;
+    left: -7.5px;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.thc__timeline-item-content .tag {
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    text-transform: uppercase;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.thc__timeline-item:nth-child(odd) .thc__timeline-item-content .tag {
+    top: 7px;
+    right: 7px;
+    left: auto;
+}
+
+.thc__timeline-item-content .time {
+    color: #777;
+    font-size: 12px;
+}
+
+.thc__timeline-item-content p {
+    font-size: 1rem;
+    line-height: 24px;
+    margin: 15px 0;
+    max-width: 250px;
+}
+
+.thc__timeline-item-content a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+
+.thc__timeline-item-content .circle {
+    background-color: var(--color-bg);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    border: 3px solid var(--color-btns);
+    right: -40px;
+    top: calc(50% - 10px);
+    z-index: 1;
+}
+
+.thc__timeline-item:nth-child(odd) .thc__timeline-item-content .circle {
+    right: auto;
+    left: -40px;
+}
+
+
+@media screen and (max-width:768px) {
+    .thc__timeline-item-content .tag {
+        font-size: 10px;
+        padding: 3px;
+    }
+    .thc__timeline-item-content p {
+        font-size: 14px;
+    }
+}

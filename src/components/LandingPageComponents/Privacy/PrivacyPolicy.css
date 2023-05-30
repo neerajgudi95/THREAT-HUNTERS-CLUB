@@ -1,0 +1,45 @@
+.thc__rules-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.thc__rules-container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    flex: 1;
+    color: var(--color-text);
+}
+
+.thc__rules-container h3 {
+    margin: 1rem 0;
+    font-size: 2rem;
+}
+
+.thc__rules-container p {
+    margin: 1rem 0;
+}
+
+.thc__rules-container p:nth-child(2) {
+    margin: 1rem 0;
+}
+
+.thc__rules-container ul {
+    list-style-type: circle;
+    margin: 0 2rem;
+}
+
+.thc__rules-container li {
+    list-style-type: circle;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+
+.thc__rules-fail {
+    text-align: center;
+    width: 100%;
+}
+
+.thc__rules-policy p {
+    align-items: center;
+}

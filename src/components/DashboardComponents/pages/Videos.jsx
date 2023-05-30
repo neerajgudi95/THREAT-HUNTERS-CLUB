@@ -16,17 +16,19 @@ import VideoUpload from "../tools/VideoUpload";
 
 const Videos = () => {
   const [videosList, setVideosList] = useState([]);
-  // const [isVideoUploaded, setIsVideoUploaded] = useState(false)
+  const [page, setPage] = React.useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const { state } = useUserContext();
 
-  // const handleChangePage = (event, newPage) => {
-  //   setPage(newPage);
-  // };
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
 
-  // const handleChangeRowsPerPage = (event) => {
-  //   setRowsPerPage(+event.target.value);
-  //   setPage(0);
-  // };
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
 
   const getAllVideos = async () => {
     const response = await axios.get(
@@ -34,6 +36,7 @@ const Videos = () => {
     );
     const data = await response.data;
     setVideosList(data);
+    setTotalPages(data.length);
   };
 
   useEffect(() => {
@@ -54,19 +57,25 @@ const Videos = () => {
       {state?.user?.role === "admin" && <VideoUpload />}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
+          <TableHead sx={{ backgroundColor: "#1C315E" }}>
             <TableRow>
-              <TableCell align="left">Topic</TableCell>
-              <TableCell align="left">Instructor</TableCell>
-              <TableCell align="left">Posted on</TableCell>
-              <TableCell align="left">Recordings</TableCell>
+              <TableCell sx={{ color: "white" }}>Topic</TableCell>
+              <TableCell sx={{ color: "white" }}>Instructor</TableCell>
+              <TableCell sx={{ color: "white" }}>Posted on</TableCell>
+              <TableCell sx={{ color: "white" }}>Recordings</TableCell>
               {state?.user?.role === "admin" && (
-                <TableCell align="left">Delete</TableCell>
+                <TableCell sx={{ color: "white" }}>Delete</TableCell>
               )}
             </TableRow>
           </TableHead>
           <TableBody>
-            {videosList.map((video, idx) => {
+            {(rowsPerPage > 0
+              ? videosList.slice(
+                  page * rowsPerPage,
+                  page * rowsPerPage + rowsPerPage
+                )
+              : videosList
+            ).map((video, idx) => {
               return (
                 <TableRow
                   key={idx}
@@ -103,6 +112,15 @@ const Videos = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[5, 10, 15]}
+        component="div"
+        count={totalPages}
+        page={page}
+        onPageChange={handleChangePage}
+        rowsPerPage={rowsPerPage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
       {videosList.length === 0 && (
         <>
           <div className="flex p-2 justify-center dark:bg-main-dark-bg dark:text-white">

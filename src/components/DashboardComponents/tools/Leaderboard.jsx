@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Loader from "../../Landing page components/loader/Loader";
+import Loader from "../../LandingPageComponents/loader/Loader";
 import LeaderboardTable from "./LeaderboardTable";
 
 const Leaderboard = () => {

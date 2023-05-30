@@ -12,21 +12,24 @@ const FeedbackForm = () => {
   const [problemSolving, setProblemSolving] = useState(0);
   const [behaviour, setBehaviour] = useState(0);
   const [videoLink, setVideoLink] = useState("");
-  const [feedback, setFeedback] = useState("");
+  const [overallFeedback, setOverallFeedback] = useState("");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleFeedbackSubmit = (e) => {
     e.preventDefault();
     try {
-      if (email === "" || feedback === "" || module === "") {
+      if (email === "" || overallFeedback === "" || module === "") {
         throw new Error("Fields required: Email, Module and Feedback");
       }
       setIsSubmitting(true);
 
-      var requestOptions = {
+      const requestOptions = {
         method: "POST",
-        body: {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
           communicationSkill,
           technicalSkills,
           learningAttitude,
@@ -36,7 +39,7 @@ const FeedbackForm = () => {
           email,
           videoLink,
           module,
-        },
+        }),
       };
       fetch(`${process.env.DASHBOARD_ENDPOINT}postFeedback`, requestOptions)
         .then((response) => {
@@ -44,6 +47,15 @@ const FeedbackForm = () => {
             enqueueSnackbar("Feedback submitted successfully", {
               variant: "success",
             });
+            setEmail("");
+            setModule("");
+            setCommunicationSkill("");
+            setTechnicalSkills("");
+            setLearningAttitude("");
+            setProblemSolving("");
+            setBehaviour("");
+            setVideoLink("");
+            setOverallFeedback("");
           }
         })
         .catch(() => {
@@ -96,7 +108,7 @@ const FeedbackForm = () => {
                 className="appearance-none block w-full bg-gray-200 dark:text-white dark:bg-gray-700 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="module"
                 type="text"
-                value={email}
+                value={module}
                 onChange={(e) => setModule(e.target.value)}
               />
             </div>
@@ -218,8 +230,8 @@ const FeedbackForm = () => {
               <textarea
                 className=" no-resize appearance-none block w-full dark:text-white bg-gray-200 dark:bg-gray-700 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-40 resize"
                 id="feedback"
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
+                value={overallFeedback}
+                onChange={(e) => setOverallFeedback(e.target.value)}
               ></textarea>
             </div>
           </div>

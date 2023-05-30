@@ -5,7 +5,7 @@ import { useSnackbar } from "notistack";
 import Question from "./Question";
 import { useQuizScoreContext } from "../contexts/QuizScoreContext";
 import { useUserContext } from "../../../GlobalContexts/UserContextProvider";
-import Loader from "../../Landing page components/loader/Loader";
+import Loader from "../../LandingPageComponents/loader/Loader";
 import { useStateContext } from "../contexts/ContextProvider";
 import Stopwatch from "./Stopwatch";
 import { useTimeContext } from "../contexts/TimerContext";

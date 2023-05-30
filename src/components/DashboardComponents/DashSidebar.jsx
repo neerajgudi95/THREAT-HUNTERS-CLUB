@@ -10,7 +10,7 @@ import {
   MdOutlineQuiz,
   MdOutlineFeedback,
 } from "react-icons/md";
-import { TooltipComponent } from "@syncfusion/ej2-react-popups";
+// import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { useStateContext } from "./contexts/ContextProvider";
 import logo from "../../assets/earth.png";
 import { useUserContext } from "../../GlobalContexts/UserContextProvider";
@@ -48,7 +48,7 @@ const DashSidebar = () => {
                 </div>
               </div>
             </Link>
-            <TooltipComponent content="menu" position="BottomCenter">
+            {/* <TooltipComponent content="menu" position="BottomCenter"> */}
               <button
                 className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
                 type="button"
@@ -56,7 +56,7 @@ const DashSidebar = () => {
               >
                 <MdOutlineCancel />
               </button>
-            </TooltipComponent>
+            {/* </TooltipComponent> */}
           </div>
           <div className="mt-10 text-white">
             <p className="text-gray-400 m-3 mt-4 uppercase">Dashboard</p>

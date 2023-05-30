@@ -1,28 +1,32 @@
-import React, { useEffect } from "react";
+import React, { lazy, useEffect } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsChatLeft } from "react-icons/bs";
 import { RiNotification3Line } from "react-icons/ri";
 import { MdKeyboardArrowDown, MdLeaderboard } from "react-icons/md";
-import { TooltipComponent } from "@syncfusion/ej2-react-popups";
+// import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { useStateContext } from "./contexts/ContextProvider";
-import { DashChatPopup, DashUserPopup, DashNotifsPopup } from "./exports";
+
+const DashChatPopup = lazy(() => import("./popups/DashChatPopup"));
+const DashUserPopup = lazy(() => import("./popups/DashUserPopup"));
+const DashNotifsPopup = lazy(() => import("./popups/DashNotifsPopup"));
+
 import { useUserContext } from "../../GlobalContexts/UserContextProvider";
 import { useNavigate } from "react-router-dom";
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
-  <TooltipComponent content={title} position="BottomCenter">
-    <button
-      onClick={customFunc}
-      style={{ color }}
-      className="relative text-xl rounded-full p-3 hover:bg-light-gray"
-    >
-      <span
-        className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
-        style={{ background: dotColor }}
-      />
-      {icon}
-    </button>
-  </TooltipComponent>
+  // <TooltipComponent content={title} position="BottomCenter">
+  <button
+    onClick={customFunc}
+    style={{ color }}
+    className="relative text-xl rounded-full p-3 hover:bg-light-gray"
+  >
+    <span
+      className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
+      style={{ background: dotColor }}
+    />
+    {icon}
+  </button>
+  // </TooltipComponent>
 );
 
 const DashNavbar = () => {
@@ -89,20 +93,20 @@ const DashNavbar = () => {
           color={currentColor}
           icon={<MdLeaderboard />}
         />
-        <TooltipComponent content="Profile" position="BottomCenter">
-          <div
-            className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
-            onClick={() => {
-              handleClick("userProfile");
-            }}
-          >
-            <span className="text-gray-400 text-14">Hi,</span>
-            <span className="text-gray-400 text-14">
-              {state?.user?.info?.firstName}
-            </span>
-            <MdKeyboardArrowDown className="text-gray-400 text-14" />
-          </div>
-        </TooltipComponent>
+        {/* <TooltipComponent content="Profile" position="BottomCenter"> */}
+        <div
+          className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
+          onClick={() => {
+            handleClick("userProfile");
+          }}
+        >
+          <span className="text-gray-400 text-14">Hi,</span>
+          <span className="text-gray-400 text-14">
+            {state?.user?.info?.firstName}
+          </span>
+          <MdKeyboardArrowDown className="text-gray-400 text-14" />
+        </div>
+        {/* </TooltipComponent> */}
         {isClicked.chat && <DashChatPopup />}
         {isClicked.notifs && <DashNotifsPopup />}
         {isClicked.userProfile && <DashUserPopup />}

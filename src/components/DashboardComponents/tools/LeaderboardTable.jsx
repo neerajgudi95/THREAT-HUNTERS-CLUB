@@ -14,7 +14,7 @@ const LeaderboardTable = ({ module }) => {
   return (
     <>
       <h2 className="my-5 text-lg">{module.module}</h2>
-      <div className="relative overflow-x-auto sm:rounded-lg my-5">
+      <div className="overflow-x-auto sm:rounded-md my-5">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs uppercase bg-blue-950 text-gray-50 dark:bg-gray-600">
             <tr>

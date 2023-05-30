@@ -3,7 +3,7 @@ import axios from "axios";
 import { RiLock2Fill } from "react-icons/ri";
 import { useStateContext } from "../contexts/ContextProvider";
 import QuizDialogBox from "../tools/QuizDailogBox";
-import Loader from "../../../components/Landing page components/loader/Loader";
+import Loader from "../../../components/LandingPageComponents/loader/Loader";
 
 const Quizpage = () => {
   const [quizList, setQuizList] = useState([]);

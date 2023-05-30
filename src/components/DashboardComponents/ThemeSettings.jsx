@@ -6,7 +6,7 @@ import { HiMoon } from "react-icons/hi";
 
 import { useStateContext } from "./contexts/ContextProvider";
 import { themeColors } from "./dummyData";
-import { TooltipComponent } from "@syncfusion/ej2-react-popups";
+// import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 const ThemeSettings = () => {
   const { currentMode, currentColor, setColor, setMode, setThemeSettings } =
@@ -80,25 +80,28 @@ const ThemeSettings = () => {
           <p className="font-semibold text-lg">Theme Colors</p>
           <div className="flex gap-3">
             {themeColors.map((item, index) => (
-              <TooltipComponent
-                content={item.name}
-                position="TopCenter"
+              // <TooltipComponent
+              //   content={item.name}
+              //   position="TopCenter"
+              //   key={index}
+              // >
+              <div
+                className="relative mt-2 cursor-pointer flex gap-5 items-center"
                 key={index}
               >
-                <div className="relative mt-2 cursor-pointer flex gap-5 items-center">
-                  <button
-                    className="h-10 w-10 rounded-full cursor-pointer"
-                    style={{ backgroundColor: item.color }}
-                    onClick={() => setColor(item.color)}
-                  >
-                    <BsCheck
-                      className={`ml-2 text-2xl text-white ${
-                        item.color === currentColor ? "block" : "hidden"
-                      }`}
-                    />
-                  </button>
-                </div>
-              </TooltipComponent>
+                <button
+                  className="h-10 w-10 rounded-full cursor-pointer"
+                  style={{ backgroundColor: item.color }}
+                  onClick={() => setColor(item.color)}
+                >
+                  <BsCheck
+                    className={`ml-2 text-2xl text-white ${
+                      item.color === currentColor ? "block" : "hidden"
+                    }`}
+                  />
+                </button>
+              </div>
+              // </TooltipComponent>
             ))}
           </div>
         </div>
