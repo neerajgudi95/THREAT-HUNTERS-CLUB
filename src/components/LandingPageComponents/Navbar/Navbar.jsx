@@ -49,6 +49,15 @@ const Navbar = () => {
             Pricing
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/gallery"
+            onClick={() => setToggleMenu(false)}
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Gallery
+          </NavLink>
+        </li>
 
         {token ? (
           <li>
@@ -77,7 +86,7 @@ const Navbar = () => {
         )}
         <li>
           <Link
-            to="/register"
+            to="/pricing"
             className="thc__navbar-links-btn thc__navbar-links_join"
             onClick={() => {
               setToggleMenu(false);

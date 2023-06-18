@@ -3,7 +3,6 @@ import Header from "../Navbar/Header";
 import Possibilities from "../possibilities/Possibilities";
 import CTA from "../cta/CTA";
 import AboutUs from "../aboutUs/AboutUs";
-
 import "./mainApp.css";
 
 const MainApp = () => {

@@ -75,10 +75,10 @@ const Notes = () => {
       fetch(`${process.env.DASHBOARD_ENDPOINT}deleteNote`, requestOptions)
         .then((response) => {
           if (response.status === 200) {
-            getAllNotes();
             enqueueSnackbar("File deleted successfully", {
               variant: "success",
             });
+            getAllNotes();
           }
         })
         .catch(() => {

@@ -9,7 +9,7 @@ const FeedbackInfo = ({ feedback }) => {
     <div className="p-10 mx-5">
       <div className="flex items-center justify-between">
         <p className="font-bold text-3xl my-5">Module: {feedback?.module}</p>
-        {
+        {feedback?.videoLink !== "NA" && feedback?.videoLink !== "" ? (
           <p>
             <a
               href={feedback?.videoLink}
@@ -19,7 +19,9 @@ const FeedbackInfo = ({ feedback }) => {
               Recording
             </a>
           </p>
-        }
+        ) : (
+          <p className="text-red-500">Recording is not available</p>
+        )}
       </div>
       <div className="flex gap-10 items-center justify-evenly flex-wrap">
         <div className="flex items-center flex-wrap max-w-md px-10 bg-white dark:bg-secondary-dark-bg shadow-xl rounded-2xl h-[120px]">
@@ -108,8 +110,20 @@ const FeedbackInfo = ({ feedback }) => {
         </div>
       </div>
       <div className="my-10">
-        <p className="font-bold text-xl">Overall Feedback</p>
-        <p>{feedback?.overallFeedback}</p>
+        <p className="font-bold text-xl">Good observations</p>
+        <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+          {feedback?.goodObservations.map((obs, idx) => (
+            <li key={idx}>{obs}</li>
+          ))}
+        </ul>
+      </div>
+      <div className="my-10">
+        <p className="font-bold text-xl">Imporvements required</p>
+        <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+          {feedback?.improvementsRequired.map((improv, idx) => (
+            <li key={idx}>{improv}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

@@ -5,94 +5,38 @@ import { SnackbarProvider } from "notistack";
 import Navbar from "./src/components/LandingPageComponents/Navbar/Navbar";
 import Footer from "./src/components/LandingPageComponents/Navbar/Footer";
 import Loader from "./src/components/LandingPageComponents/loader/Loader";
-
-const Pricing = lazy(() =>
-  import("./src/components/LandingPageComponents/Pricing/Pricing")
-);
-const WhatCyberSec = lazy(() =>
-  import("./src/components/LandingPageComponents/feature/WhatCyberSec")
-);
-const OurGoals = lazy(() =>
-  import("./src/components/LandingPageComponents/ourgoals/OurGoals")
-);
+import Pricing from "./src/components/LandingPageComponents/Pricing/Pricing";
+import WhatCyberSec from "./src/components/LandingPageComponents/feature/WhatCyberSec";
+import OurGoals from "./src/components/LandingPageComponents/ourgoals/OurGoals";
 import Error from "./src/components/LandingPageComponents/Error/Error";
+import Login from "./src/components/LandingPageComponents/auth/Login";
+import PrivacyPolicy from "./src/components/LandingPageComponents/Privacy/PrivacyPolicy";
+import MemberRegistration from "./src/components/LandingPageComponents/auth/multistepform/MemberRegistration";
+import RefundPolicy from "./src/components/LandingPageComponents/Privacy/RefundPolicy";
+import MainApp from "./src/components/LandingPageComponents/main/MainApp";
+import VerifyEmailPage from "./src/components/LandingPageComponents/auth/VerifyEmailPage";
+import ForgotPassword from "./src/components/LandingPageComponents/auth/ForgotPassword";
+import PasswordReset from "./src/components/LandingPageComponents/auth/PasswordResetPages/PasswordReset";
+import CourseDetails from "./src/components/LandingPageComponents/CourseDetails/CourseDetails";
+import EmailVerification from "./src/components/LandingPageComponents/auth/EmailVerificationPages/EmailVerification";
+import RegistrationConfirmation from "./src/components/LandingPageComponents/auth/RegistrationConfirmation";
 
-const Login = lazy(() =>
-  import("./src/components/LandingPageComponents/auth/Login")
-);
-const PrivacyPolicy = lazy(() =>
-  import("./src/components/LandingPageComponents/Privacy/PrivacyPolicy")
-);
-const MemberRegistration = lazy(() =>
-  import(
-    "./src/components/LandingPageComponents/auth/multistepform/MemberRegistration"
-  )
-);
 import PrivateRoute from "./src/components/DashboardComponents/PrivateRoute";
-
-const RefundPolicy = lazy(() =>
-  import("./src/components/LandingPageComponents/Privacy/RefundPolicy")
-);
-
-const Members = lazy(() =>
-  import("./src/components/DashboardComponents/pages/Members")
-);
-const DashboardHome = lazy(() =>
-  import("./src/components/DashboardComponents/pages/DashboardHome")
-);
-const Notes = lazy(() =>
-  import("./src/components/DashboardComponents/pages/Notes")
-);
-const DashChat = lazy(() =>
-  import("./src/components/DashboardComponents/pages/DashChat")
-);
-const Videos = lazy(() =>
-  import("./src/components/DashboardComponents/pages/Videos")
-);
-const MemberProfile = lazy(() =>
-  import("./src/components/DashboardComponents/pages/MemberProfile")
-);
-const Quizpage = lazy(() =>
-  import("./src/components/DashboardComponents/pages/Quizpage")
-);
-const InterviewFeedback = lazy(() =>
-  import("./src/components/DashboardComponents/pages/InterviewFeedback")
-);
-
 import ScrollToTop from "./src/components/ScrollToTop";
 
-const MainApp = lazy(() =>
-  import("./src/components/LandingPageComponents/main/MainApp")
-);
 import { ContextProvider } from "./src/components/DashboardComponents/contexts/ContextProvider";
 import { QuizScoreContextProvider } from "./src/components/DashboardComponents/contexts/QuizScoreContext";
 import { TimeContextProvider } from "./src/components/DashboardComponents/contexts/TimerContext";
+import Gallery from "./src/components/LandingPageComponents/Gallery/Gallery";
 
-const VerifyEmailPage = lazy(() =>
-  import("./src/components/LandingPageComponents/auth/VerifyEmailPage")
-);
-const ForgotPassword = lazy(() =>
-  import("./src/components/LandingPageComponents/auth/ForgotPassword")
-);
-const PasswordReset = lazy(() =>
-  import(
-    "./src/components/LandingPageComponents/auth/PasswordResetPages/PasswordReset"
-  )
-);
-const CourseDetails = lazy(() =>
-  import("./src/components/LandingPageComponents/CourseDetails/CourseDetails")
-);
-const EmailVerification = lazy(() =>
-  import(
-    "./src/components/LandingPageComponents/auth/EmailVerificationPages/EmailVerification"
-  )
-);
-const RegistrationConfirmation = lazy(() =>
-  import("./src/components/LandingPageComponents/auth/RegistrationConfirmation")
-);
 const DashboardApp = lazy(() =>
   import("./src/components/DashboardComponents/DashboardApp")
 );
+
+const DashboardHome = lazy(() =>
+  import("./src/components/DashboardComponents/pages/DashboardHome")
+);
+
 const QuizModule = lazy(() =>
   import("./src/components/DashboardComponents/tools/QuizModule")
 );
@@ -102,7 +46,36 @@ const FeedbackForm = lazy(() =>
 const Leaderboard = lazy(() =>
   import("./src/components/DashboardComponents/tools/Leaderboard")
 );
-import TestComp from "./src/components/DashboardComponents/tools/TestComp";
+
+const MemberProfile = lazy(() =>
+  import("./src/components/DashboardComponents/pages/MemberProfile")
+);
+
+const Members = lazy(() =>
+  import("./src/components/DashboardComponents/pages/Members")
+);
+
+const Notes = lazy(() =>
+  import("./src/components/DashboardComponents/pages/Notes")
+);
+
+const DashChat = lazy(() =>
+  import("./src/components/DashboardComponents/pages/DashChat")
+);
+
+const Videos = lazy(() =>
+  import("./src/components/DashboardComponents/pages/Videos")
+);
+
+const Quizpage = lazy(() =>
+  import("./src/components/DashboardComponents/pages/Quizpage")
+);
+
+const InterviewFeedback = lazy(() =>
+  import("./src/components/DashboardComponents/pages/InterviewFeedback")
+);
+
+// import TestComp from "./src/components/LandingPageComponents/TestComp";
 
 const AppLayout = () => {
   return (
@@ -131,115 +104,63 @@ export const routes = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <MainApp />
-          </Suspense>
-        ),
+        element: <MainApp />,
       },
       {
         path: "what-is-cyber-sec",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <WhatCyberSec />
-          </Suspense>
-        ),
+        element: <WhatCyberSec />,
       },
       {
         path: "club-goals",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <OurGoals />
-          </Suspense>
-        ),
+        element: <OurGoals />,
       },
       {
         path: "club-privacy",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <PrivacyPolicy />
-          </Suspense>
-        ),
+        element: <PrivacyPolicy />,
       },
       {
         path: "refund-policy",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <RefundPolicy />
-          </Suspense>
-        ),
+        element: <RefundPolicy />,
       },
       {
         path: "pricing",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Pricing />
-          </Suspense>
-        ),
+        element: <Pricing />,
       },
       {
         path: "course-details",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <CourseDetails />
-          </Suspense>
-        ),
+        element: <CourseDetails />,
+      },
+      {
+        path: "gallery",
+        element: <Gallery />,
       },
       {
         path: "login",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Login />
-          </Suspense>
-        ),
+        element: <Login />,
       },
-      {
-        path: "register",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <MemberRegistration />
-          </Suspense>
-        ),
-      },
+      // {
+      //   path: "register",
+      //   element: <MemberRegistration />,
+      // },
       {
         path: "email-verify",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <VerifyEmailPage />
-          </Suspense>
-        ),
+        element: <VerifyEmailPage />,
       },
       {
         path: "registration-confirmation",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <RegistrationConfirmation />
-          </Suspense>
-        ),
+        element: <RegistrationConfirmation />,
       },
       {
         path: "forgot-password",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <ForgotPassword />
-          </Suspense>
-        ),
+        element: <ForgotPassword />,
       },
       {
         path: "verify-email/:verificationString",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <EmailVerification />
-          </Suspense>
-        ),
+        element: <EmailVerification />,
       },
       {
         path: "reset-password/:passwordResetCode",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <PasswordReset />
-          </Suspense>
-        ),
+        element: <PasswordReset />,
       },
     ],
   },
@@ -348,7 +269,7 @@ export const routes = createBrowserRouter([
         path: "quiz/:moduleId",
         element: (
           <Suspense fallback={<Loader />}>
-            <QuizModule />{" "}
+            <QuizModule />
           </Suspense>
         ),
       },

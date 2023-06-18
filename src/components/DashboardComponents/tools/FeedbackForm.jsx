@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useSnackbar } from "notistack";
+import { MdDeleteForever, MdAdd } from "react-icons/md";
+
 const FeedbackForm = () => {
   const { enqueueSnackbar } = useSnackbar();
 
@@ -12,16 +13,60 @@ const FeedbackForm = () => {
   const [problemSolving, setProblemSolving] = useState(0);
   const [behaviour, setBehaviour] = useState(0);
   const [videoLink, setVideoLink] = useState("");
-  const [overallFeedback, setOverallFeedback] = useState("");
+
+  const [improvements, setImprovements] = useState([{ improvement: "" }]);
+  const [observations, setObservations] = useState([{ observation: "" }]);
+
+  const handleImprovementsChange = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...improvements];
+    list[index][name] = value;
+    setImprovements(list);
+  };
+
+  const handleImprovementsRemove = (index) => {
+    const list = [...improvements];
+    list.splice(index, 1);
+    setImprovements(list);
+  };
+
+  const handleImprovementsAdd = () => {
+    setImprovements([...improvements, { improvement: "" }]);
+  };
+
+  const handleObservationsChange = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...observations];
+    list[index][name] = value;
+    setObservations(list);
+  };
+
+  const handleObservationsRemove = (index) => {
+    const list = [...observations];
+    list.splice(index, 1);
+    setObservations(list);
+  };
+
+  const handleObservationsAdd = () => {
+    setObservations([...observations, { observation: "" }]);
+  };
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleFeedbackSubmit = (e) => {
     e.preventDefault();
+    const improvementsRequired = improvements.map((imp) => imp.improvement);
+    const goodObservations = observations.map((obs) => obs.observation);
     try {
-      if (email === "" || overallFeedback === "" || module === "") {
+      if (
+        email === "" ||
+        (improvementsRequired.length === 1 && improvementsRequired[0] === "") ||
+        (goodObservations.length === 1 && goodObservations[0] === "") ||
+        module === ""
+      ) {
         throw new Error("Fields required: Email, Module and Feedback");
       }
+
       setIsSubmitting(true);
 
       const requestOptions = {
@@ -35,12 +80,14 @@ const FeedbackForm = () => {
           learningAttitude,
           problemSolving,
           behaviour,
-          overallFeedback,
           email,
           videoLink,
           module,
+          improvementsRequired,
+          goodObservations,
         }),
       };
+      console.log(requestOptions.body);
       fetch(`${process.env.DASHBOARD_ENDPOINT}postFeedback`, requestOptions)
         .then((response) => {
           if (response.status === 200) {
@@ -55,7 +102,8 @@ const FeedbackForm = () => {
             setProblemSolving("");
             setBehaviour("");
             setVideoLink("");
-            setOverallFeedback("");
+            setImprovements([{ improvement: "" }]);
+            setObservations([{ observation: "" }]);
           }
         })
         .catch(() => {
@@ -63,7 +111,6 @@ const FeedbackForm = () => {
             variant: "error",
           });
         });
-
       setIsSubmitting(false);
     } catch (error) {
       setIsSubmitting(false);
@@ -219,21 +266,95 @@ const FeedbackForm = () => {
               />
             </div>
           </div>
-          <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full px-3">
-              <label
-                className="block uppercase tracking-wide text-gray-700 dark:text-white text-xs font-bold mb-2"
-                htmlFor="feeback"
-              >
-                Overall Feedback
-              </label>
-              <textarea
-                className=" no-resize appearance-none block w-full dark:text-white bg-gray-200 dark:bg-gray-700 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-40 resize"
-                id="feedback"
-                value={overallFeedback}
-                onChange={(e) => setOverallFeedback(e.target.value)}
-              ></textarea>
-            </div>
+          <div>
+            <label
+              htmlFor="improvement"
+              className="block uppercase tracking-wide text-gray-700 dark:text-white text-xs font-bold mb-2"
+            >
+              Improvements required
+            </label>
+            {improvements.map((singleImprov, index) => (
+              <div key={index} className="flex items-center mb-5">
+                <input
+                  name="improvement"
+                  type="text"
+                  id="improvement"
+                  value={singleImprov.improvement}
+                  onChange={(e) => handleImprovementsChange(e, index)}
+                  className="appearance-none block w-4/5 bg-gray-200 dark:text-white dark:bg-gray-700 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                />
+                {improvements.length - 1 === index &&
+                  improvements.length < 10 && (
+                    <button
+                      type="button"
+                      onClick={handleImprovementsAdd}
+                      className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800"
+                    >
+                      <span>
+                        <MdAdd size={"1.2em"} />
+                      </span>
+                    </button>
+                  )}
+                <div className="second-division">
+                  {improvements.length !== 1 && (
+                    <button
+                      type="button"
+                      onClick={() => handleImprovementsRemove(index)}
+                      className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+                    >
+                      <span>
+                        <MdDeleteForever size={"1.2em"} />
+                      </span>
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div>
+            <label
+              htmlFor="observations"
+              className="block uppercase tracking-wide text-gray-700 dark:text-white text-xs font-bold mb-2"
+            >
+              Good Observations
+            </label>
+            {observations.map((singleObv, index) => (
+              <div key={index} className="flex items-center mb-5">
+                <input
+                  name="observation"
+                  type="text"
+                  id="observation"
+                  value={singleObv.observation}
+                  onChange={(e) => handleObservationsChange(e, index)}
+                  className="appearance-none block w-4/5 bg-gray-200 dark:text-white dark:bg-gray-700 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                />
+                {observations.length - 1 === index &&
+                  observations.length < 10 && (
+                    <button
+                      type="button"
+                      onClick={handleObservationsAdd}
+                      className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800"
+                    >
+                      <span>
+                        <MdAdd size={"1.2em"} />
+                      </span>
+                    </button>
+                  )}
+                <div className="second-division">
+                  {observations.length !== 1 && (
+                    <button
+                      type="button"
+                      onClick={() => handleObservationsRemove(index)}
+                      className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+                    >
+                      <span>
+                        <MdDeleteForever size={"1.2em"} />
+                      </span>
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
           <div className="md:flex md:items-center">
             <div className="md:w-2/5">

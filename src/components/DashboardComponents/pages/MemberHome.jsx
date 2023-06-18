@@ -5,7 +5,7 @@ import { FaDotCircle } from "react-icons/fa";
 const MemberHome = () => {
   const { state } = useUserContext();
 
-  const isUserVerified = state?.user?.isVerified === "true";
+  const isUserVerified = state?.user?.isVerified === true;
 
   return (
     <>

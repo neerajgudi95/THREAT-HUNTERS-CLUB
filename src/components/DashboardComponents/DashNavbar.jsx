@@ -13,20 +13,20 @@ const DashNotifsPopup = lazy(() => import("./popups/DashNotifsPopup"));
 import { useUserContext } from "../../GlobalContexts/UserContextProvider";
 import { useNavigate } from "react-router-dom";
 
-const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
-  // <TooltipComponent content={title} position="BottomCenter">
+const NavButton = ({ title, customFunc, icon, color, dotColor, pointer }) => (
   <button
     onClick={customFunc}
-    style={{ color }}
+    style={{ color, pointerEvents: pointer ? "none" : "auto" }}
     className="relative text-xl rounded-full p-3 hover:bg-light-gray"
   >
     <span
       className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
-      style={{ background: dotColor }}
+      style={{
+        background: dotColor,
+      }}
     />
     {icon}
   </button>
-  // </TooltipComponent>
 );
 
 const DashNavbar = () => {
@@ -42,6 +42,7 @@ const DashNavbar = () => {
   } = useStateContext();
 
   const { state } = useUserContext();
+  const isUserVerified = state?.user?.isVerified === true;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -69,6 +70,7 @@ const DashNavbar = () => {
     <div className="flex justify-between p-2 md:mx-6 relative">
       <NavButton
         title="Menu"
+        // pointer={!isUserVerified}
         color={currentColor}
         icon={<AiOutlineMenu />}
         customFunc={handleActiveMenu}
@@ -76,6 +78,7 @@ const DashNavbar = () => {
       <div className="flex items-center gap-3">
         <NavButton
           title="Chat"
+          pointer={!isUserVerified}
           customFunc={() => handleClick("chat")}
           color={currentColor}
           icon={<BsChatLeft />}
@@ -83,12 +86,14 @@ const DashNavbar = () => {
         />
         <NavButton
           title="Notifications"
+          pointer={!isUserVerified}
           customFunc={() => handleClick("notifs")}
           color={currentColor}
           icon={<RiNotification3Line />}
         />
         <NavButton
           title="Leaderboard"
+          pointer={!isUserVerified}
           customFunc={() => navigate("/dashboard/leaderboard")}
           color={currentColor}
           icon={<MdLeaderboard />}

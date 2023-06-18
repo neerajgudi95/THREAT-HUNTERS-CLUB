@@ -9,6 +9,12 @@ const Pricing = () => {
   return (
     <div className="thc__landingPage">
       <div className="thc__pricing-wrapper section__padding">
+        <div>
+          <p className="text-red-400">
+            We'll be starting a new batch and the registrations will be open
+            very soon, we will keep you posted with the updates
+          </p>
+        </div>
         <div className="thc__pricing-container">
           <div className="thc__pricing-left">
             <h2>Cyber Security course</h2>
@@ -98,11 +104,20 @@ const Pricing = () => {
                   />
                 </div>
                 <div className="thc__pricing-details">
-                  <FaRupeeSign />
-                  <span className="price">3500</span>
+                  <div className="thc__pricing-details__container">
+                    <div className="actual-price">
+                      <FaRupeeSign />
+                      <span className="price">5999</span>
+                    </div>
+                    <span className="discount">15%</span>
+                    <div className="discount-price">
+                      <FaRupeeSign />
+                      <span className="price">5099</span>
+                    </div>
+                  </div>
                 </div>
                 <div className="thc__pricing-links">
-                  <Link to="/register" className="thc__pricing-joinus">
+                  <Link to="/pricing" className="thc__pricing-joinus">
                     JOIN US
                   </Link>
                   <Link to="/course-details" className="thc__pricing-timeline">
@@ -120,6 +135,7 @@ const Pricing = () => {
             </div>
           </div>
         </div>
+        {/* <TestComp /> */}
         <div className="marquee-wrapper">
           <Slider />
         </div>

@@ -13,6 +13,7 @@ import axios from "axios";
 import moment from "moment";
 import { GrRefresh } from "react-icons/gr";
 import VideoUpload from "../tools/VideoUpload";
+import { enqueueSnackbar } from "notistack";
 
 const Videos = () => {
   const [videosList, setVideosList] = useState([]);
@@ -37,6 +38,34 @@ const Videos = () => {
     const data = await response.data;
     setVideosList(data);
     setTotalPages(data.length);
+  };
+
+  const deleteVideo = (videoUrl) => {
+    console.log(videoUrl);
+    var requestOptions = {
+      method: "POST",
+      body: videoUrl,
+    };
+    try {
+      fetch(`${process.env.DASHBOARD_ENDPOINT}deleteVideo`, requestOptions)
+        .then((response) => {
+          if (response.status === 200) {
+            enqueueSnackbar("Video removed successfully", {
+              variant: "success",
+            });
+            getAllVideos();
+          }
+        })
+        .catch(() => {
+          enqueueSnackbar("Something went wrong, please try again", {
+            variant: "error",
+          });
+        });
+    } catch (error) {
+      enqueueSnackbar("Something went wrong, please try again", {
+        variant: "error",
+      });
+    }
   };
 
   useEffect(() => {
@@ -99,7 +128,7 @@ const Videos = () => {
                   {state?.user?.role === "admin" && (
                     <TableCell align="left">
                       <button
-                        onClick={() => console.log("remove video clicked")}
+                        onClick={() => deleteVideo(video.videoLink)}
                         className="text-red-600"
                       >
                         Remove

@@ -55,6 +55,7 @@
     "react-fast-marquee": "^1.3.5",
     "react-hook-stopwatch": "^0.1.4",
     "react-icons": "^4.7.1",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.8.0",
     "vanta": "^0.5.24",
     "yup": "^1.0.0"
