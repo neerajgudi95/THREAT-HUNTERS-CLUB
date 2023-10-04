@@ -124,7 +124,7 @@ const Gallery = () => {
         <p className="thc__gallery-category">
           Samples of feedback given during mock interviews
         </p>
-        <div className="gallery-container" ref={galleryRef3}>
+        <div className="gallery-container" ref={galleryRef4}>
           {galleryImgs.slice(15, 16).map((img) => (
             <img src={img.imageUrl} alt={img.tag} key={img.tag} />
           ))}

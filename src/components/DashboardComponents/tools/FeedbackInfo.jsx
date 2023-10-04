@@ -111,7 +111,7 @@ const FeedbackInfo = ({ feedback }) => {
       </div>
       <div className="my-10">
         <p className="font-bold text-xl">Good observations</p>
-        <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+        <ul className="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
           {feedback?.goodObservations.map((obs, idx) => (
             <li key={idx}>{obs}</li>
           ))}
@@ -119,7 +119,7 @@ const FeedbackInfo = ({ feedback }) => {
       </div>
       <div className="my-10">
         <p className="font-bold text-xl">Imporvements required</p>
-        <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+        <ul className="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
           {feedback?.improvementsRequired.map((improv, idx) => (
             <li key={idx}>{improv}</li>
           ))}

@@ -4,7 +4,6 @@ import { useUserContext } from "../../GlobalContexts/UserContextProvider";
 
 const PrivateRoute = ({ children }) => {
   const { state } = useUserContext();
-
   return state?.user ? children : <Navigate to="/login" />;
 };
 

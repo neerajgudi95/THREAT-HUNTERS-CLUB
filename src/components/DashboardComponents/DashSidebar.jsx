@@ -2,13 +2,18 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import { SlDocs } from "react-icons/sl";
+import { SiSplunk } from "react-icons/si";
 import { FiUsers } from "react-icons/fi";
+import { AiFillAlert } from "react-icons/ai";
 import { VscFeedback } from "react-icons/vsc";
+import { HiOutlineServer } from "react-icons/hi";
 import { BsChatDots, BsRecordBtn } from "react-icons/bs";
 import {
   MdOutlineCancel,
   MdOutlineQuiz,
   MdOutlineFeedback,
+  MdOutlineMonitorHeart,
+  MdOutlineSecurity,
 } from "react-icons/md";
 // import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { useStateContext } from "./contexts/ContextProvider";
@@ -20,6 +25,7 @@ const DashSidebar = () => {
     useStateContext();
   const { state } = useUserContext();
   const isUserVerified = state?.user?.isVerified === true;
+  const isPaymentVerified = state?.user?.paymentStatus === true;
 
   const activeLink =
     "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2";
@@ -33,7 +39,7 @@ const DashSidebar = () => {
   };
 
   return (
-    <div className="m-2 h-[100vh] md:overflow-hidden overflow-auto md:hover:overflow-auto z-20">
+    <div className="m-2 h-[98vh] md:overflow-hidden overflow-auto md:hover:overflow-auto z-20">
       {activeMenu && (
         <>
           <div className="flex justify-between items-center">
@@ -66,7 +72,8 @@ const DashSidebar = () => {
               to={`/dashboard/home`}
               key="home"
               style={({ isActive }) => ({
-                pointerEvents: !isUserVerified && "none",
+                pointerEvents:
+                  (!isUserVerified || !isPaymentVerified) && "none",
                 backgroundColor: isActive ? currentColor : "",
               })}
               onClick={handleCloseSideBar}
@@ -74,7 +81,8 @@ const DashSidebar = () => {
             >
               <AiOutlineHome
                 style={({ isActive }) => ({
-                  pointerEvents: !isUserVerified && "none",
+                  pointerEvents:
+                    (!isUserVerified || !isPaymentVerified) && "none",
                   color: isActive ? white : "",
                 })}
                 size="1.5rem"
@@ -85,7 +93,8 @@ const DashSidebar = () => {
               to={`/dashboard/notes`}
               key="notes"
               style={({ isActive }) => ({
-                pointerEvents: !isUserVerified && "none",
+                pointerEvents:
+                  (!isUserVerified || !isPaymentVerified) && "none",
                 backgroundColor: isActive ? currentColor : "",
               })}
               onClick={handleCloseSideBar}
@@ -93,7 +102,8 @@ const DashSidebar = () => {
             >
               <SlDocs
                 style={({ isActive }) => ({
-                  pointerEvents: !isUserVerified && "none",
+                  pointerEvents:
+                    (!isUserVerified || !isPaymentVerified) && "none",
                   color: isActive ? white : "",
                 })}
                 size="1.5rem"
@@ -105,7 +115,8 @@ const DashSidebar = () => {
                 to={`/dashboard/members`}
                 key="members"
                 style={({ isActive }) => ({
-                  pointerEvents: !isUserVerified && "none",
+                  pointerEvents:
+                    (!isUserVerified || !isPaymentVerified) && "none",
                   backgroundColor: isActive ? currentColor : "",
                 })}
                 onClick={handleCloseSideBar}
@@ -115,7 +126,8 @@ const DashSidebar = () => {
               >
                 <FiUsers
                   style={({ isActive }) => ({
-                    pointerEvents: !isUserVerified && "none",
+                    pointerEvents:
+                      (!isUserVerified || !isPaymentVerified) && "none",
                     color: isActive ? white : "",
                   })}
                   size="1.5rem"
@@ -127,7 +139,8 @@ const DashSidebar = () => {
               to={`/dashboard/recordings`}
               key="recordings"
               style={({ isActive }) => ({
-                pointerEvents: !isUserVerified && "none",
+                pointerEvents:
+                  (!isUserVerified || !isPaymentVerified) && "none",
                 backgroundColor: isActive ? currentColor : "",
               })}
               onClick={handleCloseSideBar}
@@ -135,7 +148,8 @@ const DashSidebar = () => {
             >
               <BsRecordBtn
                 style={({ isActive }) => ({
-                  pointerEvents: !isUserVerified && "none",
+                  pointerEvents:
+                    (!isUserVerified || !isPaymentVerified) && "none",
                   color: isActive ? white : "",
                 })}
                 size="1.5rem"
@@ -146,7 +160,8 @@ const DashSidebar = () => {
               to={`/dashboard/discussion`}
               key="discussion"
               style={({ isActive }) => ({
-                pointerEvents: !isUserVerified && "none",
+                pointerEvents:
+                  (!isUserVerified || !isPaymentVerified) && "none",
                 backgroundColor: isActive ? currentColor : "",
               })}
               onClick={handleCloseSideBar}
@@ -154,7 +169,8 @@ const DashSidebar = () => {
             >
               <BsChatDots
                 style={({ isActive }) => ({
-                  pointerEvents: !isUserVerified && "none",
+                  pointerEvents:
+                    (!isUserVerified || !isPaymentVerified) && "none",
                   color: isActive ? white : "",
                 })}
                 size="1.5rem"
@@ -165,7 +181,8 @@ const DashSidebar = () => {
               to={`/dashboard/quiz`}
               key="quiz"
               style={({ isActive }) => ({
-                pointerEvents: !isUserVerified && "none",
+                pointerEvents:
+                  (!isUserVerified || !isPaymentVerified) && "none",
                 backgroundColor: isActive ? currentColor : "",
               })}
               onClick={handleCloseSideBar}
@@ -173,19 +190,21 @@ const DashSidebar = () => {
             >
               <MdOutlineQuiz
                 style={({ isActive }) => ({
-                  pointerEvents: !isUserVerified && "none",
+                  pointerEvents:
+                    (!isUserVerified || !isPaymentVerified) && "none",
                   color: isActive ? white : "",
                 })}
                 size="1.5rem"
               />
               <span className="capitalize">Test yourself</span>
             </NavLink>
-            {state?.user?.role === "member" && (
+            {state?.user?.role === "admin" && (
               <NavLink
-                to={`/dashboard/feedback`}
-                key="games"
+                to={`/dashboard/assignments`}
+                key="assignments"
                 style={({ isActive }) => ({
-                  pointerEvents: !isUserVerified && "none",
+                  pointerEvents:
+                    (!isUserVerified || !isPaymentVerified) && "none",
                   backgroundColor: isActive ? currentColor : "",
                 })}
                 onClick={handleCloseSideBar}
@@ -195,7 +214,33 @@ const DashSidebar = () => {
               >
                 <VscFeedback
                   style={({ isActive }) => ({
-                    pointerEvents: !isUserVerified && "none",
+                    pointerEvents:
+                      (!isUserVerified || !isPaymentVerified) && "none",
+                    color: isActive ? white : "",
+                  })}
+                  size="1.5rem"
+                />
+                <span className="capitalize">Assignments</span>
+              </NavLink>
+            )}
+            {state?.user?.role === "member" && (
+              <NavLink
+                to={`/dashboard/feedback`}
+                key="feedback"
+                style={({ isActive }) => ({
+                  pointerEvents:
+                    (!isUserVerified || !isPaymentVerified) && "none",
+                  backgroundColor: isActive ? currentColor : "",
+                })}
+                onClick={handleCloseSideBar}
+                className={({ isActive }) =>
+                  isActive ? activeLink : normalLink
+                }
+              >
+                <VscFeedback
+                  style={({ isActive }) => ({
+                    pointerEvents:
+                      (!isUserVerified || !isPaymentVerified) && "none",
                     color: isActive ? white : "",
                   })}
                   size="1.5rem"
@@ -208,7 +253,8 @@ const DashSidebar = () => {
                 to={`/dashboard/interview-feedback`}
                 key="games"
                 style={({ isActive }) => ({
-                  pointerEvents: !isUserVerified && "none",
+                  pointerEvents:
+                    (!isUserVerified || !isPaymentVerified) && "none",
                   backgroundColor: isActive ? currentColor : "",
                 })}
                 onClick={handleCloseSideBar}
@@ -218,7 +264,8 @@ const DashSidebar = () => {
               >
                 <MdOutlineFeedback
                   style={({ isActive }) => ({
-                    pointerEvents: !isUserVerified && "none",
+                    pointerEvents:
+                      (!isUserVerified || !isPaymentVerified) && "none",
                     color: isActive ? white : "",
                   })}
                   size="1.5rem"
@@ -227,6 +274,74 @@ const DashSidebar = () => {
               </NavLink>
             )}
           </div>
+          {/* {state?.user?.role === "admin" && ( */}
+          <div className="mt-10 text-white">
+            <p className="text-gray-400 m-3 mt-4 uppercase">ALERTS</p>
+            <NavLink
+              to={`/dashboard/alerts/edr`}
+              key="EDR"
+              style={({ isActive }) => ({
+                pointerEvents:
+                  (!isUserVerified || !isPaymentVerified) && "none",
+                backgroundColor: isActive ? currentColor : "",
+              })}
+              onClick={handleCloseSideBar}
+              className={({ isActive }) => (isActive ? activeLink : normalLink)}
+            >
+              <HiOutlineServer
+                style={({ isActive }) => ({
+                  pointerEvents:
+                    (!isUserVerified || !isPaymentVerified) && "none",
+                  color: isActive ? white : "",
+                })}
+                size="1.5rem"
+              />
+              <span className="capitalize">EDR</span>
+            </NavLink>
+            <NavLink
+              to={`/dashboard/alerts/ids`}
+              key="IDS"
+              style={({ isActive }) => ({
+                pointerEvents:
+                  (!isUserVerified || !isPaymentVerified) && "none",
+                backgroundColor: isActive ? currentColor : "",
+              })}
+              onClick={handleCloseSideBar}
+              className={({ isActive }) => (isActive ? activeLink : normalLink)}
+            >
+              <MdOutlineSecurity
+                style={({ isActive }) => ({
+                  pointerEvents:
+                    (!isUserVerified || !isPaymentVerified) && "none",
+                  color: isActive ? white : "",
+                })}
+                size="1.5rem"
+              />
+              <span className="capitalize">IDS</span>
+            </NavLink>
+            <NavLink
+              to={`/dashboard/alerts/splunk`}
+              key="SPLUNK"
+              style={({ isActive }) => ({
+                pointerEvents:
+                  (!isUserVerified || !isPaymentVerified) && "none",
+                backgroundColor: isActive ? currentColor : "",
+              })}
+              onClick={handleCloseSideBar}
+              className={({ isActive }) => (isActive ? activeLink : normalLink)}
+            >
+              <SiSplunk
+                style={({ isActive }) => ({
+                  pointerEvents:
+                    (!isUserVerified || !isPaymentVerified) && "none",
+                  color: isActive ? white : "",
+                })}
+                size="1.5rem"
+              />
+              <span className="capitalize">SPLUNK</span>
+            </NavLink>
+          </div>
+          {/* )} */}
         </>
       )}
     </div>

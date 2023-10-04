@@ -28,6 +28,9 @@ import { ContextProvider } from "./src/components/DashboardComponents/contexts/C
 import { QuizScoreContextProvider } from "./src/components/DashboardComponents/contexts/QuizScoreContext";
 import { TimeContextProvider } from "./src/components/DashboardComponents/contexts/TimerContext";
 import Gallery from "./src/components/LandingPageComponents/Gallery/Gallery";
+import CoursePayment from "./src/components/LandingPageComponents/payment/coursePayment";
+import PaymentStatus from "./src/components/LandingPageComponents/payment/PaymentStatus";
+import PaymentFailure from "./src/components/LandingPageComponents/payment/PaymentFailure";
 
 const DashboardApp = lazy(() =>
   import("./src/components/DashboardComponents/DashboardApp")
@@ -75,6 +78,18 @@ const InterviewFeedback = lazy(() =>
   import("./src/components/DashboardComponents/pages/InterviewFeedback")
 );
 
+const AnalysisTool = lazy(() =>
+  import("./src/components/DashboardComponents/pages/AnalysisTool")
+);
+
+const AlertsTable = lazy(() =>
+  import("./src/components/DashboardComponents/tools/AlertsTable")
+);
+
+const Assignments = lazy(() =>
+  import("./src/components/DashboardComponents/pages/Assignments")
+);
+
 // import TestComp from "./src/components/LandingPageComponents/TestComp";
 
 const AppLayout = () => {
@@ -94,7 +109,7 @@ export const routes = createBrowserRouter([
     element: (
       <SnackbarProvider
         maxSnack={1}
-        autoHideDuration={5000}
+        autoHideDuration={3000}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
       >
         <AppLayout />
@@ -123,7 +138,7 @@ export const routes = createBrowserRouter([
         element: <RefundPolicy />,
       },
       {
-        path: "pricing",
+        path: "courses",
         element: <Pricing />,
       },
       {
@@ -138,10 +153,22 @@ export const routes = createBrowserRouter([
         path: "login",
         element: <Login />,
       },
-      // {
-      //   path: "register",
-      //   element: <MemberRegistration />,
-      // },
+      {
+        path: "register",
+        element: <MemberRegistration />,
+      },
+      {
+        path: "purchase",
+        element: <CoursePayment />,
+      },
+      {
+        path: "payment-status",
+        element: <PaymentStatus />,
+      },
+      {
+        path: "payment-failure",
+        element: <PaymentFailure />,
+      },
       {
         path: "email-verify",
         element: <VerifyEmailPage />,
@@ -168,13 +195,13 @@ export const routes = createBrowserRouter([
     path: "/dashboard",
     element: (
       <Suspense fallback={<Loader />}>
-        <PrivateRoute>
-          <ContextProvider>
+        <ContextProvider>
+          <PrivateRoute>
             <QuizScoreContextProvider>
               <TimeContextProvider>
                 <SnackbarProvider
                   maxSnack={1}
-                  autoHideDuration={5000}
+                  autoHideDuration={3000}
                   anchorOrigin={{ vertical: "top", horizontal: "right" }}
                 >
                   {/* <Suspense fallback={<Loader />}> */}
@@ -183,8 +210,8 @@ export const routes = createBrowserRouter([
                 </SnackbarProvider>
               </TimeContextProvider>
             </QuizScoreContextProvider>
-          </ContextProvider>
-        </PrivateRoute>
+          </PrivateRoute>
+        </ContextProvider>
       </Suspense>
     ),
     errorElement: <Error />,
@@ -258,10 +285,42 @@ export const routes = createBrowserRouter([
         ),
       },
       {
+        path: "monitoring",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <AnalysisTool />
+          </Suspense>
+        ),
+      },
+      {
         path: "feedback",
         element: (
           <Suspense fallback={<Loader />}>
             <InterviewFeedback />
+          </Suspense>
+        ),
+      },
+      {
+        path: "alerts/edr",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <AnalysisTool />
+          </Suspense>
+        ),
+      },
+      {
+        path: "alerts/ids",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <AlertsTable />
+          </Suspense>
+        ),
+      },
+      {
+        path: "alerts/splunk",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <AlertsTable />
           </Suspense>
         ),
       },
@@ -278,6 +337,14 @@ export const routes = createBrowserRouter([
         element: (
           <Suspense fallback={<Loader />}>
             <Leaderboard />
+          </Suspense>
+        ),
+      },
+      {
+        path: "assignments",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Assignments />
           </Suspense>
         ),
       },

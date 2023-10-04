@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { object, string, ref } from "yup";
 import axios from "axios";
 import "./memberRegistration.css";
@@ -7,7 +7,6 @@ import InputField from "./InputField";
 import MultiStepForm, { FormStep } from "./MultiStepForm";
 import { useToken } from "../../../../utils/custom-hooks/useToken";
 import logo from "../../../../assets/earth.png";
-import qr_code from "../../../../assets/payment_qr.jpeg";
 import { Link, useNavigate } from "react-router-dom";
 
 const MemberRegistration = () => {
@@ -48,11 +47,14 @@ const MemberRegistration = () => {
     const { firstName, lastName, email, phoneNo, profession, password } =
       values;
     try {
-      const response = await axios.post(`/api/signup`, {
-        email: email,
-        password: password,
-        info: { firstName, lastName, phoneNo, profession },
-      });
+      const response = await axios.post(
+        `https://threathuntersclub.tech/api/signup`,
+        {
+          email: email,
+          password: password,
+          info: { firstName, lastName, phoneNo, profession },
+        }
+      );
       const { token } = response.data;
       setToken(token);
       navigate(`/email-verify`);
@@ -134,29 +136,6 @@ const MemberRegistration = () => {
               type="password"
             />
           </FormStep>
-          {
-            <FormStep stepName="Payment">
-              <div className="payment-qr">
-                <img src={qr_code} alt="payment qr" />
-              </div>
-              <div className="payment-info">
-                <p>
-                  Kindly submit and share your registered email id, transaction
-                  id to below email id on successful payment.
-                </p>
-                <p
-                  style={{
-                    color: "#042c54",
-                    fontWeight: "700",
-                    margin: "10px 0",
-                  }}
-                >
-                  thc_admin@threathuntersclub.tech
-                </p>
-                <p>We'll verify your payment within 24 hours</p>
-              </div>
-            </FormStep>
-          }
         </MultiStepForm>
         <p
           style={{

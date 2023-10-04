@@ -1,23 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaRupeeSign } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
 import "./pricing.css";
 import { Link } from "react-router-dom";
 import Slider from "./Slider";
+import { usePaymentStatusCheck } from "../../../utils/custom-hooks/usePaymentStatusCheck";
+import useUser from "../../../utils/custom-hooks/useUser";
+import { useToken } from "../../../utils/custom-hooks/useToken";
 
 const Pricing = () => {
+  const { paymentStatus } = usePaymentStatusCheck();
+  const [token, setToken] = useToken();
+  const [redirectRoute, setRedirectRoute] = useState(false);
+  const { user } = useUser();
+
+  useEffect(() => {
+    if (token && user?.paymentStatus) setRedirectRoute("/purchase");
+    // console.log(redirectRoute);
+  }, []);
+
+  console.log(user);
   return (
     <div className="thc__landingPage">
       <div className="thc__pricing-wrapper section__padding">
-        <div>
-          <p className="text-red-400">
-            We'll be starting a new batch and the registrations will be open
-            very soon, we will keep you posted with the updates
-          </p>
-        </div>
         <div className="thc__pricing-container">
           <div className="thc__pricing-left">
-            <h2>Cyber Security course</h2>
+            <h2>Cyber Security</h2>
             <div className="thc__pricing-features">
               <ul>
                 <h3>Features</h3>
@@ -117,9 +125,15 @@ const Pricing = () => {
                   </div>
                 </div>
                 <div className="thc__pricing-links">
-                  <Link to="/pricing" className="thc__pricing-joinus">
-                    JOIN US
-                  </Link>
+                  {redirectRoute ? (
+                    <Link to="/purchase" className="thc__pricing-joinus">
+                      PROCEED TO BUY
+                    </Link>
+                  ) : (
+                    <Link to="/login" className="thc__pricing-joinus">
+                      LOGIN TO PURCHASE
+                    </Link>
+                  )}
                   <Link to="/course-details" className="thc__pricing-timeline">
                     COURSE TIMELINE
                   </Link>

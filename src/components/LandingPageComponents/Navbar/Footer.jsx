@@ -66,7 +66,7 @@ const Footer = () => {
             <Link to="/refund-policy">Refund Policy</Link>
           </li>
         </ul>
-        <p>Developed by Neeraj Gudi and team</p>
+        <p>Developed by team at Threat Hunters Club</p>
       </div>
       <p>
         © {currentYear} <strong>threathuntersclub.tech</strong> - All rights

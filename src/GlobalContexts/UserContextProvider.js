@@ -20,6 +20,29 @@ const reducer = (state, action) => {
         user: newUser,
       };
 
+    // case "VALIDATE-TOKEN":
+    //   const currentToken = localStorage.getItem("token");
+    //   if (currentToken) {
+    //     const currentPayload = currentToken.split(".")[1];
+    //     const currentDate = new Date();
+    //     const currentUser = JSON.parse(Buffer.from(currentPayload, "base64"));
+    //     const tokenExpDate = new Date(currentUser.exp * 1000);
+    //     const timeDiff = currentDate.getTime() - tokenExpDate.getTime();
+    //     const daysDiff = timeDiff / (1000 * 3600 * 24);
+
+    //     if (daysDiff < 1) {
+    //       return {
+    //         ...state,
+    //         user: currentUser,
+    //       };
+    //     }
+    //   }
+    //   localStorage.clear();
+    //   return {
+    //     ...state,
+    //     user: null,
+    //   };
+
     case "RELOAD":
       const existingToken = localStorage.getItem("token");
       if (existingToken) {

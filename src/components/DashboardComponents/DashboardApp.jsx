@@ -23,6 +23,9 @@ const DashboardApp = () => {
   } = useStateContext();
 
   const { dispatch } = useUserContext();
+  // useEffect(() => {
+  //   dispatch({ type: "VALIDATE-TOKEN" });
+  // }, []);
 
   useEffect(() => {
     dispatch({ type: "RELOAD" });

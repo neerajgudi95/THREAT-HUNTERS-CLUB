@@ -14,7 +14,7 @@ const VerifyEmailPage = () => {
     return () => {
       clearInterval(timer);
     };
-  }, [navigate]);
+  }, []);
 
   return (
     <div className="section__padding thc__landingPage thc__verifyEmail-wrapper">

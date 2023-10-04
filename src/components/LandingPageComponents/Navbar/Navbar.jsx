@@ -5,11 +5,20 @@ import logo from "../../../assets/earth.png";
 import "./Navbar.css";
 // import { useUserContext } from "../../../GlobalContexts/UserContextProvider";
 import { useToken } from "../../../utils/custom-hooks/useToken";
+import useUser from "../../../utils/custom-hooks/useUser";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [toggleMenu, setToggleMenu] = useState(false);
-  const token = localStorage.getItem("token");
+  // const [token] = localStorage.getItem("token");
+  const [token, setToken] = useToken();
+  const { user } = useUser();
+  // console.log("BELOW DECLARATION", user);
+  // const token = localStorage.getItem("token");
+  useEffect(() => {
+    console.log("INSIDE USE EFFECT", user);
+    console.log("Token", token);
+  }, [token]);
   const NavMenu = (
     <>
       <ul>
@@ -42,11 +51,11 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to="/pricing"
+            to="/courses"
             onClick={() => setToggleMenu(false)}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            Pricing
+            Courses
           </NavLink>
         </li>
         <li>
@@ -59,7 +68,7 @@ const Navbar = () => {
           </NavLink>
         </li>
 
-        {token ? (
+        {token && user.paymentStatus && user.paymentStatus === true ? (
           <li>
             <Link
               className="thc__navbar-links-btn thc__navbar-links_login"
@@ -86,7 +95,7 @@ const Navbar = () => {
         )}
         <li>
           <Link
-            to="/pricing"
+            to="/register"
             className="thc__navbar-links-btn thc__navbar-links_join"
             onClick={() => {
               setToggleMenu(false);

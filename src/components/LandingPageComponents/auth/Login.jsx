@@ -42,8 +42,11 @@ const Login = () => {
       const { token } = await response.data;
       setToken(token);
       dispatch({ type: "LOGIN", payload: token });
+      const userData = JSON.parse(Buffer.from(token.split(".")[1], "base64"));
       setIsLoggingIn(false);
-      navigate("/dashboard/home");
+      if (userData.paymentStatus && userData.paymentStatus === true) {
+        navigate("/dashboard/home");
+      } else navigate("/purchase");
     } catch (error) {
       setIsLoggingIn(false);
       if (error.code === "ERR_NETWORK") {

@@ -1,0 +1,10 @@
+.thc__paymentStatusCheck {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.thc__paymentStatusCheck h3 {
+  font-size: 1.5rem;
+}
