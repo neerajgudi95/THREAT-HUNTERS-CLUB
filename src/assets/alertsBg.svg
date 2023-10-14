@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <!-- Define a pattern with a size and an ID -->
+  <pattern id="cybersecurity-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+    <!-- Background rectangle for the pattern -->
+    <rect width="100%" height="100%" fill="#333" />
+
+    <!-- Lock icon -->
+    <path d="M10 0C4.5 0 0 4.5 0 10v12c0 5.5 4.5 10 10 10s10-4.5 10-10V10C20 4.5 15.5 0 10 0zM8 17H6v-2h2v2zm2-4h-4v-2h4v2z" fill="#ff9900" />
+
+    <!-- Binary code -->
+    <text x="4" y="16" font-size="4" fill="#fff">0101</text>
+    <text x="10" y="10" font-size="4" fill="#fff">1100</text>
+    <text x="16" y="4" font-size="4" fill="#fff">1010</text>
+  </pattern>
+</svg>

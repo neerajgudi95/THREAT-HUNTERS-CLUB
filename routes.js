@@ -83,7 +83,10 @@ const AnalysisTool = lazy(() =>
 );
 
 const AlertsTable = lazy(() =>
-  import("./src/components/DashboardComponents/tools/AlertsTable")
+  import("./src/components/DashboardComponents/tools/ids_alerts/AlertsTable")
+);
+const SplunkAlerts = lazy(() =>
+  import("./src/components/DashboardComponents/tools/splunk_alerts/SplunkAlerts")
 );
 
 const Assignments = lazy(() =>
@@ -320,7 +323,7 @@ export const routes = createBrowserRouter([
         path: "alerts/splunk",
         element: (
           <Suspense fallback={<Loader />}>
-            <AlertsTable />
+            <SplunkAlerts />
           </Suspense>
         ),
       },

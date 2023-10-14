@@ -1,0 +1,37 @@
+.expandList li {
+  display: flex;
+  align-items: center;
+}
+
+.expandList li span,
+.expandList li p {
+  display: block;
+  /* border: 1px solid red; */
+  flex: 0.7;
+}
+
+.expandList li p {
+  display: flex;
+  align-items: center;
+}
+
+.expandList li p button {
+  margin-left: 10px;
+}
+
+.expandList li span:first-child {
+  flex: 0.3;
+  text-align: right;
+  margin-right: 100px;
+}
+
+thead > tr > td,
+th {
+  color: white !important;
+  background-color: #1c315e !important;
+}
+
+.ant-table-expanded-row .ant-table-cell {
+  background-color: #f5f5f5 !important;
+  font-weight: bold;
+}

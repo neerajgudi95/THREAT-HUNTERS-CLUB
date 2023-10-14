@@ -4,19 +4,33 @@ import { FaDotCircle } from "react-icons/fa";
 
 const MemberHome = () => {
   const { state } = useUserContext();
-
   const isUserVerified = state?.user?.isVerified === true;
+  const isPaymentDone = state?.user?.paymentStatus === true;
+
+  console.log(isPaymentDone);
 
   return (
     <>
       {!isUserVerified ? (
-        <div className=" rounded-xl w-full p-2 m-3 bg-red-100 border-red-400 text-red-700 flex justify-center items-center ">
-          <p className="text-center">
-            Please verify your email, through the email verification link which
-            is already sent to you, and login again. If the verifcation link is
-            not working, kindly contact the admin.
-          </p>
-        </div>
+        <>
+          <div className=" rounded-xl w-full p-2 m-3 bg-red-100 border-red-400 text-red-700 flex justify-center items-center ">
+            <p className="text-center">
+              Please verify your email, through the email verification link
+              which is already sent to you, and login again. If the verifcation
+              link is not working, kindly contact the admin.
+            </p>
+          </div>
+          {!isPaymentDone && (
+            <div className=" rounded-xl w-full p-2 m-3 bg-red-100 border-red-400 text-red-700 flex justify-center items-center ">
+              <p className="text-center">
+                Please complete the payment and login again, if the payment is
+                done and you are not able to access, kindly share your
+                transaction details to threathuntersclub@gmail.com. We will get
+                back to you soon
+              </p>
+            </div>
+          )}
+        </>
       ) : (
         <>
           <div className="text-center dark:text-white">
@@ -26,7 +40,7 @@ const MemberHome = () => {
                 {state?.user?.info?.firstName}
               </span>
             </h1>
-            <p className="mt-2 text-3xl">Welcome to Treat Hunters Club</p>
+            <p className="mt-2 text-3xl">Welcome to Treat Hunters Club.</p>
           </div>
 
           <div className="h-[500px] m-5 dark:text-white">

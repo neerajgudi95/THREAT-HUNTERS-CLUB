@@ -43,6 +43,7 @@ const DashNavbar = () => {
 
   const { state } = useUserContext();
   const isUserVerified = state?.user?.isVerified === true;
+  const isValidMember = isUserVerified && state?.user?.paymentStatus;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -70,7 +71,7 @@ const DashNavbar = () => {
     <div className="flex justify-between p-2 md:mx-6 relative">
       <NavButton
         title="Menu"
-        // pointer={!isUserVerified}
+        // pointer={!isValidMember}
         color={currentColor}
         icon={<AiOutlineMenu />}
         customFunc={handleActiveMenu}
@@ -78,7 +79,7 @@ const DashNavbar = () => {
       <div className="flex items-center gap-3">
         <NavButton
           title="Chat"
-          pointer={!isUserVerified}
+          pointer={!isValidMember}
           customFunc={() => handleClick("chat")}
           color={currentColor}
           icon={<BsChatLeft />}
@@ -86,14 +87,14 @@ const DashNavbar = () => {
         />
         <NavButton
           title="Notifications"
-          pointer={!isUserVerified}
+          pointer={!isValidMember}
           customFunc={() => handleClick("notifs")}
           color={currentColor}
           icon={<RiNotification3Line />}
         />
         <NavButton
           title="Leaderboard"
-          pointer={!isUserVerified}
+          pointer={!isValidMember}
           customFunc={() => navigate("/dashboard/leaderboard")}
           color={currentColor}
           icon={<MdLeaderboard />}

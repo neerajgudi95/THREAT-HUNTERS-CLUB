@@ -15,10 +15,7 @@ const Navbar = () => {
   const { user } = useUser();
   // console.log("BELOW DECLARATION", user);
   // const token = localStorage.getItem("token");
-  useEffect(() => {
-    console.log("INSIDE USE EFFECT", user);
-    console.log("Token", token);
-  }, [token]);
+
   const NavMenu = (
     <>
       <ul>
