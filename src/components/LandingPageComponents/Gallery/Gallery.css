@@ -74,3 +74,16 @@
 .gallery-container.slide-in img:nth-child(5) {
   animation-delay: 0.8s;
 }
+.ant-modal-content {
+  background-color: var(--color-bg) !important;
+}
+
+.ant-modal-content .ant-modal-close {
+  top: 21px !important;
+  right: 5px !important;
+  color: white !important;
+}
+
+.ant-modal-content .ant-modal-close .ant-modal-close-x {
+  font-size: 30px !important;
+}

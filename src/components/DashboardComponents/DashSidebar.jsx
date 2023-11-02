@@ -186,29 +186,27 @@ const DashSidebar = () => {
               />
               <span className="capitalize">Test yourself</span>
             </NavLink>
-            {state?.user?.role === "admin" && (
-              <NavLink
-                to={`/dashboard/assignments`}
-                key="assignments"
+            {/* {state?.user?.role === "admin" && ( */}
+            <NavLink
+              to={`/dashboard/assignments`}
+              key="assignments"
+              style={({ isActive }) => ({
+                pointerEvents: !isValidMember && "none",
+                backgroundColor: isActive ? currentColor : "",
+              })}
+              onClick={handleCloseSideBar}
+              className={({ isActive }) => (isActive ? activeLink : normalLink)}
+            >
+              <VscFeedback
                 style={({ isActive }) => ({
                   pointerEvents: !isValidMember && "none",
-                  backgroundColor: isActive ? currentColor : "",
+                  color: isActive ? white : "",
                 })}
-                onClick={handleCloseSideBar}
-                className={({ isActive }) =>
-                  isActive ? activeLink : normalLink
-                }
-              >
-                <VscFeedback
-                  style={({ isActive }) => ({
-                    pointerEvents: !isValidMember && "none",
-                    color: isActive ? white : "",
-                  })}
-                  size="1.5rem"
-                />
-                <span className="capitalize">Assignments</span>
-              </NavLink>
-            )}
+                size="1.5rem"
+              />
+              <span className="capitalize">Assignments</span>
+            </NavLink>
+            {/* )} */}
             {state?.user?.role === "member" && (
               <NavLink
                 to={`/dashboard/feedback`}

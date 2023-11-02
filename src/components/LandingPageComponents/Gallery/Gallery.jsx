@@ -1,11 +1,24 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Gallery.css";
+import { Modal } from "antd";
 
 const Gallery = () => {
   const galleryRef1 = useRef(null);
   const galleryRef2 = useRef(null);
   const galleryRef3 = useRef(null);
   const galleryRef4 = useRef(null);
+
+  const [open, setOpen] = useState(false);
+  const [imageUrl, setImageUrl] = useState("");
+  const openModal = (imageUrl) => {
+    setImageUrl(imageUrl);
+    setOpen(true);
+  };
+
+  const closeModal = () => {
+    setImageUrl("");
+    setOpen(false);
+  };
 
   const galleryImgs = [
     {
@@ -65,27 +78,27 @@ const Gallery = () => {
     },
     {
       imageUrl:
-        "https://ik.imagekit.io/fq9vykvp2/Notes/notes2.jpg?updatedAt=1686218267037",
+        "https://ik.imagekit.io/fq9vykvp2/Notes/tr:w-930,h-600/notes2.jpg?updatedAt=1686218267037",
       tag: "image12",
     },
     {
       imageUrl:
-        "https://ik.imagekit.io/fq9vykvp2/Notes/notes3.jpg?updatedAt=1686218263596",
+        "https://ik.imagekit.io/fq9vykvp2/Notes/tr:w-930,h-600/notes3.jpg?updatedAt=1686218263596",
       tag: "image13",
     },
     {
       imageUrl:
-        "https://ik.imagekit.io/fq9vykvp2/Notes/notes4.jpg?updatedAt=1686218259743",
+        "https://ik.imagekit.io/fq9vykvp2/Notes/tr:w-930,h-600/notes4.jpg?updatedAt=1686218259743",
       tag: "image14",
     },
     {
       imageUrl:
-        "https://ik.imagekit.io/fq9vykvp2/Notes/notes1.jpg?updatedAt=1686218252408",
+        "https://ik.imagekit.io/fq9vykvp2/Notes/tr:w-930,h-600/notes1.jpg?updatedAt=1686218252408",
       tag: "image15",
     },
     {
       imageUrl:
-        "https://ik.imagekit.io/fq9vykvp2/Classes/feed7.jpg?updatedAt=1687097519728",
+        "https://ik.imagekit.io/fq9vykvp2/Classes/tr:w-930,h-600/feed7.jpg?updatedAt=1687097519728",
       tag: "image16",
     },
   ];
@@ -118,7 +131,13 @@ const Gallery = () => {
         <p className="thc__gallery-category">Sample notes used for teaching</p>
         <div className="gallery-container" ref={galleryRef3}>
           {galleryImgs.slice(11, 15).map((img) => (
-            <img src={img.imageUrl} alt={img.tag} key={img.tag} />
+            <img
+              src={img.imageUrl}
+              alt={img.tag}
+              key={img.tag}
+              onClick={() => openModal(img.imageUrl)}
+              style={{ cursor: "pointer" }}
+            />
           ))}
         </div>
         <p className="thc__gallery-category">
@@ -126,10 +145,25 @@ const Gallery = () => {
         </p>
         <div className="gallery-container" ref={galleryRef4}>
           {galleryImgs.slice(15, 16).map((img) => (
-            <img src={img.imageUrl} alt={img.tag} key={img.tag} />
+            <img
+              src={img.imageUrl}
+              alt={img.tag}
+              key={img.tag}
+              onClick={() => openModal(img.imageUrl)}
+              style={{ cursor: "pointer" }}
+            />
           ))}
         </div>
       </div>
+      <Modal
+        centered
+        open={open}
+        onCancel={() => closeModal(false)}
+        width={1000}
+        footer={null}
+      >
+        <img src={imageUrl} alt="img" />
+      </Modal>
     </div>
   );
 };

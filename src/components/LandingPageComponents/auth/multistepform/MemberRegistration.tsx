@@ -16,14 +16,18 @@ const MemberRegistration = () => {
 
   const validationSchema = object({
     firstName: string()
+      .matches(/^[A-Za-z]+$/, "Only alphabets are allowed")
       .required("First Name is required")
       .min(4, "First name should have atleat 4 letters")
       .max(50, "First name is too Long!"),
     lastName: string()
+      .matches(/^[A-Za-z]+$/, "Only alphabets are allowed")
       .required("Last Name is required")
       .min(2, "Last name should have atleat 2 letters")
       .max(50, "Last name too Long!"),
-    profession: string().required("Profession is required"),
+    profession: string()
+      .matches(/^[A-Za-z]+$/, "Only alphabets are allowed")
+      .required("Profession is required"),
     email: string().email().required("Email is required"),
     phoneNo: string()
       .required("phoneNo is required")
@@ -91,14 +95,18 @@ const MemberRegistration = () => {
             onSubmit={() => {}}
             validationSchema={object({
               firstName: string()
+                .matches(/^[A-Za-z]+$/, "Enter valid name")
                 .required("First Name is required")
                 .min(4, "First name should have atleat 4 letters")
                 .max(50, "First name is too Long!"),
               lastName: string()
+                .matches(/^[A-Za-z]+$/, "Enter valid name")
                 .required("First Name is required")
                 .min(2, "Last name should have atleat 2 letters")
                 .max(50, "Last name too Long!"),
-              profession: string().required("Profession is required"),
+              profession: string()
+                .matches(/^[A-Za-z]+$/, "Enter valid profession")
+                .required("Profession is required"),
             })}
           >
             <InputField name="firstName" label="First Name" />
