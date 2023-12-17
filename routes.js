@@ -89,9 +89,6 @@ const SplunkAlerts = lazy(() =>
   import("./src/components/DashboardComponents/tools/splunk_alerts/SplunkAlerts")
 );
 
-const Assignments = lazy(() =>
-  import("./src/components/DashboardComponents/pages/Assignments")
-);
 
 // import TestComp from "./src/components/LandingPageComponents/TestComp";
 
@@ -343,14 +340,14 @@ export const routes = createBrowserRouter([
           </Suspense>
         ),
       },
-      {
-        path: "assignments",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Assignments />
-          </Suspense>
-        ),
-      },
+      // {
+      //   path: "assignments",
+      //   element: (
+      //     <Suspense fallback={<Loader />}>
+      //       <Assignments />
+      //     </Suspense>
+      //   ),
+      // },
     ],
   },
   ,

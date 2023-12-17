@@ -172,6 +172,7 @@ function AlertsTable({
         }}
         dataSource={data}
         columns={columns}
+        style={{ position: "static" }}
       />
     </>
   );

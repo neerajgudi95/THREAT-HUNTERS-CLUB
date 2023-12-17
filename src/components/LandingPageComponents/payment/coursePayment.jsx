@@ -129,15 +129,15 @@ const CoursePayment = () => {
             <h3>Payment Details</h3>
             <div className="details">
               <p>Course Fee</p>
-              <p>₹ 5999</p>
+              <p>₹ 10000</p>
             </div>
             <div className="details">
-              <p>Discount (15%)</p>
-              <p>- ₹ 900</p>
+              <p>Discount (50%)</p>
+              {/* <p>- ₹ 900</p> */}
             </div>
             <div className="details" style={{ marginTop: "30px" }}>
               <p>Total</p>
-              <p>₹ 5099</p>
+              <p>₹ 4999</p>
             </div>
             <div className="payment_btn">
               <button onClick={handlePayment}>Proceed to payment</button>

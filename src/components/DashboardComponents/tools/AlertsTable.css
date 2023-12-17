@@ -35,3 +35,13 @@ th {
   background-color: #f5f5f5 !important;
   font-weight: bold;
 }
+
+.ant-table-tbody > tr > td,
+.ant-table-wrapper .ant-table-thead > tr > th,
+.ant-spin-container {
+  position: static !important;
+}
+
+:where(.css-dev-only-do-not-override-amq5gd).ant-spin-nested-loading {
+  position: static;
+}

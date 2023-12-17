@@ -115,12 +115,12 @@ const Pricing = () => {
                   <div className="thc__pricing-details__container">
                     <div className="actual-price">
                       <FaRupeeSign />
-                      <span className="price">5999</span>
+                      <span className="price">10,000/-</span>
                     </div>
-                    <span className="discount">15%</span>
+                    <span className="discount">50%</span>
                     <div className="discount-price">
                       <FaRupeeSign />
-                      <span className="price">5099</span>
+                      <span className="price">4,999/-</span>
                     </div>
                   </div>
                 </div>
