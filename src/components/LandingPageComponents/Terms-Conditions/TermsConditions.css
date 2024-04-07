@@ -1,0 +1,29 @@
+.thc__termsConditions h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.section__padding {
+  padding: 4rem 20rem;
+  color: white;
+}
+
+.thc__termsConditions .terms {
+  margin: 2rem 0;
+}
+.thc__termsConditions .terms .mail {
+  text-decoration: underline;
+  padding-left: 5px;
+}
+
+.thc__termsConditions .terms h3 {
+  font-size: 1.2rem;
+}
+.thc__termsConditions .terms ul {
+  padding-left: 2rem;
+  list-style-type: circle;
+}
+
+.thc__termsConditions .terms ul li {
+  margin-top: 5px;
+}

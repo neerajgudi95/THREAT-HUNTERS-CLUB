@@ -31,6 +31,7 @@ import Gallery from "./src/components/LandingPageComponents/Gallery/Gallery";
 import CoursePayment from "./src/components/LandingPageComponents/payment/coursePayment";
 import PaymentStatus from "./src/components/LandingPageComponents/payment/PaymentStatus";
 import PaymentFailure from "./src/components/LandingPageComponents/payment/PaymentFailure";
+import TermsConditions from "./src/components/LandingPageComponents/Terms-Conditions/TermsConditions";
 
 const DashboardApp = lazy(() =>
   import("./src/components/DashboardComponents/DashboardApp")
@@ -88,6 +89,9 @@ const AlertsTable = lazy(() =>
 const SplunkAlerts = lazy(() =>
   import("./src/components/DashboardComponents/tools/splunk_alerts/SplunkAlerts")
 );
+const Assignments = lazy(() =>
+  import("./src/components/DashboardComponents/pages/Assignments/Assignments")
+);
 
 
 // import TestComp from "./src/components/LandingPageComponents/TestComp";
@@ -136,6 +140,10 @@ export const routes = createBrowserRouter([
       {
         path: "refund-policy",
         element: <RefundPolicy />,
+      },
+      {
+        path: "terms-conditions",
+        element: <TermsConditions />,
       },
       {
         path: "courses",
@@ -340,14 +348,14 @@ export const routes = createBrowserRouter([
           </Suspense>
         ),
       },
-      // {
-      //   path: "assignments",
-      //   element: (
-      //     <Suspense fallback={<Loader />}>
-      //       <Assignments />
-      //     </Suspense>
-      //   ),
-      // },
+      {
+        path: "assignments",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Assignments />
+          </Suspense>
+        ),
+      },
     ],
   },
   ,

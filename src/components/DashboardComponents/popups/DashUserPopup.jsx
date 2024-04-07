@@ -40,7 +40,7 @@ const DashUserPopup = () => {
         <div className="flex gap-5 border-b-1 border-color p-4 hover:bg-light-gray cursor-pointer  dark:hover:bg-[#42464D]">
           <div>
             <Link
-              to={"/dashboard/home"}
+              to={"/dashboard/profile"}
               className="font-semibold dark:text-gray-200"
               onClick={() => {
                 handleClick("userProfile");

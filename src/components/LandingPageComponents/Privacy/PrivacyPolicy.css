@@ -8,7 +8,7 @@
     align-items: flex-start;
     flex-direction: column;
     flex: 1;
-    color: var(--color-text);
+    color: white;
 }
 
 .thc__rules-container h3 {

@@ -187,7 +187,7 @@ const DashSidebar = () => {
               <span className="capitalize">Test yourself</span>
             </NavLink>
             {/* {state?.user?.role === "admin" && ( */}
-            <NavLink
+            {/* <NavLink
               to={`/dashboard/assignments`}
               key="assignments"
               style={({ isActive }) => ({
@@ -205,7 +205,7 @@ const DashSidebar = () => {
                 size="1.5rem"
               />
               <span className="capitalize">Assignments</span>
-            </NavLink>
+            </NavLink> */}
             {/* )} */}
             {state?.user?.role === "member" && (
               <NavLink
